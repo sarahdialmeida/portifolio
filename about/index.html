@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>About, Sarah Albagli</title>
+  <title data-i18n="about.title">About, Sarah Albagli</title>
   <meta name="description" content="Senior Product Designer based in Spain. How I work, and who I am outside of work." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -17,31 +17,40 @@
   <header class="header is-solid">
     <a href="/" class="logo">Sarah Albagli</a>
     <nav class="header__nav">
-      <a href="/about/" aria-current="page">About</a>
-      <a href="/#work">Work</a>
+      <a href="/about/" aria-current="page" data-i18n="nav.about">About</a>
+      <a href="/#work" data-i18n="nav.work">Work</a>
       <a href="https://www.linkedin.com/in/sarahalbagli/" target="_blank" rel="noopener">LinkedIn <span class="arrow-up">↗</span></a>
     </nav>
+    <div class="lang" role="group" aria-label="Language">
+      <button type="button" data-lang="en" aria-pressed="true">EN</button>
+      <button type="button" data-lang="es" aria-pressed="false">ES</button>
+    </div>
     <a href="/assets/sarah-albagli-cv.pdf" class="btn-cv" download>
-      Download my CV
+      <span data-i18n="nav.cv">Download my CV</span>
       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"/></svg>
     </a>
     <button class="menu-toggle" aria-expanded="false" aria-controls="menu">
       <span class="menu-toggle__lines" aria-hidden="true"><span></span><span></span></span>
-      <span class="menu-toggle__label">Menu</span>
+      <span class="menu-toggle__label" data-i18n="menu.label">Menu</span>
     </button>
   </header>
 
   <!-- Fullscreen menu -->
-  <div class="menu" id="menu" hidden>
+  <div class="menu" id="menu" aria-label="Site menu" inert>
+    <a href="/" class="menu__logo">srh lbgl</a>
+    <button class="menu__close" aria-label="Close menu">
+      <span class="menu__close-icon" aria-hidden="true"><span></span><span></span></span>
+      <span class="menu__close-label" data-i18n="menu.label">Menu</span>
+    </button>
     <div class="menu__contact">
-      <p>Let's talk</p>
+      <p data-i18n="menu.talk">Let's talk</p>
       <a href="mailto:albagli.sarah@gmail.com">albagli.sarah@gmail.com</a>
     </div>
     <nav class="menu__links">
-      <a href="/">Home</a>
-      <a href="/about/">About</a>
-      <a href="/projects/">Projects</a>
-      <a href="/writing/">Writing</a>
+      <a href="/" data-label="Home"><span data-i18n="menu.home">Home</span></a>
+      <a href="/about/" data-label="About"><span data-i18n="menu.about">About</span></a>
+      <a href="/projects/" data-label="Projects"><span data-i18n="menu.projects">Projects</span></a>
+      <a href="/writing/" data-label="Writing"><span data-i18n="menu.writing">Writing</span></a>
     </nav>
   </div>
 
@@ -49,45 +58,45 @@
 
     <!-- Intro -->
     <section class="about-intro">
-      <h1 class="about-intro__title">About me</h1>
-      <p class="about-intro__lead">I love building products. Not the kind that just look good in Figma, the kind that solve real problems, feel right to use, and last beyond launch day. I'm drawn to the full cycle: understanding people, making decisions, designing systems, and caring enough about how things get built to stay close to the process until the end.</p>
-      <p class="about-intro__note">I approach each project with questions</p>
+      <h1 class="about-intro__title" data-i18n="about.h1">About me</h1>
+      <p class="about-intro__lead" data-i18n="about.lead">I love building products. Not the kind that just look good in Figma, the kind that solve real problems, feel right to use, and last beyond launch day. I'm drawn to the full cycle: understanding people, making decisions, designing systems, and caring enough about how things get built to stay close to the process until the end.</p>
+      <p class="about-intro__note" data-i18n="about.note">I approach each project with questions</p>
     </section>
 
     <!-- How I work -->
     <section class="about-process">
-      <h2 class="about-process__title">Every project rewrites the process</h2>
+      <h2 class="about-process__title" data-i18n="about.process.title">Every project rewrites the process</h2>
       <div class="about-process__text">
-        <p>I care about process. Every project I work on has one, and I lean on it to keep things clear for me and for the team. What changes is the shape of it. I adapt the process to the context, the constraints and what the team actually needs, instead of running the same playbook every time. No two projects look the same, some needed weeks of research before a single screen existed, others needed a working prototype by Friday.</p>
-        <p>Curiosity is my engine. I'm always poking at something new, a tool, a framework, a rabbit hole, and I tend to figure out fast which of those things is actually useful right now. AI has been part of my daily work for the last two years, but as an assistant, not as the main tool. Pen and paper are still where the thinking happens. I ask a lot of questions, usually before opening Figma. The hardest part of product design isn't the interface, it's making sure you're solving the right problem. I listen for what people don't say, and I'm comfortable working in ambiguity. While the answer isn't there yet, I go looking for it: talking to people, digging through data, testing a rough prototype, borrowing from whatever gets me closer. I don't wait for clarity, I chase it.</p>
-        <p>Product design is a wide umbrella: interaction, visual craft, systems thinking. But most of the job is communication, translating between business, engineering, and the people who'll actually use the thing. What I'm looking for is a team that builds close together, where design sits in the conversation from the start and not at the end of it.</p>
+        <p data-i18n="about.process.p1">I care about process. Every project I work on has one, and I lean on it to keep things clear for me and for the team. What changes is the shape of it. I adapt the process to the context, the constraints and what the team actually needs, instead of running the same playbook every time. No two projects look the same, some needed weeks of research before a single screen existed, others needed a working prototype by Friday.</p>
+        <p data-i18n="about.process.p2">Curiosity is my engine. I'm always poking at something new, a tool, a framework, a rabbit hole, and I tend to figure out fast which of those things is actually useful right now. AI has been part of my daily work for the last two years, but as an assistant, not as the main tool. Pen and paper are still where the thinking happens. I ask a lot of questions, usually before opening Figma. The hardest part of product design isn't the interface, it's making sure you're solving the right problem. I listen for what people don't say, and I'm comfortable working in ambiguity. While the answer isn't there yet, I go looking for it: talking to people, digging through data, testing a rough prototype, borrowing from whatever gets me closer. I don't wait for clarity, I chase it.</p>
+        <p data-i18n="about.process.p3">Product design is a wide umbrella: interaction, visual craft, systems thinking. But most of the job is communication, translating between business, engineering, and the people who'll actually use the thing. What I'm looking for is a team that builds close together, where design sits in the conversation from the start and not at the end of it.</p>
       </div>
     </section>
 
     <!-- As a human -->
     <section class="human">
-      <p class="human__eyebrow">(As a human)</p>
+      <p class="human__eyebrow" data-i18n="about.human">(As a human)</p>
 
       <div class="human__cols">
         <div class="human__col">
-          <p>I speak Portuguese, Spanish, English, and Galician<button class="fn" aria-describedby="fn1">1</button> and I'm currently learning Japanese, badly and happily<button class="fn" aria-describedby="fn2">2</button>.</p>
-          <p>When I'm not working, I'm probably wandering through a food market, hunting for antiques, or stitching something by hand<button class="fn" aria-describedby="fn3">3</button>. I like things that have been made slowly, by someone who cared.</p>
-          <p>I read a lot, write when something won't leave my head, and keep a notebook close for the rest<button class="fn" aria-describedby="fn4">4</button>.</p>
+          <p data-i18n="about.h.p1">I speak Portuguese, Spanish, English, and Galician<button class="fn" aria-describedby="fn1">1</button> and I'm currently learning Japanese, badly and happily<button class="fn" aria-describedby="fn2">2</button>.</p>
+          <p data-i18n="about.h.p2">When I'm not working, I'm probably wandering through a food market, hunting for antiques, or stitching something by hand<button class="fn" aria-describedby="fn3">3</button>. I like things that have been made slowly, by someone who cared.</p>
+          <p data-i18n="about.h.p3">I read a lot, write when something won't leave my head, and keep a notebook close for the rest<button class="fn" aria-describedby="fn4">4</button>.</p>
         </div>
         <div class="human__col">
-          <p>Based in Salvador, Paris, London, Santiago de Compostela.</p>
-          <p>I train for Hyrox, walk stages of the Camino on spring and autumn weekends<button class="fn" aria-describedby="fn5">5</button>, and I'm trying to learn the guitar, one slow chord at a time.</p>
-          <p>I go out of my way for contemporary art museums and places that aren't on the usual list<button class="fn" aria-describedby="fn6">6</button>. Every city I've lived in left me with a favorite corner, a dish, and a few words I still use.</p>
+          <p data-i18n="about.h.p4">Based in Salvador, Paris, London, Santiago de Compostela.</p>
+          <p data-i18n="about.h.p5">I train for Hyrox, walk stages of the Camino on spring and autumn weekends<button class="fn" aria-describedby="fn5">5</button>, and I'm trying to learn the guitar, one slow chord at a time.</p>
+          <p data-i18n="about.h.p6">I go out of my way for contemporary art museums and places that aren't on the usual list<button class="fn" aria-describedby="fn6">6</button>. Every city I've lived in left me with a favorite corner, a dish, and a few words I still use.</p>
         </div>
       </div>
 
       <ol class="human__notes">
-        <li id="fn1">I read, write and sing in all of them.</li>
-        <li id="fn2">Training my ear with Japanese reality shows and movies.</li>
-        <li id="fn3">Drawing, embroidery, sewing. If it involves my hands, I'm in.</li>
-        <li id="fn4">Mostly non fiction, usually more than one book at a time.</li>
-        <li id="fn5">Still learning to run, which is the hard part of Hyrox.</li>
-        <li id="fn6">Best trips: the ones with no itinerary.</li>
+        <li id="fn1" data-i18n="about.fn1">I read, write and sing in all of them.</li>
+        <li id="fn2" data-i18n="about.fn2">Training my ear with Japanese reality shows and movies.</li>
+        <li id="fn3" data-i18n="about.fn3">Drawing, embroidery, sewing. If it involves my hands, I'm in.</li>
+        <li id="fn4" data-i18n="about.fn4">Mostly non fiction, usually more than one book at a time.</li>
+        <li id="fn5" data-i18n="about.fn5">Still learning to run, which is the hard part of Hyrox.</li>
+        <li id="fn6" data-i18n="about.fn6">Best trips: the ones with no itinerary.</li>
       </ol>
 
       <!-- Photo strip: replace each placeholder <div> with an <img> when the photos are ready -->
@@ -108,9 +117,9 @@
         <span class="about-photo__mark">srh lbgl</span>
       </div>
       <figcaption class="about-photo__caption">
-        <span>July, 2026</span>
-        <span>On my workstation</span>
-        <span>Spain</span>
+        <span data-i18n="about.cap.date">July, 2026</span>
+        <span data-i18n="about.cap.where">On my workstation</span>
+        <span data-i18n="about.cap.country">Spain</span>
       </figcaption>
     </figure>
 
@@ -125,11 +134,41 @@
       <span class="blob blob--3"></span>
       <span class="blob blob--4"></span>
     </div>
-    <p class="footer__label">Get in touch</p>
+    <p class="footer__label" data-i18n="footer.label">Get in touch</p>
     <a href="mailto:albagli.sarah@gmail.com" class="footer__email">albagli.sarah@gmail.com</a>
-    <p class="footer__copy">© 2026 | Created by me, powered by lofi music &amp; green tea.</p>
+    <p class="footer__copy" data-i18n="footer.copy">© 2026 | Created by me, powered by lofi music &amp; green tea.</p>
   </footer>
 
+  <!-- Spanish translations for this page (shared strings live in /i18n.js) -->
+  <script type="application/json" id="i18n-es">
+{
+  "about.title": "Sobre mí, Sarah Albagli",
+  "about.h1": "Sobre mí",
+  "about.lead": "Me encanta construir productos. No de los que solo se ven bien en Figma, sino de los que resuelven problemas reales, se sienten bien al usarlos y duran más allá del día del lanzamiento. Me atrae el ciclo completo: entender a las personas, tomar decisiones, diseñar sistemas y preocuparme lo suficiente por cómo se construyen las cosas como para acompañar el proceso hasta el final.",
+  "about.note": "Abordo cada proyecto con preguntas",
+  "about.process.title": "Cada proyecto reescribe el proceso",
+  "about.process.p1": "Me importa el proceso. Cada proyecto en el que trabajo tiene uno, y me apoyo en él para que todo esté claro para mí y para el equipo. Lo que cambia es su forma. Adapto el proceso al contexto, a las restricciones y a lo que el equipo realmente necesita, en lugar de repetir el mismo manual cada vez. No hay dos proyectos iguales: algunos necesitaron semanas de investigación antes de que existiera una sola pantalla, otros necesitaron un prototipo funcional para el viernes.",
+  "about.process.p2": "La curiosidad es mi motor. Siempre estoy explorando algo nuevo, una herramienta, un framework, una madriguera de conejo, y suelo descubrir rápido cuáles de esas cosas son realmente útiles ahora mismo. La IA forma parte de mi trabajo diario desde hace dos años, pero como asistente, no como herramienta principal. El papel y el lápiz siguen siendo donde ocurre el pensamiento. Hago muchas preguntas, normalmente antes de abrir Figma. Lo más difícil del diseño de producto no es la interfaz, es asegurarse de estar resolviendo el problema correcto. Escucho lo que la gente no dice y me siento cómoda trabajando en la ambigüedad. Mientras la respuesta no aparece, salgo a buscarla: hablando con personas, revisando datos, probando un prototipo rápido, tomando prestado de lo que me acerque. No espero a que llegue la claridad, voy tras ella.",
+  "about.process.p3": "El diseño de producto es un paraguas amplio: interacción, oficio visual, pensamiento sistémico. Pero la mayor parte del trabajo es comunicación, traducir entre negocio, ingeniería y las personas que realmente van a usar el producto. Lo que busco es un equipo que construya de cerca, donde el diseño esté en la conversación desde el principio y no al final.",
+  "about.human": "(Como persona)",
+  "about.h.p1": "Hablo portugués, español, inglés y gallego<button class=\"fn\" aria-describedby=\"fn1\">1</button>, y ahora estoy aprendiendo japonés, mal y feliz<button class=\"fn\" aria-describedby=\"fn2\">2</button>.",
+  "about.h.p2": "Cuando no estoy trabajando, probablemente estoy paseando por un mercado, buscando antigüedades o cosiendo algo a mano<button class=\"fn\" aria-describedby=\"fn3\">3</button>. Me gustan las cosas hechas despacio, por alguien a quien le importaban.",
+  "about.h.p3": "Leo mucho, escribo cuando algo no se me va de la cabeza y tengo siempre un cuaderno cerca para lo demás<button class=\"fn\" aria-describedby=\"fn4\">4</button>.",
+  "about.h.p4": "Con base en Salvador, París, Londres y Santiago de Compostela.",
+  "about.h.p5": "Entreno para Hyrox, recorro etapas del Camino los fines de semana de primavera y otoño<button class=\"fn\" aria-describedby=\"fn5\">5</button>, y estoy intentando aprender guitarra, un acorde lento a la vez.",
+  "about.h.p6": "Hago lo posible por visitar museos de arte contemporáneo y lugares que no están en la lista habitual<button class=\"fn\" aria-describedby=\"fn6\">6</button>. Cada ciudad en la que he vivido me dejó un rincón favorito, un plato y algunas palabras que todavía uso.",
+  "about.fn1": "Leo, escribo y canto en todos ellos.",
+  "about.fn2": "Entrenando el oído con realities y películas japonesas.",
+  "about.fn3": "Dibujo, bordado, costura. Si es con las manos, me apunto.",
+  "about.fn4": "Sobre todo no ficción, normalmente más de un libro a la vez.",
+  "about.fn5": "Todavía aprendiendo a correr, que es lo difícil de Hyrox.",
+  "about.fn6": "Los mejores viajes: los que no tienen itinerario.",
+  "about.cap.date": "Julio de 2026",
+  "about.cap.where": "En mi puesto de trabajo",
+  "about.cap.country": "España"
+}
+  </script>
+  <script src="/i18n.js"></script>
   <script src="/script.js"></script>
 </body>
 </html>

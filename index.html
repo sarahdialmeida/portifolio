@@ -3,44 +3,63 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Sarah Albagli, Product Designer</title>
+  <title data-i18n="home.title">Sarah Albagli, Product Designer</title>
   <meta name="description" content="Senior Product Designer based in Spain." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
+  <script>
+    // Skip the intro for returning visitors before anything paints
+    try { if (localStorage.getItem('introSeen')) document.documentElement.classList.add('intro-seen'); } catch (e) {}
+  </script>
 </head>
 <body>
+
+  <!-- First-visit intro: red curtain that splits open -->
+  <div class="intro" aria-hidden="true">
+    <div class="intro__half intro__half--top"><p class="intro__text" data-i18n="home.intro">Let's create great things together</p></div>
+    <div class="intro__half intro__half--bottom"><span class="intro__dot"></span></div>
+  </div>
 
   <!-- Header -->
   <header class="header">
     <a href="./" class="logo">Sarah Albagli</a>
     <nav class="header__nav">
-      <a href="./about">About</a>
-      <a href="./projects">Work</a>
+      <a href="./about" data-i18n="nav.about">About</a>
+      <a href="./projects" data-i18n="nav.work">Work</a>
       <a href="https://www.linkedin.com/in/sarahalbagli/" target="_blank" rel="noopener">LinkedIn <span class="arrow-up">↗</span></a>
     </nav>
+    <div class="lang" role="group" aria-label="Language">
+      <button type="button" data-lang="en" aria-pressed="true">EN</button>
+      <button type="button" data-lang="es" aria-pressed="false">ES</button>
+    </div>
     <a href="assets/sarah-albagli-cv.pdf" class="btn-cv" download>
-      Download my CV
+      <span data-i18n="nav.cv">Download my CV</span>
       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"/></svg>
     </a>
     <button class="menu-toggle" aria-expanded="false" aria-controls="menu">
       <span class="menu-toggle__lines" aria-hidden="true"><span></span><span></span></span>
-      <span class="menu-toggle__label">Menu</span>
+      <span class="menu-toggle__label" data-i18n="menu.label">Menu</span>
     </button>
   </header>
 
   <!-- Fullscreen menu -->
-  <div class="menu" id="menu" hidden>
+  <div class="menu" id="menu" aria-label="Site menu" inert>
+    <a href="./" class="menu__logo">srh lbgl</a>
+    <button class="menu__close" aria-label="Close menu">
+      <span class="menu__close-icon" aria-hidden="true"><span></span><span></span></span>
+      <span class="menu__close-label" data-i18n="menu.label">Menu</span>
+    </button>
     <div class="menu__contact">
-      <p>Let's talk</p>
+      <p data-i18n="menu.talk">Let's talk</p>
       <a href="mailto:albagli.sarah@gmail.com">albagli.sarah@gmail.com</a>
     </div>
     <nav class="menu__links">
-      <a href="./">Home</a>
-      <a href="./about">About</a>
-      <a href="./projects">Projects</a>
-      <a href="./writing">Writing</a>
+      <a href="./" data-label="Home"><span data-i18n="menu.home">Home</span></a>
+      <a href="./about" data-label="About"><span data-i18n="menu.about">About</span></a>
+      <a href="./projects" data-label="Projects"><span data-i18n="menu.projects">Projects</span></a>
+      <a href="./writing" data-label="Writing"><span data-i18n="menu.writing">Writing</span></a>
     </nav>
   </div>
 
@@ -57,7 +76,7 @@
       </div>
 
       <div class="hero__content">
-        <p class="hero__since"><span class="hero__since-big">©19-now</span> into tech</p>
+        <p class="hero__since" data-i18n="home.since"><span class="hero__since-big">©19-now</span> into tech</p>
 
         <h1 class="hero__title">
           <span class="hero__line hero__line--1">Product<span class="hero__dot">.</span></span>
@@ -66,56 +85,56 @@
 
         <ul class="hero__skills">
           <li>Visual</li>
-          <li>Research</li>
-          <li>Strategy</li>
-          <li>Design System</li>
+          <li data-i18n="tag.research">Research</li>
+          <li data-i18n="home.skill.strategy">Strategy</li>
+          <li data-i18n="tag.designsystem">Design System</li>
           <li>Vibe Coding</li>
         </ul>
 
-        <p class="hero__location">Based in Spain</p>
+        <p class="hero__location" data-i18n="home.location">Based in Spain</p>
       </div>
     </section>
 
     <!-- Selected work -->
     <section class="work" id="work">
       <div class="section-head">
-        <p class="eyebrow">Selected work</p>
-        <h2 class="work__title">Real problems,<br />shipped products</h2>
+        <p class="eyebrow" data-i18n="home.work.eyebrow">Selected work</p>
+        <h2 class="work__title" data-i18n="home.work.title">Real problems,<br />shipped products</h2>
       </div>
 
       <div class="work__grid">
         <a href="./projects/herbalife" class="case case--a reveal">
           <div class="case__media"><img src="assets/img/herbalife.jpg" alt="Herbalife app on a phone" loading="lazy" /></div>
-          <h3 class="case__title">One system, every distributor profile</h3>
-          <p class="case__desc">Designing a customizable profile builder for Herbalife distributors. A component system that lets each distributor personalize their space while keeping the brand consistent.</p>
-          <ul class="tags"><li>Web &amp; Mobile</li><li>Design System</li><li>UI Design</li></ul>
+          <h3 class="case__title" data-i18n="case.herbalife.title">One system, every distributor profile</h3>
+          <p class="case__desc" data-i18n="case.herbalife.desc">Designing a customizable profile builder for Herbalife distributors. A component system that lets each distributor personalize their space while keeping the brand consistent.</p>
+          <ul class="tags"><li data-i18n="tag.webmobile">Web &amp; Mobile</li><li data-i18n="tag.designsystem">Design System</li><li data-i18n="home.svc2.name">UI Design</li></ul>
         </a>
 
         <a href="./projects/dxc" class="case case--b reveal">
           <div class="case__media"><img src="assets/img/dxc.jpg" alt="Dashboard on a laptop" loading="lazy" /></div>
-          <h3 class="case__title">Building a Shared Foundation</h3>
-          <p class="case__desc">Fewer bug reports (~35%), consistent UI across modules, and a faster path from design to production.</p>
-          <ul class="tags"><li>Design System</li><li>UI Design</li><li>Research</li><li>B2B</li><li>SaaS</li><li>Accessibility</li></ul>
+          <h3 class="case__title" data-i18n="case.dxc.title">Building a Shared Foundation</h3>
+          <p class="case__desc" data-i18n="case.dxc.desc">Fewer bug reports (~35%), consistent UI across modules, and a faster path from design to production.</p>
+          <ul class="tags"><li data-i18n="tag.designsystem">Design System</li><li data-i18n="home.svc2.name">UI Design</li><li data-i18n="tag.research">Research</li><li>B2B</li><li>SaaS</li><li data-i18n="tag.accessibility">Accessibility</li></ul>
         </a>
 
         <a href="./projects/mccain" class="case case--c reveal">
           <div class="case__media"><img src="assets/img/mccain.jpg" alt="McCain component library" loading="lazy" /></div>
           <h3 class="case__title">McCain</h3>
-          <p class="case__desc">A component library for a growing SaaS platform.</p>
-          <ul class="tags"><li>Web &amp; Mobile</li><li>Design System</li><li>UI Design</li><li>Research</li><li>B2B</li><li>SaaS</li></ul>
+          <p class="case__desc" data-i18n="case.mccain.desc">A component library for a growing SaaS platform.</p>
+          <ul class="tags"><li data-i18n="tag.webmobile">Web &amp; Mobile</li><li data-i18n="tag.designsystem">Design System</li><li data-i18n="home.svc2.name">UI Design</li><li data-i18n="tag.research">Research</li><li>B2B</li><li>SaaS</li></ul>
         </a>
 
         <a href="./projects/ai-hub" class="case case--d reveal">
           <div class="case__media"><img src="assets/img/ai-hub.jpg" alt="AI Hub, coming soon" loading="lazy" /></div>
-          <h3 class="case__title">Improving Experience on AI Hub</h3>
-          <p class="case__desc">Unifying tools, workflows and culture for 68,000 people across 120+ markets, in 15 languages.</p>
-          <ul class="tags"><li>Web &amp; Mobile</li><li>Research</li><li>B2B</li><li>UI Design</li></ul>
+          <h3 class="case__title" data-i18n="case.aihub.title">Improving Experience on AI Hub</h3>
+          <p class="case__desc" data-i18n="case.aihub.desc">Unifying tools, workflows and culture for 68,000 people across 120+ markets, in 15 languages.</p>
+          <ul class="tags"><li data-i18n="tag.webmobile">Web &amp; Mobile</li><li data-i18n="tag.research">Research</li><li>B2B</li><li data-i18n="home.svc2.name">UI Design</li></ul>
         </a>
       </div>
 
       <a href="./projects" class="all-cases">
         <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M3 12h18M14 5l7 7-7 7"/></svg>
-        <span>All cases</span><sup>(4)</sup>
+        <span data-i18n="home.allcases">All cases</span><sup>(4)</sup>
       </a>
     </section>
 
@@ -123,36 +142,36 @@
     <section class="talk">
       <a href="./contact" class="talk__label">
         <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 3v10a3 3 0 0 0 3 3h12M15 11l5 5-5 5"/></svg>
-        Let’s talk
+        <span data-i18n="home.talk.label">Let’s talk</span>
       </a>
-      <p class="talk__text">Whether you're building a team, untangling a complex product, or shipping something ambitious, I bring a designer's practice and a developer's mindset to get it done.</p>
+      <p class="talk__text" data-i18n="home.talk.text">Whether you're building a team, untangling a complex product, or shipping something ambitious, I bring a designer's practice and a developer's mindset to get it done.</p>
     </section>
 
     <!-- What I bring -->
     <section class="services">
       <div class="services__head">
         <span class="mark">srh lbgl</span>
-        <p class="eyebrow eyebrow--light">What I Bring</p>
+        <p class="eyebrow eyebrow--light" data-i18n="home.svc.eyebrow">What I Bring</p>
       </div>
 
       <div class="services__body">
         <div class="services__detail">
-          <p class="services__detail-title">UX Research</p>
-          <p class="services__detail-text">I start with people, not pixels. Interviews, usability tests and data analysis, with AI to cross-reference insights faster, turn messy problems into clear product decisions.</p>
+          <p class="services__detail-title" data-i18n="home.svc1.name">UX Research</p>
+          <p class="services__detail-text" data-i18n="home.svc1.text">I start with people, not pixels. Interviews, usability tests and data analysis, with AI to cross-reference insights faster, turn messy problems into clear product decisions.</p>
         </div>
 
         <ul class="services__list">
-          <li class="is-active" data-text="I start with people, not pixels. Interviews, usability tests and data analysis, with AI to cross-reference insights faster, turn messy problems into clear product decisions.">
-            <span class="services__name">UX Research</span><span class="services__num">{ <b>01</b> }</span>
+          <li data-i18n-text="home.svc1.text" class="is-active" data-text="I start with people, not pixels. Interviews, usability tests and data analysis, with AI to cross-reference insights faster, turn messy problems into clear product decisions.">
+            <span class="services__name" data-i18n="home.svc1.name">UX Research</span><span class="services__num">{ <b>01</b> }</span>
           </li>
-          <li data-text="Clean, intentional interfaces with an eye for detail. Every state is considered, from empty to error to loading, so the experience holds up beyond the happy path.">
-            <span class="services__name">UI Design</span><span class="services__num">{ <b>02</b> }</span>
+          <li data-i18n-text="home.svc2.text" data-text="Clean, intentional interfaces with an eye for detail. Every state is considered, from empty to error to loading, so the experience holds up beyond the happy path.">
+            <span class="services__name" data-i18n="home.svc2.name">UI Design</span><span class="services__num">{ <b>02</b> }</span>
           </li>
-          <li data-text="I build and maintain component libraries that scale: tokens, variants and documentation that keep product, brand and code consistent as the team grows.">
-            <span class="services__name">Design Systems</span><span class="services__num">{ <b>03</b> }</span>
+          <li data-i18n-text="home.svc3.text" data-text="I build and maintain component libraries that scale: tokens, variants and documentation that keep product, brand and code consistent as the team grows.">
+            <span class="services__name" data-i18n="home.svc3.name">Design Systems</span><span class="services__num">{ <b>03</b> }</span>
           </li>
-          <li data-text="A former front-end developer, I know what engineers need to ship. My handoffs are detailed, my specs are realistic, and I prototype in code when it's the faster path.">
-            <span class="services__name">Design to Code</span><span class="services__num">{ <b>04</b> }</span>
+          <li data-i18n-text="home.svc4.text" data-text="A former front-end developer, I know what engineers need to ship. My handoffs are detailed, my specs are realistic, and I prototype in code when it's the faster path.">
+            <span class="services__name" data-i18n="home.svc4.name">Design to Code</span><span class="services__num">{ <b>04</b> }</span>
           </li>
         </ul>
       </div>
@@ -160,13 +179,13 @@
 
     <!-- Testimonial -->
     <section class="quote">
-      <p class="eyebrow quote__eyebrow">From the Team</p>
+      <p class="eyebrow quote__eyebrow" data-i18n="home.quote.eyebrow">From the Team</p>
       <blockquote class="quote__body">
         <svg class="quote__mark" width="40" height="26" viewBox="0 0 40 26" aria-hidden="true"><path d="M6 0h12L10 26H0zM28 0h12l-8 26H22z"/></svg>
-        <p class="quote__text" data-words>Sarah is a professional who values quality deliverables grounded in best practices, and she contributes significantly to team collaboration by regularly bringing new methodologies, tools, and processes into discussion, not limiting herself to theory, but taking the initiative to start or lead projects regardless of the size of the challenge.</p>
+        <p class="quote__text" data-words data-i18n="home.quote.text">Sarah is a professional who values quality deliverables grounded in best practices, and she contributes significantly to team collaboration by regularly bringing new methodologies, tools, and processes into discussion, not limiting herself to theory, but taking the initiative to start or lead projects regardless of the size of the challenge.</p>
         <footer class="quote__author">
           <cite>Gabriel Soares</cite>
-          <span>CTO at Zorya</span>
+          <span data-i18n="home.quote.role">CTO at Zorya</span>
         </footer>
       </blockquote>
     </section>
@@ -195,11 +214,39 @@
       <span class="blob blob--3"></span>
       <span class="blob blob--4"></span>
     </div>
-    <p class="footer__label">Get in touch</p>
+    <p class="footer__label" data-i18n="footer.label">Get in touch</p>
     <a href="mailto:albagli.sarah@gmail.com" class="footer__email">albagli.sarah@gmail.com</a>
-    <p class="footer__copy">© 2026 | Created by me, powered by lofi music &amp; green tea.</p>
+    <p class="footer__copy" data-i18n="footer.copy">© 2026 | Created by me, powered by lofi music &amp; green tea.</p>
   </footer>
 
+  <!-- Spanish translations for this page (shared strings live in /i18n.js) -->
+  <script type="application/json" id="i18n-es">
+{
+  "home.title": "Sarah Albagli, Diseñadora de Producto",
+  "home.intro": "Hagamos grandes cosas juntos",
+  "home.since": "<span class=\"hero__since-big\">©19-now</span> en tecnología",
+  "home.skill.strategy": "Estrategia",
+  "home.location": "Desde España",
+  "home.work.eyebrow": "Trabajos seleccionados",
+  "home.work.title": "Problemas reales,<br />productos lanzados",
+  "home.allcases": "Todos los casos",
+  "home.talk.label": "Hablemos",
+  "home.talk.text": "Ya sea que estés formando un equipo, desenredando un producto complejo o lanzando algo ambicioso, aporto la práctica de una diseñadora y la mentalidad de una desarrolladora para sacarlo adelante.",
+  "home.svc.eyebrow": "Lo que aporto",
+  "home.svc1.name": "Investigación UX",
+  "home.svc2.name": "Diseño UI",
+  "home.svc3.name": "Sistemas de diseño",
+  "home.svc4.name": "Del diseño al código",
+  "home.svc1.text": "Empiezo por las personas, no por los píxeles. Entrevistas, pruebas de usabilidad y análisis de datos, con IA para cruzar hallazgos más rápido, convierten problemas confusos en decisiones de producto claras.",
+  "home.quote.eyebrow": "Del equipo",
+  "home.quote.text": "Sarah es una profesional que valora los entregables de calidad basados en buenas prácticas, y contribuye de forma significativa a la colaboración del equipo trayendo con frecuencia nuevas metodologías, herramientas y procesos a la discusión. No se limita a la teoría: toma la iniciativa de iniciar o liderar proyectos, sin importar el tamaño del desafío.",
+  "home.quote.role": "CTO en Zorya",
+  "home.svc2.text": "Interfaces limpias e intencionales, con atención al detalle. Cada estado está pensado, del vacío al error y a la carga, para que la experiencia funcione más allá del camino ideal.",
+  "home.svc3.text": "Construyo y mantengo librerías de componentes que escalan: tokens, variantes y documentación que mantienen coherentes producto, marca y código a medida que el equipo crece.",
+  "home.svc4.text": "Como ex desarrolladora front-end, sé lo que los ingenieros necesitan para lanzar. Mis handoffs son detallados, mis especificaciones realistas, y prototipo en código cuando es el camino más rápido."
+}
+  </script>
+  <script src="i18n.js"></script>
   <script src="script.js"></script>
 </body>
 </html>

@@ -1,0 +1,31 @@
+// Shared Spanish strings (header, menu, footer, tags, case cards).
+// Page-specific strings live in each page, in <script id="i18n-es">.
+window.I18N_ES = {
+  "nav.about": "Sobre mí",
+  "nav.work": "Trabajo",
+  "nav.cv": "Descargar mi CV",
+  "menu.label": "Menú",
+  "menu.talk": "Hablemos",
+  "menu.home": "Inicio",
+  "menu.about": "Sobre mí",
+  "menu.projects": "Proyectos",
+  "menu.writing": "Escritos",
+  "footer.label": "Escríbeme",
+  "footer.copy": "© 2026 | Hecho por mí, con música lofi y té verde.",
+  "tag.webmobile": "Web y móvil",
+  "tag.designsystem": "Sistema de diseño",
+  "tag.uidesign": "Diseño UI",
+  "tag.research": "Investigación",
+  "tag.accessibility": "Accesibilidad",
+  "case.herbalife.title": "Un sistema, cada perfil de distribuidor",
+  "case.herbalife.desc": "Diseño de un creador de perfiles personalizable para distribuidores de Herbalife. Un sistema de componentes que permite a cada distribuidor personalizar su espacio manteniendo la coherencia de la marca.",
+  "case.dxc.title": "Construyendo una base compartida",
+  "case.dxc.desc": "Menos reportes de errores (~35 %), una UI coherente entre módulos y un camino más rápido del diseño a producción.",
+  "case.mccain.desc": "Una librería de componentes para una plataforma SaaS en crecimiento.",
+  "case.aihub.title": "Mejorando la experiencia en AI Hub",
+  "case.aihub.desc": "Unificando herramientas, flujos de trabajo y cultura para 68.000 personas en más de 120 mercados, en 15 idiomas.",
+  "meta.client": "Cliente",
+  "meta.role": "Rol",
+  "meta.duration": "Duración",
+  "meta.year": "Año"
+};

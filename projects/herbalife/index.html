@@ -26,31 +26,40 @@
   <header class="header">
     <a href="/" class="logo">Sarah Albagli</a>
     <nav class="header__nav">
-      <a href="/about/">About</a>
-      <a href="/#work">Work</a>
+      <a href="/about/" data-i18n="nav.about">About</a>
+      <a href="/#work" data-i18n="nav.work">Work</a>
       <a href="https://www.linkedin.com/in/sarahalbagli/" target="_blank" rel="noopener">LinkedIn <span class="arrow-up">↗</span></a>
     </nav>
+    <div class="lang" role="group" aria-label="Language">
+      <button type="button" data-lang="en" aria-pressed="true">EN</button>
+      <button type="button" data-lang="es" aria-pressed="false">ES</button>
+    </div>
     <a href="/assets/sarah-albagli-cv.pdf" class="btn-cv" download>
-      Download my CV
+      <span data-i18n="nav.cv">Download my CV</span>
       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"/></svg>
     </a>
     <button class="menu-toggle" aria-expanded="false" aria-controls="menu">
       <span class="menu-toggle__lines" aria-hidden="true"><span></span><span></span></span>
-      <span class="menu-toggle__label">Menu</span>
+      <span class="menu-toggle__label" data-i18n="menu.label">Menu</span>
     </button>
   </header>
 
   <!-- Fullscreen menu -->
-  <div class="menu" id="menu" hidden>
+  <div class="menu" id="menu" aria-label="Site menu" inert>
+    <a href="/" class="menu__logo">srh lbgl</a>
+    <button class="menu__close" aria-label="Close menu">
+      <span class="menu__close-icon" aria-hidden="true"><span></span><span></span></span>
+      <span class="menu__close-label" data-i18n="menu.label">Menu</span>
+    </button>
     <div class="menu__contact">
-      <p>Let's talk</p>
+      <p data-i18n="menu.talk">Let's talk</p>
       <a href="mailto:albagli.sarah@gmail.com">albagli.sarah@gmail.com</a>
     </div>
     <nav class="menu__links">
-      <a href="/">Home</a>
-      <a href="/about/">About</a>
-      <a href="/projects/">Projects</a>
-      <a href="/writing/">Writing</a>
+      <a href="/" data-label="Home"><span data-i18n="menu.home">Home</span></a>
+      <a href="/about/" data-label="About"><span data-i18n="menu.about">About</span></a>
+      <a href="/projects/" data-label="Projects"><span data-i18n="menu.projects">Projects</span></a>
+      <a href="/writing/" data-label="Writing"><span data-i18n="menu.writing">Writing</span></a>
     </nav>
   </div>
 
@@ -60,27 +69,27 @@
     <section class="case-hero" data-hero>
       <img class="case-hero__img" src="/assets/img/herbalife.jpg" alt="Herbalife app on a phone, held against a blue perforated wall" />
       <div class="case-hero__content">
-        <ul class="tags tags--dark"><li>Web &amp; Mobile</li><li>Design System</li><li>UI Design</li></ul>
-        <h1 class="case-hero__title">One system, every distributor profile</h1>
-        <p class="case-hero__summary">Designing a customizable profile builder for Herbalife distributors. A component system that lets each distributor personalize their space while keeping the brand consistent.</p>
+        <ul class="tags tags--dark"><li data-i18n="tag.webmobile">Web &amp; Mobile</li><li data-i18n="tag.designsystem">Design System</li><li data-i18n="tag.uidesign">UI Design</li></ul>
+        <h1 class="case-hero__title" data-i18n="case.herbalife.title">One system, every distributor profile</h1>
+        <p class="case-hero__summary" data-i18n="case.herbalife.desc">Designing a customizable profile builder for Herbalife distributors. A component system that lets each distributor personalize their space while keeping the brand consistent.</p>
         <p class="case-hero__year">2023</p>
       </div>
     </section>
 
     <!-- Project facts -->
     <dl class="case-meta">
-      <div><dt>Client</dt><dd>Herbalife</dd></div>
-      <div><dt>Role</dt><dd>UI Designer</dd></div>
-      <div><dt>Duration</dt><dd>8 months</dd></div>
-      <div><dt>Year</dt><dd>2023</dd></div>
+      <div><dt data-i18n="meta.client">Client</dt><dd>Herbalife</dd></div>
+      <div><dt data-i18n="meta.role">Role</dt><dd data-i18n="hl.role">UI Designer</dd></div>
+      <div><dt data-i18n="meta.duration">Duration</dt><dd data-i18n="hl.duration">8 months</dd></div>
+      <div><dt data-i18n="meta.year">Year</dt><dd>2023</dd></div>
     </dl>
 
     <div class="case-body">
 
       <section class="case-block">
-        <h2 class="case-block__label">This is a placeholder and I'll add a text soon</h2>
+        <h2 class="case-block__label" data-i18n="hl.b0.label">This is a placeholder and I'll add a text soon</h2>
         <div class="case-block__content">
-          <p class="case-block__text">This project was about making shopping simpler and more trustworthy through clear navigation, a secure checkout, and integrated support. At the same time, we gave Herbalife distributors the tools to personalize the experience for their clients maintaining a consistent brand.</p>
+          <p class="case-block__text" data-i18n="hl.b0.text">This project was about making shopping simpler and more trustworthy through clear navigation, a secure checkout, and integrated support. At the same time, we gave Herbalife distributors the tools to personalize the experience for their clients maintaining a consistent brand.</p>
         </div>
       </section>
 
@@ -89,10 +98,10 @@
       </figure>
 
       <section class="case-block">
-        <h2 class="case-block__label">Creative Process</h2>
+        <h2 class="case-block__label" data-i18n="hl.b1.label">Creative Process</h2>
         <div class="case-block__content">
-          <p class="case-block__text">The project was organized into cross-functional pods with the flexibility to shift focus each sprint. The final solution evolved through four structured phases: Discovery &amp; Research, Prioritization, Custom Design System, and High-Fidelity Design &amp; Handoff.</p>
-          <p class="case-block__note">Each phase reinforced alignment between business requirements, user needs, and scalable interface standards.</p>
+          <p class="case-block__text" data-i18n="hl.b1.text">The project was organized into cross-functional pods with the flexibility to shift focus each sprint. The final solution evolved through four structured phases: Discovery &amp; Research, Prioritization, Custom Design System, and High-Fidelity Design &amp; Handoff.</p>
+          <p class="case-block__note" data-i18n="hl.b1.note">Each phase reinforced alignment between business requirements, user needs, and scalable interface standards.</p>
         </div>
       </section>
 
@@ -101,9 +110,9 @@
       </figure>
 
       <section class="case-block">
-        <h2 class="case-block__label">Discovery &amp; Research</h2>
+        <h2 class="case-block__label" data-i18n="hl.b2.label">Discovery &amp; Research</h2>
         <div class="case-block__content">
-          <p class="case-block__text">The design process was deeply collaborative, starting from understanding real user pain points and working through prioritization, testing, and delivery. What made it complex was designing for both distributors trying to connect with clients, and customers trying to trust a brand.</p>
+          <p class="case-block__text" data-i18n="hl.b2.text">The design process was deeply collaborative, starting from understanding real user pain points and working through prioritization, testing, and delivery. What made it complex was designing for both distributors trying to connect with clients, and customers trying to trust a brand.</p>
         </div>
       </section>
 
@@ -112,9 +121,9 @@
       </figure>
 
       <section class="case-block">
-        <h2 class="case-block__label">Prioritization</h2>
+        <h2 class="case-block__label" data-i18n="hl.b3.label">Prioritization</h2>
         <div class="case-block__content">
-          <p class="case-block__text">The team uncovered over 120 Jobs to Be Done across the personas. Prioritization sessions translated research insights into structured feature sets, defining what would be standardized versus customizable within the platform.</p>
+          <p class="case-block__text" data-i18n="hl.b3.text">The team uncovered over 120 Jobs to Be Done across the personas. Prioritization sessions translated research insights into structured feature sets, defining what would be standardized versus customizable within the platform.</p>
         </div>
       </section>
 
@@ -123,9 +132,9 @@
       </figure>
 
       <section class="case-block">
-        <h2 class="case-block__label">Custom Design System</h2>
+        <h2 class="case-block__label" data-i18n="hl.b4.label">Custom Design System</h2>
         <div class="case-block__content">
-          <p class="case-block__text">To ensure consistency and scalability, we structured a dedicated design system library in Figma. Components were built using Auto Layout and variant logic, enabling flexible, reusable patterns across breakpoints. The system balanced global brand standards with controlled customization options for distributors.</p>
+          <p class="case-block__text" data-i18n="hl.b4.text">To ensure consistency and scalability, we structured a dedicated design system library in Figma. Components were built using Auto Layout and variant logic, enabling flexible, reusable patterns across breakpoints. The system balanced global brand standards with controlled customization options for distributors.</p>
         </div>
       </section>
 
@@ -134,9 +143,9 @@
       </figure>
 
       <section class="case-block">
-        <h2 class="case-block__label">High Fidelity &amp; Handoff</h2>
+        <h2 class="case-block__label" data-i18n="hl.b5.label">High Fidelity &amp; Handoff</h2>
         <div class="case-block__content">
-          <p class="case-block__text">We delivered comprehensive handoff documentation including UX annotations, UI guidelines, motion specifications, and component behavior definitions to ensure engineering alignment and implementation accuracy.</p>
+          <p class="case-block__text" data-i18n="hl.b5.text">We delivered comprehensive handoff documentation including UX annotations, UI guidelines, motion specifications, and component behavior definitions to ensure engineering alignment and implementation accuracy.</p>
         </div>
       </section>
 
@@ -145,10 +154,10 @@
       </figure>
 
       <section class="case-block">
-        <h2 class="case-block__label">Why it mattered</h2>
+        <h2 class="case-block__label" data-i18n="hl.b6.label">Why it mattered</h2>
         <div class="case-block__content">
-          <p class="case-block__text">One challenge was ensuring privacy controls while maintaining an easy-to-use interface. Our team developed an accessible settings menu that lets users control visibility without overwhelming them.</p>
-          <p class="case-block__note">Designing an ad-free experience meant creating engaging content flows without traditional ads. We achieved this by focusing on rich, visual content and user-driven discovery options.</p>
+          <p class="case-block__text" data-i18n="hl.b6.text">One challenge was ensuring privacy controls while maintaining an easy-to-use interface. Our team developed an accessible settings menu that lets users control visibility without overwhelming them.</p>
+          <p class="case-block__note" data-i18n="hl.b6.note">Designing an ad-free experience meant creating engaging content flows without traditional ads. We achieved this by focusing on rich, visual content and user-driven discovery options.</p>
         </div>
       </section>
 
@@ -157,7 +166,7 @@
       </figure>
 
       <section class="case-block case-block--stacked">
-        <h2 class="case-block__label">Big Achievements</h2>
+        <h2 class="case-block__label" data-i18n="hl.b7.label">Big Achievements</h2>
         <!-- Placeholder: add results/metrics here -->
         <div class="case-achievements"></div>
       </section>
@@ -166,28 +175,28 @@
 
     <!-- Latest projects -->
     <section class="case-more">
-      <h2 class="case-more__title">Latest projects</h2>
+      <h2 class="case-more__title" data-i18n="hl.more.title">Latest projects</h2>
       <div class="case-more__row">
         <a href="/projects/" class="case-more__all">
           <span class="case-more__corner" aria-hidden="true"></span>
-          <span class="case-more__all-label">More projects</span>
+          <span class="case-more__all-label" data-i18n="hl.more.all">More projects</span>
         </a>
 
         <a href="/projects/dxc/" class="case-card">
           <img src="/assets/img/dxc.jpg" alt="" loading="lazy" />
-          <ul class="tags tags--dark"><li>Design System</li><li>UI Design</li><li>Research</li></ul>
+          <ul class="tags tags--dark"><li data-i18n="tag.designsystem">Design System</li><li data-i18n="tag.uidesign">UI Design</li><li data-i18n="tag.research">Research</li></ul>
           <div class="case-card__text">
-            <h3>Building a Shared Foundation</h3>
-            <p>Fewer bug reports (~35%), consistent UI across modules, and a faster path from design to production.</p>
+            <h3 data-i18n="case.dxc.title">Building a Shared Foundation</h3>
+            <p data-i18n="case.dxc.desc">Fewer bug reports (~35%), consistent UI across modules, and a faster path from design to production.</p>
           </div>
         </a>
 
         <a href="/projects/mccain/" class="case-card">
           <img src="/assets/img/mccain.jpg" alt="" loading="lazy" />
-          <ul class="tags tags--dark"><li>Web &amp; Mobile</li><li>Design System</li><li>UI Design</li></ul>
+          <ul class="tags tags--dark"><li data-i18n="tag.webmobile">Web &amp; Mobile</li><li data-i18n="tag.designsystem">Design System</li><li data-i18n="tag.uidesign">UI Design</li></ul>
           <div class="case-card__text">
             <h3>McCain</h3>
-            <p>A component library for a growing SaaS platform.</p>
+            <p data-i18n="case.mccain.desc">A component library for a growing SaaS platform.</p>
           </div>
         </a>
       </div>
@@ -204,11 +213,38 @@
       <span class="blob blob--3"></span>
       <span class="blob blob--4"></span>
     </div>
-    <p class="footer__label">Get in touch</p>
+    <p class="footer__label" data-i18n="footer.label">Get in touch</p>
     <a href="mailto:albagli.sarah@gmail.com" class="footer__email">albagli.sarah@gmail.com</a>
-    <p class="footer__copy">© 2026 | Created by me, powered by lofi music &amp; green tea.</p>
+    <p class="footer__copy" data-i18n="footer.copy">© 2026 | Created by me, powered by lofi music &amp; green tea.</p>
   </footer>
 
+  <!-- Spanish translations for this page (shared strings live in /i18n.js) -->
+  <script type="application/json" id="i18n-es">
+{
+  "hl.role": "Diseñadora UI",
+  "hl.duration": "8 meses",
+  "hl.b0.label": "Texto provisional, pronto añadiré el definitivo",
+  "hl.b0.text": "Este proyecto buscaba hacer las compras más simples y confiables mediante una navegación clara, un checkout seguro y soporte integrado. Al mismo tiempo, dimos a los distribuidores de Herbalife las herramientas para personalizar la experiencia de sus clientes manteniendo una marca coherente.",
+  "hl.b1.label": "Proceso creativo",
+  "hl.b1.text": "El proyecto se organizó en pods multifuncionales con flexibilidad para cambiar de foco en cada sprint. La solución final evolucionó a través de cuatro fases estructuradas: discovery e investigación, priorización, sistema de diseño a medida, y diseño de alta fidelidad y handoff.",
+  "hl.b1.note": "Cada fase reforzó la alineación entre los requisitos de negocio, las necesidades de los usuarios y unos estándares de interfaz escalables.",
+  "hl.b2.label": "Discovery e investigación",
+  "hl.b2.text": "El proceso de diseño fue profundamente colaborativo, desde entender los problemas reales de los usuarios hasta la priorización, las pruebas y la entrega. Lo que lo hacía complejo era diseñar a la vez para distribuidores que intentaban conectar con sus clientes y para clientes que intentaban confiar en una marca.",
+  "hl.b3.label": "Priorización",
+  "hl.b3.text": "El equipo identificó más de 120 Jobs to Be Done entre las distintas personas. Las sesiones de priorización convirtieron los hallazgos de la investigación en conjuntos de funcionalidades estructurados, definiendo qué sería estándar y qué sería personalizable dentro de la plataforma.",
+  "hl.b4.label": "Sistema de diseño a medida",
+  "hl.b4.text": "Para garantizar coherencia y escalabilidad, estructuramos una librería de sistema de diseño dedicada en Figma. Los componentes se construyeron con Auto Layout y lógica de variantes, lo que permitió patrones flexibles y reutilizables en todos los breakpoints. El sistema equilibraba los estándares globales de marca con opciones de personalización controladas para los distribuidores.",
+  "hl.b5.label": "Alta fidelidad y handoff",
+  "hl.b5.text": "Entregamos documentación de handoff completa, con anotaciones de UX, guías de UI, especificaciones de motion y definiciones del comportamiento de los componentes, para asegurar la alineación con ingeniería y la precisión en la implementación.",
+  "hl.b6.label": "Por qué importó",
+  "hl.b6.text": "Uno de los retos fue garantizar controles de privacidad manteniendo una interfaz fácil de usar. Nuestro equipo desarrolló un menú de configuración accesible que permite a los usuarios controlar su visibilidad sin abrumarlos.",
+  "hl.b6.note": "Diseñar una experiencia sin anuncios implicó crear flujos de contenido atractivos sin publicidad tradicional. Lo logramos apostando por contenido visual rico y opciones de descubrimiento guiadas por el usuario.",
+  "hl.b7.label": "Grandes logros",
+  "hl.more.title": "Últimos proyectos",
+  "hl.more.all": "Más proyectos"
+}
+  </script>
+  <script src="/i18n.js"></script>
   <script src="/script.js"></script>
 </body>
 </html>
