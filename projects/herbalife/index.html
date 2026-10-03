@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <!--
+    PROJECT DETAIL TEMPLATE
+    To create a new case: copy this folder to /projects/<slug>/ and edit:
+      1. <title> + meta description
+      2. .case-hero    → cover image, tags, title, summary, year
+      3. .case-meta    → client, role, duration, year
+      4. .case-block   → one per chapter (label + text + optional note)
+      5. .case-figure  → images between chapters (add/remove freely)
+      6. .case-more    → the two "Latest projects" cards (link to the other cases)
+  -->
+  <title>Herbalife, Sarah Albagli</title>
+  <meta name="description" content="Designing a customizable profile builder for Herbalife distributors." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body class="page-case">
+
+  <!-- Header -->
+  <header class="header">
+    <a href="/" class="logo">Sarah Albagli</a>
+    <nav class="header__nav">
+      <a href="/about/">About</a>
+      <a href="/#work">Work</a>
+      <a href="https://www.linkedin.com/in/sarahalbagli/" target="_blank" rel="noopener">LinkedIn <span class="arrow-up">↗</span></a>
+    </nav>
+    <a href="/assets/sarah-albagli-cv.pdf" class="btn-cv" download>
+      Download my CV
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"/></svg>
+    </a>
+    <button class="menu-toggle" aria-expanded="false" aria-controls="menu">
+      <span class="menu-toggle__lines" aria-hidden="true"><span></span><span></span></span>
+      <span class="menu-toggle__label">Menu</span>
+    </button>
+  </header>
+
+  <!-- Fullscreen menu -->
+  <div class="menu" id="menu" hidden>
+    <div class="menu__contact">
+      <p>Let's talk</p>
+      <a href="mailto:albagli.sarah@gmail.com">albagli.sarah@gmail.com</a>
+    </div>
+    <nav class="menu__links">
+      <a href="/">Home</a>
+      <a href="/about/">About</a>
+      <a href="/projects/">Projects</a>
+      <a href="/writing/">Writing</a>
+    </nav>
+  </div>
+
+  <main>
+
+    <!-- Hero -->
+    <section class="case-hero" data-hero>
+      <img class="case-hero__img" src="/assets/img/herbalife.jpg" alt="Herbalife app on a phone, held against a blue perforated wall" />
+      <div class="case-hero__content">
+        <ul class="tags tags--dark"><li>Web &amp; Mobile</li><li>Design System</li><li>UI Design</li></ul>
+        <h1 class="case-hero__title">One system, every distributor profile</h1>
+        <p class="case-hero__summary">Designing a customizable profile builder for Herbalife distributors. A component system that lets each distributor personalize their space while keeping the brand consistent.</p>
+        <p class="case-hero__year">2023</p>
+      </div>
+    </section>
+
+    <!-- Project facts -->
+    <dl class="case-meta">
+      <div><dt>Client</dt><dd>Herbalife</dd></div>
+      <div><dt>Role</dt><dd>UI Designer</dd></div>
+      <div><dt>Duration</dt><dd>8 months</dd></div>
+      <div><dt>Year</dt><dd>2023</dd></div>
+    </dl>
+
+    <div class="case-body">
+
+      <section class="case-block">
+        <h2 class="case-block__label">This is a placeholder and I'll add a text soon</h2>
+        <div class="case-block__content">
+          <p class="case-block__text">This project was about making shopping simpler and more trustworthy through clear navigation, a secure checkout, and integrated support. At the same time, we gave Herbalife distributors the tools to personalize the experience for their clients maintaining a consistent brand.</p>
+        </div>
+      </section>
+
+      <figure class="case-figure">
+        <img src="/assets/img/herbalife/mockup-wide.jpg" alt="Two phones showing the app, on a concrete surface" loading="lazy" />
+      </figure>
+
+      <section class="case-block">
+        <h2 class="case-block__label">Creative Process</h2>
+        <div class="case-block__content">
+          <p class="case-block__text">The project was organized into cross-functional pods with the flexibility to shift focus each sprint. The final solution evolved through four structured phases: Discovery &amp; Research, Prioritization, Custom Design System, and High-Fidelity Design &amp; Handoff.</p>
+          <p class="case-block__note">Each phase reinforced alignment between business requirements, user needs, and scalable interface standards.</p>
+        </div>
+      </section>
+
+      <figure class="case-figure">
+        <img src="/assets/img/herbalife/mockup-phone.jpg" alt="Phone showing the app on a concrete surface" loading="lazy" />
+      </figure>
+
+      <section class="case-block">
+        <h2 class="case-block__label">Discovery &amp; Research</h2>
+        <div class="case-block__content">
+          <p class="case-block__text">The design process was deeply collaborative, starting from understanding real user pain points and working through prioritization, testing, and delivery. What made it complex was designing for both distributors trying to connect with clients, and customers trying to trust a brand.</p>
+        </div>
+      </section>
+
+      <figure class="case-figure">
+        <img src="/assets/img/herbalife/mockup-phone.jpg" alt="" loading="lazy" />
+      </figure>
+
+      <section class="case-block">
+        <h2 class="case-block__label">Prioritization</h2>
+        <div class="case-block__content">
+          <p class="case-block__text">The team uncovered over 120 Jobs to Be Done across the personas. Prioritization sessions translated research insights into structured feature sets, defining what would be standardized versus customizable within the platform.</p>
+        </div>
+      </section>
+
+      <figure class="case-figure">
+        <img src="/assets/img/herbalife/mockup-phone.jpg" alt="" loading="lazy" />
+      </figure>
+
+      <section class="case-block">
+        <h2 class="case-block__label">Custom Design System</h2>
+        <div class="case-block__content">
+          <p class="case-block__text">To ensure consistency and scalability, we structured a dedicated design system library in Figma. Components were built using Auto Layout and variant logic, enabling flexible, reusable patterns across breakpoints. The system balanced global brand standards with controlled customization options for distributors.</p>
+        </div>
+      </section>
+
+      <figure class="case-figure">
+        <img src="/assets/img/herbalife/mockup-phone.jpg" alt="" loading="lazy" />
+      </figure>
+
+      <section class="case-block">
+        <h2 class="case-block__label">High Fidelity &amp; Handoff</h2>
+        <div class="case-block__content">
+          <p class="case-block__text">We delivered comprehensive handoff documentation including UX annotations, UI guidelines, motion specifications, and component behavior definitions to ensure engineering alignment and implementation accuracy.</p>
+        </div>
+      </section>
+
+      <figure class="case-figure">
+        <img src="/assets/img/herbalife/mockup-phone.jpg" alt="" loading="lazy" />
+      </figure>
+
+      <section class="case-block">
+        <h2 class="case-block__label">Why it mattered</h2>
+        <div class="case-block__content">
+          <p class="case-block__text">One challenge was ensuring privacy controls while maintaining an easy-to-use interface. Our team developed an accessible settings menu that lets users control visibility without overwhelming them.</p>
+          <p class="case-block__note">Designing an ad-free experience meant creating engaging content flows without traditional ads. We achieved this by focusing on rich, visual content and user-driven discovery options.</p>
+        </div>
+      </section>
+
+      <figure class="case-figure">
+        <img src="/assets/img/herbalife/mockup-phone.jpg" alt="" loading="lazy" />
+      </figure>
+
+      <section class="case-block case-block--stacked">
+        <h2 class="case-block__label">Big Achievements</h2>
+        <!-- Placeholder: add results/metrics here -->
+        <div class="case-achievements"></div>
+      </section>
+
+    </div>
+
+    <!-- Latest projects -->
+    <section class="case-more">
+      <h2 class="case-more__title">Latest projects</h2>
+      <div class="case-more__row">
+        <a href="/projects/" class="case-more__all">
+          <span class="case-more__corner" aria-hidden="true"></span>
+          <span class="case-more__all-label">More projects</span>
+        </a>
+
+        <a href="/projects/dxc/" class="case-card">
+          <img src="/assets/img/dxc.jpg" alt="" loading="lazy" />
+          <ul class="tags tags--dark"><li>Design System</li><li>UI Design</li><li>Research</li></ul>
+          <div class="case-card__text">
+            <h3>Building a Shared Foundation</h3>
+            <p>Fewer bug reports (~35%), consistent UI across modules, and a faster path from design to production.</p>
+          </div>
+        </a>
+
+        <a href="/projects/mccain/" class="case-card">
+          <img src="/assets/img/mccain.jpg" alt="" loading="lazy" />
+          <ul class="tags tags--dark"><li>Web &amp; Mobile</li><li>Design System</li><li>UI Design</li></ul>
+          <div class="case-card__text">
+            <h3>McCain</h3>
+            <p>A component library for a growing SaaS platform.</p>
+          </div>
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <span class="footer__mark">srh lbgl</span>
+    <div class="footer__gradient" aria-hidden="true">
+      <span class="blob blob--1"></span>
+      <span class="blob blob--2"></span>
+      <span class="blob blob--3"></span>
+      <span class="blob blob--4"></span>
+    </div>
+    <p class="footer__label">Get in touch</p>
+    <a href="mailto:albagli.sarah@gmail.com" class="footer__email">albagli.sarah@gmail.com</a>
+    <p class="footer__copy">© 2026 | Created by me, powered by lofi music &amp; green tea.</p>
+  </footer>
+
+  <script src="/script.js"></script>
+</body>
+</html>

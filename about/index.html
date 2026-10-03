@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>About, Sarah Albagli</title>
+  <meta name="description" content="Senior Product Designer based in Spain. How I work, and who I am outside of work." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://api.fontshare.com/v2/css?f[]=gambetta@400,401&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body class="page-light">
+
+  <!-- Header -->
+  <header class="header is-solid">
+    <a href="/" class="logo">Sarah Albagli</a>
+    <nav class="header__nav">
+      <a href="/about/" aria-current="page">About</a>
+      <a href="/#work">Work</a>
+      <a href="https://www.linkedin.com/in/sarahalbagli/" target="_blank" rel="noopener">LinkedIn <span class="arrow-up">↗</span></a>
+    </nav>
+    <a href="/assets/sarah-albagli-cv.pdf" class="btn-cv" download>
+      Download my CV
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"/></svg>
+    </a>
+    <button class="menu-toggle" aria-expanded="false" aria-controls="menu">
+      <span class="menu-toggle__lines" aria-hidden="true"><span></span><span></span></span>
+      <span class="menu-toggle__label">Menu</span>
+    </button>
+  </header>
+
+  <!-- Fullscreen menu -->
+  <div class="menu" id="menu" hidden>
+    <div class="menu__contact">
+      <p>Let's talk</p>
+      <a href="mailto:albagli.sarah@gmail.com">albagli.sarah@gmail.com</a>
+    </div>
+    <nav class="menu__links">
+      <a href="/">Home</a>
+      <a href="/about/">About</a>
+      <a href="/projects/">Projects</a>
+      <a href="/writing/">Writing</a>
+    </nav>
+  </div>
+
+  <main>
+
+    <!-- Intro -->
+    <section class="about-intro">
+      <h1 class="about-intro__title">About me</h1>
+      <p class="about-intro__lead">I love building products. Not the kind that just look good in Figma, the kind that solve real problems, feel right to use, and last beyond launch day. I'm drawn to the full cycle: understanding people, making decisions, designing systems, and caring enough about how things get built to stay close to the process until the end.</p>
+      <p class="about-intro__note">I approach each project with questions</p>
+    </section>
+
+    <!-- How I work -->
+    <section class="about-process">
+      <h2 class="about-process__title">Every project rewrites the process</h2>
+      <div class="about-process__text">
+        <p>I care about process. Every project I work on has one, and I lean on it to keep things clear for me and for the team. What changes is the shape of it. I adapt the process to the context, the constraints and what the team actually needs, instead of running the same playbook every time. No two projects look the same, some needed weeks of research before a single screen existed, others needed a working prototype by Friday.</p>
+        <p>Curiosity is my engine. I'm always poking at something new, a tool, a framework, a rabbit hole, and I tend to figure out fast which of those things is actually useful right now. AI has been part of my daily work for the last two years, but as an assistant, not as the main tool. Pen and paper are still where the thinking happens. I ask a lot of questions, usually before opening Figma. The hardest part of product design isn't the interface, it's making sure you're solving the right problem. I listen for what people don't say, and I'm comfortable working in ambiguity. While the answer isn't there yet, I go looking for it: talking to people, digging through data, testing a rough prototype, borrowing from whatever gets me closer. I don't wait for clarity, I chase it.</p>
+        <p>Product design is a wide umbrella: interaction, visual craft, systems thinking. But most of the job is communication, translating between business, engineering, and the people who'll actually use the thing. What I'm looking for is a team that builds close together, where design sits in the conversation from the start and not at the end of it.</p>
+      </div>
+    </section>
+
+    <!-- As a human -->
+    <section class="human">
+      <p class="human__eyebrow">(As a human)</p>
+
+      <div class="human__cols">
+        <div class="human__col">
+          <p>I speak Portuguese, Spanish, English, and Galician<button class="fn" aria-describedby="fn1">1</button> and I'm currently learning Japanese, badly and happily<button class="fn" aria-describedby="fn2">2</button>.</p>
+          <p>When I'm not working, I'm probably wandering through a food market, hunting for antiques, or stitching something by hand<button class="fn" aria-describedby="fn3">3</button>. I like things that have been made slowly, by someone who cared.</p>
+          <p>I read a lot, write when something won't leave my head, and keep a notebook close for the rest<button class="fn" aria-describedby="fn4">4</button>.</p>
+        </div>
+        <div class="human__col">
+          <p>Based in Salvador, Paris, London, Santiago de Compostela.</p>
+          <p>I train for Hyrox, walk stages of the Camino on spring and autumn weekends<button class="fn" aria-describedby="fn5">5</button>, and I'm trying to learn the guitar, one slow chord at a time.</p>
+          <p>I go out of my way for contemporary art museums and places that aren't on the usual list<button class="fn" aria-describedby="fn6">6</button>. Every city I've lived in left me with a favorite corner, a dish, and a few words I still use.</p>
+        </div>
+      </div>
+
+      <ol class="human__notes">
+        <li id="fn1">I read, write and sing in all of them.</li>
+        <li id="fn2">Training my ear with Japanese reality shows and movies.</li>
+        <li id="fn3">Drawing, embroidery, sewing. If it involves my hands, I'm in.</li>
+        <li id="fn4">Mostly non fiction, usually more than one book at a time.</li>
+        <li id="fn5">Still learning to run, which is the hard part of Hyrox.</li>
+        <li id="fn6">Best trips: the ones with no itinerary.</li>
+      </ol>
+
+      <!-- Photo strip: replace each placeholder <div> with an <img> when the photos are ready -->
+      <div class="human__strip" aria-hidden="true">
+        <div class="human__tile"></div>
+        <div class="human__tile human__tile--round"></div>
+        <div class="human__tile"></div>
+        <div class="human__tile human__tile--round"></div>
+        <div class="human__tile"></div>
+        <div class="human__tile human__tile--round"></div>
+      </div>
+    </section>
+
+    <!-- Workstation photo -->
+    <figure class="about-photo">
+      <div class="about-photo__frame">
+        <img src="/assets/img/about-workstation.jpg" alt="Sarah smiling at her desk, next to a monitor and a laptop" />
+        <span class="about-photo__mark">srh lbgl</span>
+      </div>
+      <figcaption class="about-photo__caption">
+        <span>July, 2026</span>
+        <span>On my workstation</span>
+        <span>Spain</span>
+      </figcaption>
+    </figure>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <span class="footer__mark">srh lbgl</span>
+    <div class="footer__gradient" aria-hidden="true">
+      <span class="blob blob--1"></span>
+      <span class="blob blob--2"></span>
+      <span class="blob blob--3"></span>
+      <span class="blob blob--4"></span>
+    </div>
+    <p class="footer__label">Get in touch</p>
+    <a href="mailto:albagli.sarah@gmail.com" class="footer__email">albagli.sarah@gmail.com</a>
+    <p class="footer__copy">© 2026 | Created by me, powered by lofi music &amp; green tea.</p>
+  </footer>
+
+  <script src="/script.js"></script>
+</body>
+</html>

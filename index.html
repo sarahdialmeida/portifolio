@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Sarah Albagli, Product Designer</title>
+  <meta name="description" content="Senior Product Designer based in Spain." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="header">
+    <a href="./" class="logo">Sarah Albagli</a>
+    <nav class="header__nav">
+      <a href="./about">About</a>
+      <a href="./projects">Work</a>
+      <a href="https://www.linkedin.com/in/sarahalbagli/" target="_blank" rel="noopener">LinkedIn <span class="arrow-up">↗</span></a>
+    </nav>
+    <a href="assets/sarah-albagli-cv.pdf" class="btn-cv" download>
+      Download my CV
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"/></svg>
+    </a>
+    <button class="menu-toggle" aria-expanded="false" aria-controls="menu">
+      <span class="menu-toggle__lines" aria-hidden="true"><span></span><span></span></span>
+      <span class="menu-toggle__label">Menu</span>
+    </button>
+  </header>
+
+  <!-- Fullscreen menu -->
+  <div class="menu" id="menu" hidden>
+    <div class="menu__contact">
+      <p>Let's talk</p>
+      <a href="mailto:albagli.sarah@gmail.com">albagli.sarah@gmail.com</a>
+    </div>
+    <nav class="menu__links">
+      <a href="./">Home</a>
+      <a href="./about">About</a>
+      <a href="./projects">Projects</a>
+      <a href="./writing">Writing</a>
+    </nav>
+  </div>
+
+  <main>
+
+    <!-- Hero -->
+    <section class="hero" data-hero>
+      <div class="hero__bg" aria-hidden="true">
+        <span class="blob blob--1"></span>
+        <span class="blob blob--2"></span>
+        <span class="blob blob--3"></span>
+        <span class="blob blob--4"></span>
+        <span class="blob blob--5"></span>
+      </div>
+
+      <div class="hero__content">
+        <p class="hero__since"><span class="hero__since-big">©19-now</span> into tech</p>
+
+        <h1 class="hero__title">
+          <span class="hero__line hero__line--1">Product<span class="hero__dot">.</span></span>
+          <span class="hero__line hero__line--2">Designer</span>
+        </h1>
+
+        <ul class="hero__skills">
+          <li>Visual</li>
+          <li>Research</li>
+          <li>Strategy</li>
+          <li>Design System</li>
+          <li>Vibe Coding</li>
+        </ul>
+
+        <p class="hero__location">Based in Spain</p>
+      </div>
+    </section>
+
+    <!-- Selected work -->
+    <section class="work" id="work">
+      <div class="section-head">
+        <p class="eyebrow">Selected work</p>
+        <h2 class="work__title">Real problems,<br />shipped products</h2>
+      </div>
+
+      <div class="work__grid">
+        <a href="./projects/herbalife" class="case case--a reveal">
+          <div class="case__media"><img src="assets/img/herbalife.jpg" alt="Herbalife app on a phone" loading="lazy" /></div>
+          <h3 class="case__title">One system, every distributor profile</h3>
+          <p class="case__desc">Designing a customizable profile builder for Herbalife distributors. A component system that lets each distributor personalize their space while keeping the brand consistent.</p>
+          <ul class="tags"><li>Web &amp; Mobile</li><li>Design System</li><li>UI Design</li></ul>
+        </a>
+
+        <a href="./projects/dxc" class="case case--b reveal">
+          <div class="case__media"><img src="assets/img/dxc.jpg" alt="Dashboard on a laptop" loading="lazy" /></div>
+          <h3 class="case__title">Building a Shared Foundation</h3>
+          <p class="case__desc">Fewer bug reports (~35%), consistent UI across modules, and a faster path from design to production.</p>
+          <ul class="tags"><li>Design System</li><li>UI Design</li><li>Research</li><li>B2B</li><li>SaaS</li><li>Accessibility</li></ul>
+        </a>
+
+        <a href="./projects/mccain" class="case case--c reveal">
+          <div class="case__media"><img src="assets/img/mccain.jpg" alt="McCain component library" loading="lazy" /></div>
+          <h3 class="case__title">McCain</h3>
+          <p class="case__desc">A component library for a growing SaaS platform.</p>
+          <ul class="tags"><li>Web &amp; Mobile</li><li>Design System</li><li>UI Design</li><li>Research</li><li>B2B</li><li>SaaS</li></ul>
+        </a>
+
+        <a href="./projects/ai-hub" class="case case--d reveal">
+          <div class="case__media"><img src="assets/img/ai-hub.jpg" alt="AI Hub, coming soon" loading="lazy" /></div>
+          <h3 class="case__title">Improving Experience on AI Hub</h3>
+          <p class="case__desc">Unifying tools, workflows and culture for 68,000 people across 120+ markets, in 15 languages.</p>
+          <ul class="tags"><li>Web &amp; Mobile</li><li>Research</li><li>B2B</li><li>UI Design</li></ul>
+        </a>
+      </div>
+
+      <a href="./projects" class="all-cases">
+        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M3 12h18M14 5l7 7-7 7"/></svg>
+        <span>All cases</span><sup>(4)</sup>
+      </a>
+    </section>
+
+    <!-- Let's talk -->
+    <section class="talk">
+      <a href="./contact" class="talk__label">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 3v10a3 3 0 0 0 3 3h12M15 11l5 5-5 5"/></svg>
+        Let’s talk
+      </a>
+      <p class="talk__text">Whether you're building a team, untangling a complex product, or shipping something ambitious, I bring a designer's practice and a developer's mindset to get it done.</p>
+    </section>
+
+    <!-- What I bring -->
+    <section class="services">
+      <div class="services__head">
+        <span class="mark">srh lbgl</span>
+        <p class="eyebrow eyebrow--light">What I Bring</p>
+      </div>
+
+      <div class="services__body">
+        <div class="services__detail">
+          <p class="services__detail-title">UX Research</p>
+          <p class="services__detail-text">I start with people, not pixels. Interviews, usability tests and data analysis, with AI to cross-reference insights faster, turn messy problems into clear product decisions.</p>
+        </div>
+
+        <ul class="services__list">
+          <li class="is-active" data-text="I start with people, not pixels. Interviews, usability tests and data analysis, with AI to cross-reference insights faster, turn messy problems into clear product decisions.">
+            <span class="services__name">UX Research</span><span class="services__num">{ <b>01</b> }</span>
+          </li>
+          <li data-text="Clean, intentional interfaces with an eye for detail. Every state is considered, from empty to error to loading, so the experience holds up beyond the happy path.">
+            <span class="services__name">UI Design</span><span class="services__num">{ <b>02</b> }</span>
+          </li>
+          <li data-text="I build and maintain component libraries that scale: tokens, variants and documentation that keep product, brand and code consistent as the team grows.">
+            <span class="services__name">Design Systems</span><span class="services__num">{ <b>03</b> }</span>
+          </li>
+          <li data-text="A former front-end developer, I know what engineers need to ship. My handoffs are detailed, my specs are realistic, and I prototype in code when it's the faster path.">
+            <span class="services__name">Design to Code</span><span class="services__num">{ <b>04</b> }</span>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Testimonial -->
+    <section class="quote">
+      <p class="eyebrow quote__eyebrow">From the Team</p>
+      <blockquote class="quote__body">
+        <svg class="quote__mark" width="40" height="26" viewBox="0 0 40 26" aria-hidden="true"><path d="M6 0h12L10 26H0zM28 0h12l-8 26H22z"/></svg>
+        <p class="quote__text" data-words>Sarah is a professional who values quality deliverables grounded in best practices, and she contributes significantly to team collaboration by regularly bringing new methodologies, tools, and processes into discussion, not limiting herself to theory, but taking the initiative to start or lead projects regardless of the size of the challenge.</p>
+        <footer class="quote__author">
+          <cite>Gabriel Soares</cite>
+          <span>CTO at Zorya</span>
+        </footer>
+      </blockquote>
+    </section>
+
+    <!-- Clients -->
+    <section class="clients" aria-label="Companies I've worked with">
+      <div class="clients__track">
+        <div class="clients__set">
+          <div class="clients__cell"><img src="assets/logos/mccain.png" alt="McCain" /></div>
+          <div class="clients__cell"><img src="assets/logos/herbalife.png" alt="Herbalife" /></div>
+          <div class="clients__cell"><img src="assets/logos/diageo.png" alt="Diageo" class="is-square" /></div>
+          <div class="clients__cell"><img src="assets/logos/dentsu.png" alt="dentsu" /></div>
+          <div class="clients__cell"><img src="assets/logos/primo-brands.png" alt="Primo Brands" /></div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <span class="footer__mark">srh lbgl</span>
+    <div class="footer__gradient" aria-hidden="true">
+      <span class="blob blob--1"></span>
+      <span class="blob blob--2"></span>
+      <span class="blob blob--3"></span>
+      <span class="blob blob--4"></span>
+    </div>
+    <p class="footer__label">Get in touch</p>
+    <a href="mailto:albagli.sarah@gmail.com" class="footer__email">albagli.sarah@gmail.com</a>
+    <p class="footer__copy">© 2026 | Created by me, powered by lofi music &amp; green tea.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
