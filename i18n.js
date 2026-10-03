@@ -26,5 +26,7 @@ window.I18N_ES = {
   "meta.client": "Cliente",
   "meta.role": "Rol",
   "meta.duration": "Duración",
-  "meta.year": "Año"
+  "meta.year": "Año",
+  "home.case.dxc.desc": "Construimos una base compartida y el resultado fue menos reportes de errores (~35 %), una UI coherente entre módulos y un camino más rápido del diseño a producción.",
+  "home.case.mccain.desc": "Un sistema de diseño que dio a diseño e ingeniería un lenguaje común"
 };

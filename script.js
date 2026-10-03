@@ -314,3 +314,23 @@ function initFlow(container) {
   img.src = container.dataset.flow;
 }
 document.querySelectorAll('.flow[data-flow]').forEach(initFlow);
+
+// ---------- Projects page: filter cards by area ----------
+const filterButtons = document.querySelectorAll('[data-filter]');
+const filterCards = document.querySelectorAll('.projects-grid [data-tags]');
+filterButtons.forEach((button) => {
+  button.addEventListener('click', () => {
+    const filter = button.dataset.filter;
+    filterButtons.forEach((b) => b.setAttribute('aria-pressed', String(b === button)));
+    filterCards.forEach((card) => {
+      const match = filter === 'all' || card.dataset.tags.split(' ').includes(filter);
+      card.classList.toggle('is-hidden', !match);
+      card.classList.remove('is-shown');
+      if (match) {
+        card.classList.add('is-visible');        // skip the scroll fade-in
+        void card.offsetWidth;                    // restart the entrance animation
+        card.classList.add('is-shown');
+      }
+    });
+  });
+});

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title data-i18n="pr.title">Projects, Sarah Albagli</title>
+  <meta name="description" content="Selected product design work by Sarah Albagli: design systems, research and UI for web and mobile." />
+  <link rel="icon" href="/favicon.ico" sizes="32x32" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body class="page-light">
+
+  <!-- Header -->
+  <header class="header is-solid">
+    <a href="/" class="logo">Sarah Albagli</a>
+    <nav class="header__nav">
+      <a href="/about/" data-i18n="nav.about">About</a>
+      <a href="/#work" data-i18n="nav.work">Work</a>
+      <a href="https://www.linkedin.com/in/sarahalbagli/" target="_blank" rel="noopener">LinkedIn <span class="arrow-up">↗</span></a>
+    </nav>
+    <a href="/assets/sarah-albagli-cv.pdf" class="btn-cv" download>
+      <span data-i18n="nav.cv">Download my CV</span>
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"/></svg>
+    </a>
+    <div class="lang" role="group" aria-label="Language">
+      <button type="button" data-lang="en" aria-pressed="true">EN</button>
+      <button type="button" data-lang="es" aria-pressed="false">ES</button>
+    </div>
+    <button class="menu-toggle" aria-expanded="false" aria-controls="menu">
+      <span class="menu-toggle__lines" aria-hidden="true"><span></span><span></span></span>
+      <span class="menu-toggle__label" data-i18n="menu.label">Menu</span>
+    </button>
+  </header>
+
+  <!-- Fullscreen menu -->
+  <div class="menu" id="menu" aria-label="Site menu" inert>
+    <a href="/" class="menu__logo">srh lbgl</a>
+    <button class="menu__close" aria-label="Close menu">
+      <span class="menu__close-icon" aria-hidden="true"><span></span><span></span></span>
+      <span class="menu__close-label" data-i18n="menu.label">Menu</span>
+    </button>
+    <div class="menu__contact">
+      <p data-i18n="menu.talk">Let's talk</p>
+      <a href="mailto:albagli.sarah@gmail.com">albagli.sarah@gmail.com</a>
+    </div>
+    <nav class="menu__links">
+      <a href="/" data-label="Home"><span data-i18n="menu.home">Home</span></a>
+      <a href="/about/" data-label="About"><span data-i18n="menu.about">About</span></a>
+      <a href="/projects/" data-label="Projects" aria-current="page"><span data-i18n="menu.projects">Projects</span></a>
+    </nav>
+  </div>
+
+  <main>
+
+    <section class="projects-head">
+      <h1 class="projects-head__title" data-i18n="pr.h1">Projects</h1>
+      <p class="projects-head__text" data-i18n="pr.text">Every project we deliver is a reflection of our commitment to quality, designed to inspire and drive success.</p>
+    </section>
+
+    <div class="projects-filters" role="group" aria-label="Filter projects by area">
+      <button type="button" data-filter="all" aria-pressed="true" data-i18n="pr.all">All</button>
+      <button type="button" data-filter="accessibility" aria-pressed="false" data-i18n="tag.accessibility">Accessibility</button>
+      <button type="button" data-filter="b2b" aria-pressed="false">B2B</button>
+      <button type="button" data-filter="designsystem" aria-pressed="false" data-i18n="tag.designsystem">Design System</button>
+      <button type="button" data-filter="webmobile" aria-pressed="false" data-i18n="tag.webmobile">Web &amp; Mobile</button>
+      <button type="button" data-filter="research" aria-pressed="false" data-i18n="tag.research">Research</button>
+      <button type="button" data-filter="uidesign" aria-pressed="false" data-i18n="tag.uidesign">UI Design</button>
+    </div>
+
+    <div class="projects-grid">
+        <a href="/projects/herbalife/" class="case reveal" data-tags="webmobile designsystem uidesign">
+          <div class="case__media"><ul class="tags tags--dark case__tags"><li data-i18n="tag.webmobile">Web &amp; Mobile</li><li data-i18n="tag.designsystem">Design System</li><li data-i18n="tag.uidesign">UI Design</li></ul><img src="/assets/img/herbalife.jpg" alt="Herbalife app on a phone" loading="lazy" /></div>
+          <h3 class="case__client">Herbalife <span class="case__dot" aria-hidden="true">•</span> 2023</h3>
+          <p class="case__desc" data-i18n="case.herbalife.desc">Designing a customizable profile builder for Herbalife distributors. A component system that lets each distributor personalize their space while keeping the brand consistent.</p>
+        </a>
+
+        <a href="/projects/dxc/" class="case reveal" data-tags="designsystem uidesign research b2b accessibility">
+          <div class="case__media"><ul class="tags tags--dark case__tags"><li data-i18n="tag.designsystem">Design System</li><li data-i18n="tag.uidesign">UI Design</li><li data-i18n="tag.research">Research</li><li>B2B</li><li data-i18n="tag.accessibility">Accessibility</li></ul><img src="/assets/img/dxc.jpg" alt="Dashboard on a laptop" loading="lazy" /></div>
+          <h3 class="case__client">Diageo Experience Center <span class="case__dot" aria-hidden="true">•</span> 2024</h3>
+          <p class="case__desc" data-i18n="home.case.dxc.desc">Building a Shared Foundation and the result was fewer bug reports (~35%), consistent UI across modules, and a faster path from design to production.</p>
+        </a>
+
+        <a href="/projects/mccain/" class="case reveal" data-tags="webmobile designsystem uidesign research b2b">
+          <div class="case__media"><ul class="tags tags--dark case__tags"><li data-i18n="tag.webmobile">Web &amp; Mobile</li><li data-i18n="tag.designsystem">Design System</li><li data-i18n="tag.uidesign">UI Design</li><li data-i18n="tag.research">Research</li><li>B2B</li></ul><img src="/assets/img/mccainmain.jpg" alt="McCain component library" loading="lazy" /><video class="media-video" src="/assets/mccainsmall.mp4" autoplay muted loop playsinline disablepictureinpicture preload="metadata" aria-hidden="true"></video></div>
+          <h3 class="case__client">McCain <span class="case__dot" aria-hidden="true">•</span> 2026</h3>
+          <p class="case__desc" data-i18n="home.case.mccain.desc">A design system that gave design and engineering a shared language</p>
+        </a>
+
+        <a href="/projects/ai-hub/" class="case reveal" data-tags="webmobile research b2b uidesign">
+          <div class="case__media"><ul class="tags tags--dark case__tags"><li data-i18n="tag.webmobile">Web &amp; Mobile</li><li data-i18n="tag.research">Research</li><li>B2B</li><li data-i18n="tag.uidesign">UI Design</li></ul><img src="/assets/img/ai-hub.jpg" alt="AI Hub, coming soon" loading="lazy" /></div>
+          <h3 class="case__client">AI Hub <span class="case__dot" aria-hidden="true">•</span> 2026</h3>
+          <p class="case__desc" data-i18n="case.aihub.desc">Unifying tools, workflows and culture for 68,000 people across 120+ markets, in 15 languages.</p>
+        </a>
+    </div>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <span class="footer__mark">srh lbgl</span>
+    <div class="footer__gradient flow" data-flow="/assets/img/footer-background.jpg" aria-hidden="true"><canvas></canvas></div>
+    <p class="footer__label" data-i18n="footer.label">Get in touch</p>
+    <a href="mailto:albagli.sarah@gmail.com" class="footer__email">albagli.sarah@gmail.com</a>
+    <p class="footer__copy" data-i18n="footer.copy">© 2026 | Created by me, powered by lofi music &amp; green tea.</p>
+  </footer>
+
+  <!-- Spanish translations for this page (shared strings live in /i18n.js) -->
+  <script type="application/json" id="i18n-es">
+{
+  "pr.title": "Proyectos, Sarah Albagli",
+  "pr.h1": "Proyectos",
+  "pr.text": "Cada proyecto que entregamos refleja nuestro compromiso con la calidad, pensado para inspirar e impulsar resultados.",
+  "pr.all": "Todos"
+}
+  </script>
+  <script src="/i18n.js"></script>
+  <script src="/script.js"></script>
+</body>
+</html>
