@@ -9,7 +9,6 @@ window.I18N_ES = {
   "menu.home": "Inicio",
   "menu.about": "Sobre mí",
   "menu.projects": "Proyectos",
-  "menu.writing": "Escritos",
   "footer.label": "Escríbeme",
   "footer.copy": "© 2026 | Hecho por mí, con música lofi y té verde.",
   "tag.webmobile": "Web y móvil",
