@@ -131,6 +131,23 @@ serviceItems.forEach((item) => {
   item.addEventListener('mouseenter', () => activateService(item));
   item.addEventListener('click', () => activateService(item));
 });
+// On mobile there is no hover: the services light up one by one as you scroll
+const mobileServices = window.matchMedia('(max-width: 860px)');
+if (serviceItems.length) {
+  const onServicesScroll = () => {
+    if (!mobileServices.matches) return;
+    // progress runs from the list's top reaching 80% of the screen
+    // to its bottom reaching 35%, split evenly between the items
+    const rect = serviceItems[0].parentElement.getBoundingClientRect();
+    const start = window.innerHeight * 0.8;
+    const end = window.innerHeight * 0.35 - rect.height;
+    const progress = Math.min(Math.max((start - rect.top) / (start - end), 0), 0.999);
+    const current = serviceItems[Math.floor(progress * serviceItems.length)];
+    if (!current.classList.contains('is-active')) activateService(current);
+  };
+  window.addEventListener('scroll', onServicesScroll, { passive: true });
+  onServicesScroll();
+}
 document.addEventListener('langchange', () => {
   const active = document.querySelector('.services__list li.is-active');
   if (active) activateService(active);
@@ -447,13 +464,14 @@ filterButtons.forEach((button) => {
 //   ratio:    width / height of the frame
 //   position: which part of the video to show when the frame crops it
 const FOOTNOTE_MEDIA = {
-  fn1: { src: 'https://media.tenor.com/ikqm5TccRnoAAAPo/tvg-galego.mp4', ratio: 1.81818, label: 'Tvg Galego GIF', credit: 'https://tenor.com/view/tvg-galego-galiza-galicia-serramoura-gif-17697865' },
-  fn2: { src: 'https://media.tenor.com/uC9B5qE3SDAAAAPo/asain-japan.mp4', ratio: 1.78771, label: 'Asain Japan GIF', credit: 'https://tenor.com/view/asain-japan-gif-19431061' },
+  fn1: { src: 'https://media.tenor.com/uC9B5qE3SDAAAAPo/asain-japan.mp4', ratio: 1.78771, label: 'Asain Japan GIF', credit: 'https://tenor.com/view/asain-japan-gif-19431061' },
+  fn2: { src: 'https://media.tenor.com/9-O8W8FeUUwAAAPo/absolute-cinema.mp4', ratio: 1, label: 'Absolute Cinema GIF', credit: 'https://tenor.com/view/absolute-cinema-raccoon-absolute-cinema-gif-17862327649353748812' },
   // only the bottom scene of this GIF (466x357 of 466x640)
   fn3: { src: 'https://media.tenor.com/cRt6jjaaTT4AAAPo/diy-the-simpsons.mp4', ratio: 466 / 357, position: 'center bottom', label: 'Diy The Simpsons GIF', credit: 'https://tenor.com/view/diy-the-simpsons-ralph-wiggum-crafts-other-girls-gif-16552779' },
   fn4: { src: 'https://media.tenor.com/3TEqWT1vov4AAAPo/big-book-huge-book.mp4', ratio: 0.674699, label: 'Big Book Huge Book GIF', credit: 'https://tenor.com/view/big-book-huge-book-big-book-meme-thick-book-meme-struggling-to-turn-page-gif-15938567119012078334' },
-  fn5: { src: 'https://media.tenor.com/Jaz8h4LUeRMAAAPo/santiago.mp4', ratio: 1.33663, label: 'Santiago GIF', credit: 'https://tenor.com/view/santiago-gif-9684106' },
-  fn6: { src: 'https://media.tenor.com/vKftz2A4_jIAAAPo/mc-escher-escher.mp4', ratio: 1.35593, label: 'Mc Escher Escher GIF', credit: 'https://tenor.com/view/mc-escher-escher-mcesher-impossible-stairs-stairs-gif-23297343' },
+  fn5: { src: 'https://media.tenor.com/vKftz2A4_jIAAAPo/mc-escher-escher.mp4', ratio: 1.35593, label: 'Mc Escher Escher GIF', credit: 'https://tenor.com/view/mc-escher-escher-mcesher-impossible-stairs-stairs-gif-23297343' },
+  fn6: { src: 'https://media.tenor.com/a-6d7Eb-LoUAAAPo/yo-haciendo-yoga.mp4', ratio: 624 / 640, label: 'Yo Haciendo Yoga GIF', credit: 'https://tenor.com/view/yo-haciendo-yoga-gif-22817625' },
+  fn7: { src: 'https://media.tenor.com/eBMZeTXtYskAAAPo/sorority-sisterhood.mp4', ratio: 1, label: 'Sorority Sisterhood GIF', credit: 'https://tenor.com/view/sorority-sisterhood-help-gif-8083667' },
 };
 const humanSection = document.querySelector('.human');
 if (humanSection) {
@@ -462,8 +480,6 @@ if (humanSection) {
   pop.setAttribute('aria-hidden', 'true');
   const credit = document.createElement('a');
   credit.className = 'fn-pop__credit';
-  credit.target = '_blank';
-  credit.rel = 'noopener';
   credit.textContent = 'via Tenor';
   pop.appendChild(credit);
   document.body.appendChild(pop);
@@ -551,3 +567,84 @@ if (humanSection) {
   });
   window.addEventListener('scroll', () => { if (current) hide(); }, { passive: true });
 }
+
+// ---------- Case page: the contents list highlights the section being read ----------
+const csToc = document.querySelector('.cs-toc');
+if (csToc) {
+  const links = [...csToc.querySelectorAll('a[href^="#"]')];
+  const sections = links.map((a) => document.querySelector(a.getAttribute('href'))).filter(Boolean);
+  let activeId = null;
+  const onScroll = () => {
+    const line = window.innerHeight * 0.3;
+    let current = sections[0];
+    sections.forEach((s) => { if (s.getBoundingClientRect().top <= line) current = s; });
+    if (current.id === activeId) return;
+    activeId = current.id;
+    links.forEach((a) => {
+      const on = a.getAttribute('href') === '#' + activeId;
+      a.classList.toggle('is-active', on);
+      if (on) {
+        a.setAttribute('aria-current', 'true');
+        // mobile: the contents bar scrolls sideways, keep the active link centred
+        const list = a.closest('ol');
+        if (list.scrollWidth > list.clientWidth) {
+          list.scrollTo({ left: a.offsetLeft - (list.clientWidth - a.offsetWidth) / 2, behavior: 'smooth' });
+        }
+      } else {
+        a.removeAttribute('aria-current');
+      }
+    });
+  };
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+}
+
+// ---------- DxC Final product: walkthrough in a desktop browser ----------
+// Plays the screens in order while the demo is on screen; the step bars jump to a screen.
+document.querySelectorAll('[data-demo]').forEach((demo) => {
+  const shots = [...demo.querySelectorAll('.dx-demo__shot')];
+  const bars = [...demo.querySelectorAll('.dx-demo__steps button')];
+  const caption = demo.querySelector('.dx-demo__caption');
+  const screen = demo.querySelector('.dx-demo__screen');
+  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const STEP = 3400;
+  let index = 0, timer = null, visible = false;
+
+  const show = (i) => {
+    index = (i + shots.length) % shots.length;
+    clearTimeout(timer);
+    shots.forEach((s, n) => {
+      s.classList.toggle('is-active', n === index);
+      if (s.hasAttribute('data-scroll')) { s.style.setProperty('--scroll-t', '0s'); s.style.setProperty('--scroll-y', '0px'); }
+    });
+    bars.forEach((b, n) => { b.classList.toggle('is-done', n < index); b.classList.remove('is-active'); });
+    caption.textContent = shots[index].dataset.caption;
+    demo.classList.toggle('is-pinned', shots[index].hasAttribute('data-scroll'));
+    const shot = shots[index];
+    let duration = STEP;
+    if (shot.hasAttribute('data-scroll') && !reduced) {
+      // hold, scroll to the bottom of the form, hold
+      const distance = shot.offsetHeight - screen.offsetHeight;
+      const scrollTime = Math.max(2500, distance * 6);
+      duration = 1000 + scrollTime + 1200;
+      setTimeout(() => {
+        if (index !== shots.indexOf(shot)) return;
+        shot.style.setProperty('--scroll-t', scrollTime + 'ms');
+        shot.style.setProperty('--scroll-y', -distance + 'px');
+      }, 1000);
+    }
+    const bar = bars[index];
+    bar.style.setProperty('--step-t', duration + 'ms');
+    void bar.offsetWidth; // restart the progress animation
+    bar.classList.add('is-active');
+    if (!reduced && visible) timer = setTimeout(() => show(index + 1), duration);
+  };
+
+  bars.forEach((b, n) => b.addEventListener('click', () => show(n)));
+  new IntersectionObserver(([entry]) => {
+    visible = entry.isIntersecting;
+    demo.classList.toggle('is-paused', !visible);
+    if (visible && !reduced) show(index); else clearTimeout(timer);
+  }, { threshold: 0.4 }).observe(demo);
+  show(0);
+});

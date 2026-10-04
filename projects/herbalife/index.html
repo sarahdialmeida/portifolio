@@ -22,18 +22,18 @@
   <meta property="og:title" content="Herbalife • Sarah Albagli" />
   <meta property="og:description" content="Designing a customizable profile builder for Herbalife distributors." />
   <meta property="og:url" content="https://sarahalbagli.vercel.app/projects/herbalife/" />
-  <meta property="og:image" content="https://sarahalbagli.vercel.app/og-image.jpg" />
+  <meta property="og:image" content="https://sarahalbagli.vercel.app/assets/og-image.jpg" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
   <meta property="og:image:alt" content="Sarah Albagli, Product Designer" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Herbalife • Sarah Albagli" />
   <meta name="twitter:description" content="Designing a customizable profile builder for Herbalife distributors." />
-  <meta name="twitter:image" content="https://sarahalbagli.vercel.app/og-image.jpg" />
-  <link rel="icon" href="/favicon.ico" sizes="32x32" />
-  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png" />
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
-  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <meta name="twitter:image" content="https://sarahalbagli.vercel.app/assets/og-image.jpg" />
+  <link rel="icon" href="/assets/favicon.ico" sizes="32x32" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png" />
+  <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
@@ -50,7 +50,7 @@
     <nav class="header__nav">
       <a href="/about/" data-i18n="nav.about">About</a>
       <a href="/projects/" data-i18n="nav.work">Projects</a>
-      <a href="https://www.linkedin.com/in/sarahalbagli/" target="_blank" rel="noopener">LinkedIn <span class="arrow-up">↗</span></a>
+      <a href="https://www.linkedin.com/in/sarahalbagli/">LinkedIn <span class="arrow-up">↗</span></a>
     </nav>
     <a href="/assets/sarah-albagli-cv.pdf" class="btn-cv" download>
       <span data-i18n="nav.cv">Download my CV</span>
@@ -62,7 +62,7 @@
       <button type="button" data-lang="es" aria-pressed="false">ES</button>
     </div>
     <button class="menu-toggle" aria-expanded="false" aria-controls="menu">
-      <span class="menu-toggle__lines" aria-hidden="true"><span></span><span></span></span>
+      <span class="menu-toggle__lines" aria-hidden="true"><span></span><span></span><span></span></span>
       <span class="menu-toggle__label" data-i18n="menu.label">Menu</span>
     </button>
   </header>
@@ -81,7 +81,7 @@
       <a href="/" data-label="Home"><span data-i18n="menu.home">Home</span></a>
       <a href="/about/" data-label="About"><span data-i18n="menu.about">About</span></a>
       <a href="/projects/" data-label="Projects"><span data-i18n="menu.projects">Projects</span></a>
-      <a href="https://www.linkedin.com/in/sarahalbagli/" target="_blank" rel="noopener" data-label="LinkedIn ↗"><span>LinkedIn ↗</span></a>
+      <a href="https://www.linkedin.com/in/sarahalbagli/" data-label="LinkedIn ↗"><span>LinkedIn ↗</span></a>
       <a href="/assets/sarah-albagli-cv.pdf" download data-label="Download my CV"><span data-i18n="nav.cv">Download my CV</span></a>
     </nav>
   </div>
@@ -90,9 +90,9 @@
 
     <!-- Hero -->
     <section class="case-hero" data-hero>
-      <img class="case-hero__img" src="/assets/img/herbalife.jpg" alt="Herbalife app on a phone, held against a blue perforated wall" />
+      <img class="case-hero__img" src="/assets/img/herbalife/hero-herbalife.jpg" alt="Herbalife app on a phone, held against a blue perforated wall" />
       <div class="case-hero__content">
-        <ul class="tags tags--dark"><li data-i18n="tag.webmobile">Web &amp; Mobile</li><li data-i18n="tag.designsystem">Design System</li><li data-i18n="tag.uidesign">UI Design</li></ul>
+        <ul class="tags tags--dark"><li data-i18n="tag.webmobile">Web &amp; Mobile</li><li data-i18n="tag.designsystem">Design System</li><li data-i18n="tag.uidesign">UI Design</li><li>B2B</li></ul>
         <h1 class="case-hero__title" data-i18n="case.herbalife.title">One system, every distributor profile</h1>
         <p class="case-hero__summary" data-i18n="case.herbalife.desc">Designing a customizable profile builder for Herbalife distributors. A component system that lets each distributor personalize their space while keeping the brand consistent.</p>
         <p class="case-hero__year">2023</p>
@@ -101,140 +101,172 @@
 
     <!-- Project facts -->
     <dl class="case-meta">
-      <div><dt data-i18n="meta.client">Client</dt><dd>Herbalife</dd></div>
-      <div><dt data-i18n="meta.role">Role</dt><dd data-i18n="hl.role">UI Designer</dd></div>
-      <div><dt data-i18n="meta.duration">Duration</dt><dd data-i18n="hl.duration">8 months</dd></div>
-      <div><dt data-i18n="meta.year">Year</dt><dd>2023</dd></div>
+      <div><dt data-i18n="meta.role">Role</dt><dd>UI Designer</dd></div>
+      <div><dt>Timeline</dt><dd>2023, 8 months</dd></div>
+      <div><dt>Team</dt><dd>Cross-functional pods</dd></div>
+      <div><dt>Tools</dt><dd>Figma</dd></div>
     </dl>
 
-    <div class="case-body">
+    <div class="cs-layout">
 
-      <div class="case-row case-row--text">
-  <section class="case-block">
-          <h2 class="case-block__label" data-i18n="hl.b0.label">Overview</h2>
-          <div class="case-block__content">
-            <p class="case-block__text" data-i18n="hl.b0.text">This project was about making shopping simpler and more trustworthy through clear navigation, a secure checkout, and integrated support. At the same time, we gave Herbalife distributors the tools to personalize the experience for their clients maintaining a consistent brand.</p>
-          </div>
-        </section>
-      </div>
+      <!-- Contents: sticks on the left while you scroll; the active link follows the section being read (see script.js) -->
+      <nav class="cs-toc" aria-label="Case sections">
+        <p class="cs-toc__title">Contents</p>
+        <ol class="cs-toc__list">
+          <li><a href="#tldr">TL;DR</a></li>
+          <li><a href="#problem">Problem</a></li>
+          <li><a href="#process">Process</a></li>
+          <li><a href="#final-product">Final product</a></li>
+          <li><a href="#why-it-mattered">Why it mattered</a></li>
+          <li><a href="#impact">Impact</a></li>
+        </ol>
+      </nav>
 
-      <div class="case-row case-row--flip">
-  <section class="case-block">
-          <h2 class="case-block__label" data-i18n="hl.b1.label">Creative Process</h2>
-          <div class="case-block__content">
-            <p class="case-block__text" data-i18n="hl.b1.text">The project was organized into cross-functional pods with the flexibility to shift focus each sprint. The final solution evolved through four structured phases: Discovery &amp; Research, Prioritization, Custom Design System, and High-Fidelity Design &amp; Handoff.</p>
-            <p class="case-block__note" data-i18n="hl.b1.note">Each phase reinforced alignment between business requirements, user needs, and scalable interface standards.</p>
-          </div>
-        </section>
+    <div class="cs-body">
 
-        <figure class="case-figure case-figure--device">
-          <img src="/assets/img/herbalife/creative-process.webp" width="1212" height="1555" alt="Tablet showing the Herbalife Formula 1 product page" loading="lazy" />
-        </figure>
-      </div>
-
-      <div class="case-row">
-  <section class="case-block">
-          <h2 class="case-block__label" data-i18n="hl.b2.label">Discovery &amp; Research</h2>
-          <div class="case-block__content">
-            <p class="case-block__text" data-i18n="hl.b2.text">The design process was deeply collaborative, starting from understanding real user pain points and working through prioritization, testing, and delivery. What made it complex was designing for both distributors trying to connect with clients, and customers trying to trust a brand.</p>
-          </div>
-        </section>
-
-        <!-- Carousel: arrows to switch; on first view it nudges sideways to hint at the next image -->
-        <figure class="case-figure case-carousel" aria-roledescription="carousel" aria-label="Discovery and research boards">
-          <div class="case-carousel__viewport">
-            <div class="case-carousel__track">
-              <img class="case-carousel__slide" src="/assets/img/herbalife/discovery-1.jpg" width="1229" height="803" alt="Research boards: guidelines and case studies, a user journey map, and persona cards with experience opportunities" loading="lazy" />
-              <img class="case-carousel__slide" src="/assets/img/herbalife/discovery-2.jpg" width="1229" height="803" alt="Persona boards for four distributor profiles, a priority matrix and mapped needs per persona" loading="lazy" />
-            </div>
-          </div>
-          <button type="button" class="case-carousel__btn case-carousel__btn--prev" aria-label="Previous image"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
-          <button type="button" class="case-carousel__btn case-carousel__btn--next" aria-label="Next image"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
-          <div class="case-carousel__dots" aria-hidden="true"><span class="is-active"></span><span></span></div>
-        </figure>
-      </div>
-
-      <div class="case-row case-row--flip">
-  <section class="case-block">
-          <h2 class="case-block__label" data-i18n="hl.b3.label">Prioritization</h2>
-          <div class="case-block__content">
-            <p class="case-block__text" data-i18n="hl.b3.text">The team uncovered over 120 Jobs to Be Done across the personas. Prioritization sessions translated research insights into structured feature sets, defining what would be standardized versus customizable within the platform.</p>
-          </div>
-        </section>
-
-        <figure class="case-figure case-figure--natural">
-          <img src="/assets/img/herbalife/prioritization.webp" width="1084" height="942" alt="Prioritization flow: personas, interviews, surveys and quantitative data led to 120+ jobs to be done, prioritized into key features and priorities for each persona" loading="lazy" />
-        </figure>
-      </div>
-
-      <div class="case-row">
-  <section class="case-block">
-          <h2 class="case-block__label" data-i18n="hl.b4.label">Custom Design System</h2>
-          <div class="case-block__content">
-            <p class="case-block__text" data-i18n="hl.b4.text">To ensure consistency and scalability, we structured a dedicated design system library in Figma. Components were built using Auto Layout and variant logic, enabling flexible, reusable patterns across breakpoints. The system balanced global brand standards with controlled customization options for distributors.</p>
-          </div>
-        </section>
-
-        <figure class="case-figure case-figure--natural">
-          <img src="/assets/img/herbalife/custom-design-system.jpg" width="1229" height="803" alt="Herbalife design system in Figma: guideline pages for typography, color, spacing, icons, buttons and forms, plus the library of component files" loading="lazy" />
-        </figure>
-      </div>
-
-      <div class="case-row case-row--flip">
-  <section class="case-block">
-          <h2 class="case-block__label" data-i18n="hl.b5.label">High Fidelity &amp; Handoff</h2>
-          <div class="case-block__content">
-            <p class="case-block__text" data-i18n="hl.b5.text">We delivered comprehensive handoff documentation including UX annotations, UI guidelines, motion specifications, and component behavior definitions to ensure engineering alignment and implementation accuracy.</p>
-          </div>
-        </section>
-
-        <figure class="case-figure case-figure--spec">
-          <a href="/assets/img/herbalife/high-fidelity-handoff.jpg" target="_blank" rel="noopener">
-            <img src="/assets/img/herbalife/high-fidelity-handoff.jpg" width="1663" height="2952" alt="Annotated high-fidelity spec of the Weight Management product listing page, on mobile and desktop, with numbered notes on each component" loading="lazy" />
-          </a>
-        </figure>
-      </div>
-
-      <div class="case-row">
-  <section class="case-block">
-          <h2 class="case-block__label" data-i18n="hl.b6.label">Why it mattered</h2>
-          <div class="case-block__content">
-            <p class="case-block__text" data-i18n="hl.b6.text">One challenge was ensuring privacy controls while maintaining an easy-to-use interface. Our team developed an accessible settings menu that lets users control visibility without overwhelming them.</p>
-            <p class="case-block__note" data-i18n="hl.b6.note">Designing an ad-free experience meant creating engaging content flows without traditional ads. We achieved this by focusing on rich, visual content and user-driven discovery options.</p>
-          </div>
-        </section>
-
-        <!-- Phone mockup with the product page recording playing on its screen -->
-        <figure class="case-figure mockup">
-          <div class="mockup__device">
-            <img class="mockup__frame" src="/assets/img/herbalife/phone-frame.png" alt="" />
-            <div class="mockup__screen">
-              <div class="mockup__status" aria-hidden="true">
-                <span class="mockup__time">9:41</span>
-                <span class="mockup__island"></span>
-                <span class="mockup__icons">
-                  <svg viewBox="0 0 18 12"><rect x="0" y="8" width="3" height="4" rx="1"/><rect x="5" y="5.5" width="3" height="6.5" rx="1"/><rect x="10" y="3" width="3" height="9" rx="1"/><rect x="15" y="0" width="3" height="12" rx="1"/></svg>
-                  <svg viewBox="0 0 16 12"><path d="M8 2.2c2.4 0 4.6.9 6.3 2.5l1.2-1.2A10.6 10.6 0 0 0 8 .5 10.6 10.6 0 0 0 .5 3.5l1.2 1.2A9 9 0 0 1 8 2.2z"/><path d="M8 5.6c1.5 0 2.9.6 4 1.6l1.2-1.2A7.3 7.3 0 0 0 8 3.9a7.3 7.3 0 0 0-5.2 2.1L4 7.2a5.7 5.7 0 0 1 4-1.6z"/><path d="M8 9c.6 0 1.1.2 1.6.6L8 11.5 6.4 9.6C6.9 9.2 7.4 9 8 9z"/></svg>
-                  <svg viewBox="0 0 27 12"><rect x=".6" y=".6" width="22.8" height="10.8" rx="3.2" fill="none" stroke="currentColor" stroke-opacity=".4" stroke-width="1.2"/><rect x="2.4" y="2.4" width="19.2" height="7.2" rx="1.8"/><path d="M25 4v4c.8-.3 1.4-1.1 1.4-2s-.6-1.7-1.4-2z" fill-opacity=".45"/></svg>
-                </span>
-              </div>
-              <div class="mockup__app">
-                <video class="media-video" src="/assets/img/herbalife/pdp-mobile.mp4" poster="/assets/img/herbalife/pdp-mobile-poster.jpg" autoplay muted loop playsinline disablepictureinpicture preload="auto" aria-label="Herbalife product page on mobile: browsing a product and adding it to the bag"></video>
-              </div>
-            </div>
-          </div>
-        </figure>
-      </div>
-
-      <section class="case-block case-block--stacked">
-        <h2 class="case-block__label" data-i18n="hl.b7.label">Big Achievements</h2>
-        <div class="case-achievements">
-          <video class="case-video" src="/assets/img/herbalife/achievements.mp4" poster="/assets/img/herbalife/achievements-poster.jpg" playsinline preload="none" aria-label="Herbalife project achievements video"></video>
-          <button type="button" class="case-video__play" aria-label="Play the Herbalife achievements video">
-            <svg width="28" height="28" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l10.5-6.5z" fill="currentColor"/></svg>
-          </button>
+      <!-- TL;DR -->
+      <section class="cs-section" id="tldr">
+        <p class="cs-section__label eyebrow">TL;DR</p>
+        <div class="cs-section__content">
+          <p class="cs-lead">This project was about making shopping simpler and more trustworthy through clear navigation, a secure checkout, and integrated support.</p>
+          <p class="cs-text">At the same time, we gave Herbalife distributors the tools to personalize the experience for their clients while keeping the brand consistent.</p>
+          <dl class="cs-stats cs-stats--inline">
+            <div><dt>120+</dt><dd>jobs to be done uncovered across the personas</dd></div>
+            <div><dt>4</dt><dd>phases, from discovery to handoff</dd></div>
+          </dl>
         </div>
       </section>
+
+      <!-- Problem -->
+      <section class="cs-section" id="problem">
+        <p class="cs-section__label eyebrow">Problem</p>
+        <div class="cs-section__content">
+          <h2 class="cs-heading">Two audiences, one brand</h2>
+          <p class="cs-text">What made it complex was designing for both at once: distributors trying to connect with their clients, and customers trying to trust a brand.</p>
+          <div class="cs-callout">
+            <p class="cs-callout__label">The challenge</p>
+            <p class="cs-callout__text">Let every distributor personalize their space, without breaking the brand.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Process -->
+      <section class="cs-section" id="process">
+        <p class="cs-section__label eyebrow">Process</p>
+        <div class="cs-section__content">
+          <h2 class="cs-heading">Four phases, one direction</h2>
+          <p class="cs-text">The project was organized into cross-functional pods with the flexibility to shift focus each sprint. Each phase reinforced alignment between business requirements, user needs, and scalable interface standards.</p>
+          <ol class="cs-steps">
+            <li>
+              <span class="cs-steps__num">01</span>
+              <div>
+                <h3>Discovery &amp; Research</h3>
+                <p>The design process was deeply collaborative, starting from understanding real user pain points and working through prioritization, testing, and delivery.</p>
+                <!-- Carousel: arrows to switch; on first view it nudges sideways to hint at the next image -->
+                <figure class="case-figure case-carousel" aria-roledescription="carousel" aria-label="Discovery and research boards">
+                <div class="case-carousel__viewport">
+                <div class="case-carousel__track">
+                <img class="case-carousel__slide" src="/assets/img/herbalife/discovery-1.jpg" width="1229" height="803" alt="Research boards: guidelines and case studies, a user journey map, and persona cards with experience opportunities" loading="lazy" />
+                <img class="case-carousel__slide" src="/assets/img/herbalife/discovery-2.jpg" width="1229" height="803" alt="Persona boards for four distributor profiles, a priority matrix and mapped needs per persona" loading="lazy" />
+                </div>
+                </div>
+                <button type="button" class="case-carousel__btn case-carousel__btn--prev" aria-label="Previous image"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+                <button type="button" class="case-carousel__btn case-carousel__btn--next" aria-label="Next image"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+                <div class="case-carousel__dots" aria-hidden="true"><span class="is-active"></span><span></span></div>
+                </figure>
+              </div>
+            </li>
+            <li>
+              <span class="cs-steps__num">02</span>
+              <div>
+                <h3>Prioritization</h3>
+                <p>The team uncovered over 120 Jobs to Be Done across the personas. Prioritization sessions translated research insights into structured feature sets, defining what would be standardized versus customizable within the platform.</p>
+                <figure class="case-figure case-figure--natural">
+                  <img src="/assets/img/herbalife/prioritization.webp" width="1084" height="942" alt="Prioritization flow: personas, interviews, surveys and quantitative data led to 120+ jobs to be done, prioritized into key features and priorities for each persona" loading="lazy" />
+                </figure>
+              </div>
+            </li>
+            <li>
+              <span class="cs-steps__num">03</span>
+              <div>
+                <h3>Custom Design System</h3>
+                <p>To ensure consistency and scalability, we structured a dedicated design system library in Figma. Components were built using Auto Layout and variant logic, enabling flexible, reusable patterns across breakpoints. The system balanced global brand standards with controlled customization options for distributors.</p>
+                <figure class="case-figure case-figure--natural">
+                  <img src="/assets/img/herbalife/custom-design-system.jpg" width="1229" height="803" alt="Herbalife design system in Figma: guideline pages for typography, color, spacing, icons, buttons and forms, plus the library of component files" loading="lazy" />
+                </figure>
+              </div>
+            </li>
+            <li>
+              <span class="cs-steps__num">04</span>
+              <div>
+                <h3>High Fidelity &amp; Handoff</h3>
+                <p>We delivered comprehensive handoff documentation including UX annotations, UI guidelines, motion specifications, and component behavior definitions to ensure engineering alignment and implementation accuracy.</p>
+                <figure class="case-figure case-figure--spec">
+                  <img src="/assets/img/herbalife/high-fidelity-handoff.jpg" width="1663" height="2952" alt="Annotated high-fidelity spec of the Weight Management product listing page, on mobile and desktop, with numbered notes on each component" loading="lazy" />
+                </figure>
+              </div>
+            </li>
+          </ol>
+        </div>
+      </section>
+
+      <!-- Final product -->
+      <section class="cs-section" id="final-product">
+        <p class="cs-section__label eyebrow">Final product</p>
+        <div class="cs-section__content">
+          <h2 class="cs-heading">The same store, on every screen</h2>
+        </div>
+        <div class="cs-figures cs-figures--devices">
+          <figure class="case-figure case-figure--device">
+            <img src="/assets/img/herbalife/creative-process.webp" width="1212" height="1555" alt="Tablet showing the Herbalife Formula 1 product page" loading="lazy" />
+          </figure>
+          <!-- Phone mockup with the product page recording playing on its screen -->
+          <figure class="case-figure mockup">
+          <div class="mockup__device">
+          <img class="mockup__frame" src="/assets/img/herbalife/phone-frame.png" alt="" />
+          <div class="mockup__screen">
+          <div class="mockup__status" aria-hidden="true">
+          <span class="mockup__time">9:41</span>
+          <span class="mockup__island"></span>
+          <span class="mockup__icons">
+          <svg viewBox="0 0 18 12"><rect x="0" y="8" width="3" height="4" rx="1"/><rect x="5" y="5.5" width="3" height="6.5" rx="1"/><rect x="10" y="3" width="3" height="9" rx="1"/><rect x="15" y="0" width="3" height="12" rx="1"/></svg>
+          <svg viewBox="0 0 16 12"><path d="M8 2.2c2.4 0 4.6.9 6.3 2.5l1.2-1.2A10.6 10.6 0 0 0 8 .5 10.6 10.6 0 0 0 .5 3.5l1.2 1.2A9 9 0 0 1 8 2.2z"/><path d="M8 5.6c1.5 0 2.9.6 4 1.6l1.2-1.2A7.3 7.3 0 0 0 8 3.9a7.3 7.3 0 0 0-5.2 2.1L4 7.2a5.7 5.7 0 0 1 4-1.6z"/><path d="M8 9c.6 0 1.1.2 1.6.6L8 11.5 6.4 9.6C6.9 9.2 7.4 9 8 9z"/></svg>
+          <svg viewBox="0 0 27 12"><rect x=".6" y=".6" width="22.8" height="10.8" rx="3.2" fill="none" stroke="currentColor" stroke-opacity=".4" stroke-width="1.2"/><rect x="2.4" y="2.4" width="19.2" height="7.2" rx="1.8"/><path d="M25 4v4c.8-.3 1.4-1.1 1.4-2s-.6-1.7-1.4-2z" fill-opacity=".45"/></svg>
+          </span>
+          </div>
+          <div class="mockup__app">
+          <video class="media-video" src="/assets/img/herbalife/pdp-mobile.mp4" poster="/assets/img/herbalife/pdp-mobile-poster.jpg" autoplay muted loop playsinline disablepictureinpicture preload="auto" aria-label="Herbalife product page on mobile: browsing a product and adding it to the bag"></video>
+          </div>
+          </div>
+          </div>
+          </figure>
+        </div>
+      </section>
+
+      <!-- Why it mattered -->
+      <section class="cs-section" id="why-it-mattered">
+        <p class="cs-section__label eyebrow">Why it mattered</p>
+        <div class="cs-section__content">
+          <p class="cs-lead">One challenge was ensuring privacy controls while maintaining an easy-to-use interface. Our team developed an accessible settings menu that lets users control visibility without overwhelming them.</p>
+          <p class="cs-text">Designing an ad-free experience meant creating engaging content flows without traditional ads. We achieved this by focusing on rich, visual content and user-driven discovery options.</p>
+        </div>
+      </section>
+
+      <!-- Impact -->
+      <section class="cs-section" id="impact">
+        <p class="cs-section__label eyebrow">Impact</p>
+        <div class="cs-section__content">
+          <h2 class="cs-heading">Big achievements</h2>
+        </div>
+        <div class="case-achievements">
+        <video class="case-video" src="/assets/img/herbalife/achievements.mp4" poster="/assets/img/herbalife/achievements-poster.jpg" playsinline preload="none" aria-label="Herbalife project achievements video"></video>
+        <button type="button" class="case-video__play" aria-label="Play the Herbalife achievements video">
+        <svg width="28" height="28" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l10.5-6.5z" fill="currentColor"/></svg>
+        </button>
+        </div>
+      </section>
+
+    </div>
 
     </div>
 
@@ -258,21 +290,11 @@
         </a>
 
         <a href="/projects/dxc/" class="case-card">
-          <img src="/assets/img/dxc.jpg" alt="" loading="lazy" />
+          <img src="/assets/img/dxc/hero-dxc.jpg" alt="" loading="lazy" />
           <ul class="tags tags--dark"><li data-i18n="tag.designsystem">Design System</li><li data-i18n="tag.uidesign">UI Design</li><li data-i18n="tag.research">Research</li></ul>
           <div class="case-card__text">
             <h3 data-i18n="case.dxc.title">Building a Shared Foundation</h3>
             <p data-i18n="case.dxc.desc">Fewer bug reports (~35%), consistent UI across modules, and a faster path from design to production.</p>
-          </div>
-        </a>
-
-        <a href="/projects/mccain/" class="case-card">
-          <img src="/assets/img/mccainmain.jpg" alt="" loading="lazy" />
-          <video class="media-video" src="/assets/mccainsmall.mp4" autoplay muted loop playsinline disablepictureinpicture preload="auto" aria-hidden="true"></video>
-          <ul class="tags tags--dark"><li data-i18n="tag.webmobile">Web &amp; Mobile</li><li data-i18n="tag.designsystem">Design System</li><li data-i18n="tag.uidesign">UI Design</li></ul>
-          <div class="case-card__text">
-            <h3>McCain</h3>
-            <p data-i18n="home.case.mccain.desc">A design system that gave design and engineering a shared language</p>
           </div>
         </a>
       </div>
@@ -289,32 +311,6 @@
     <p class="footer__copy" data-i18n="footer.copy">© 2026 | Created by me, powered by lofi music &amp; green tea.</p>
   </footer>
 
-  <!-- Spanish translations for this page (shared strings live in /i18n.js) -->
-  <script type="application/json" id="i18n-es">
-{
-  "hl.role": "Diseñadora UI",
-  "hl.duration": "8 meses",
-  "hl.b0.label": "Resumen",
-  "hl.b0.text": "Este proyecto buscaba hacer las compras más simples y confiables mediante una navegación clara, un checkout seguro y soporte integrado. Al mismo tiempo, dimos a los distribuidores de Herbalife las herramientas para personalizar la experiencia de sus clientes manteniendo una marca coherente.",
-  "hl.b1.label": "Proceso creativo",
-  "hl.b1.text": "El proyecto se organizó en pods multifuncionales con flexibilidad para cambiar de foco en cada sprint. La solución final evolucionó a través de cuatro fases estructuradas: discovery e investigación, priorización, sistema de diseño a medida, y diseño de alta fidelidad y handoff.",
-  "hl.b1.note": "Cada fase reforzó la alineación entre los requisitos de negocio, las necesidades de los usuarios y unos estándares de interfaz escalables.",
-  "hl.b2.label": "Discovery e investigación",
-  "hl.b2.text": "El proceso de diseño fue profundamente colaborativo, desde entender los problemas reales de los usuarios hasta la priorización, las pruebas y la entrega. Lo que lo hacía complejo era diseñar a la vez para distribuidores que intentaban conectar con sus clientes y para clientes que intentaban confiar en una marca.",
-  "hl.b3.label": "Priorización",
-  "hl.b3.text": "El equipo identificó más de 120 Jobs to Be Done entre las distintas personas. Las sesiones de priorización convirtieron los hallazgos de la investigación en conjuntos de funcionalidades estructurados, definiendo qué sería estándar y qué sería personalizable dentro de la plataforma.",
-  "hl.b4.label": "Sistema de diseño a medida",
-  "hl.b4.text": "Para garantizar coherencia y escalabilidad, estructuramos una librería de sistema de diseño dedicada en Figma. Los componentes se construyeron con Auto Layout y lógica de variantes, lo que permitió patrones flexibles y reutilizables en todos los breakpoints. El sistema equilibraba los estándares globales de marca con opciones de personalización controladas para los distribuidores.",
-  "hl.b5.label": "Alta fidelidad y handoff",
-  "hl.b5.text": "Entregamos documentación de handoff completa, con anotaciones de UX, guías de UI, especificaciones de motion y definiciones del comportamiento de los componentes, para asegurar la alineación con ingeniería y la precisión en la implementación.",
-  "hl.b6.label": "Por qué importó",
-  "hl.b6.text": "Uno de los retos fue garantizar controles de privacidad manteniendo una interfaz fácil de usar. Nuestro equipo desarrolló un menú de configuración accesible que permite a los usuarios controlar su visibilidad sin abrumarlos.",
-  "hl.b6.note": "Diseñar una experiencia sin anuncios implicó crear flujos de contenido atractivos sin publicidad tradicional. Lo logramos apostando por contenido visual rico y opciones de descubrimiento guiadas por el usuario.",
-  "hl.b7.label": "Grandes logros",
-  "hl.more.title": "Más proyectos",
-  "hl.more.all": "Todos los proyectos"
-}
-  </script>
   <script src="/i18n.js"></script>
   <script src="/script.js"></script>
 </body>

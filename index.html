@@ -11,18 +11,18 @@
   <meta property="og:title" content="Sarah Albagli • Product Designer" />
   <meta property="og:description" content="Senior Product Designer based in Spain." />
   <meta property="og:url" content="https://sarahalbagli.vercel.app/" />
-  <meta property="og:image" content="https://sarahalbagli.vercel.app/og-image.jpg" />
+  <meta property="og:image" content="https://sarahalbagli.vercel.app/assets/og-image.jpg" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
   <meta property="og:image:alt" content="Sarah Albagli, Product Designer" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Sarah Albagli • Product Designer" />
   <meta name="twitter:description" content="Senior Product Designer based in Spain." />
-  <meta name="twitter:image" content="https://sarahalbagli.vercel.app/og-image.jpg" />
-  <link rel="icon" href="/favicon.ico" sizes="32x32" />
-  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png" />
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
-  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <meta name="twitter:image" content="https://sarahalbagli.vercel.app/assets/og-image.jpg" />
+  <link rel="icon" href="/assets/favicon.ico" sizes="32x32" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png" />
+  <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
@@ -49,7 +49,7 @@
     <nav class="header__nav">
       <a href="./about" data-i18n="nav.about">About</a>
       <a href="./projects/" data-i18n="nav.work">Projects</a>
-      <a href="https://www.linkedin.com/in/sarahalbagli/" target="_blank" rel="noopener">LinkedIn <span class="arrow-up">↗</span></a>
+      <a href="https://www.linkedin.com/in/sarahalbagli/">LinkedIn <span class="arrow-up">↗</span></a>
     </nav>
     <a href="assets/sarah-albagli-cv.pdf" class="btn-cv" download>
       <span data-i18n="nav.cv">Download my CV</span>
@@ -61,7 +61,7 @@
       <button type="button" data-lang="es" aria-pressed="false">ES</button>
     </div>
     <button class="menu-toggle" aria-expanded="false" aria-controls="menu">
-      <span class="menu-toggle__lines" aria-hidden="true"><span></span><span></span></span>
+      <span class="menu-toggle__lines" aria-hidden="true"><span></span><span></span><span></span></span>
       <span class="menu-toggle__label" data-i18n="menu.label">Menu</span>
     </button>
   </header>
@@ -80,7 +80,7 @@
       <a href="./" data-label="Home" aria-current="page"><span data-i18n="menu.home">Home</span></a>
       <a href="./about/" data-label="About"><span data-i18n="menu.about">About</span></a>
       <a href="./projects/" data-label="Projects"><span data-i18n="menu.projects">Projects</span></a>
-      <a href="https://www.linkedin.com/in/sarahalbagli/" target="_blank" rel="noopener" data-label="LinkedIn ↗"><span>LinkedIn ↗</span></a>
+      <a href="https://www.linkedin.com/in/sarahalbagli/" data-label="LinkedIn ↗"><span>LinkedIn ↗</span></a>
       <a href="assets/sarah-albagli-cv.pdf" download data-label="Download my CV"><span data-i18n="nav.cv">Download my CV</span></a>
     </nav>
   </div>
@@ -120,35 +120,30 @@
 
       <div class="work__grid">
         <a href="./projects/herbalife" class="case case--a reveal">
-          <div class="case__media"><ul class="tags tags--dark case__tags"><li data-i18n="tag.webmobile">Web &amp; Mobile</li><li data-i18n="tag.designsystem">Design System</li><li data-i18n="home.svc2.name">UI Design</li></ul><img src="assets/img/herbalife.jpg" alt="Herbalife app on a phone" loading="lazy" /></div>
+          <div class="case__media"><ul class="tags tags--dark case__tags"><li data-i18n="tag.webmobile">Web &amp; Mobile</li><li data-i18n="tag.designsystem">Design System</li><li data-i18n="home.svc2.name">UI Design</li><li>B2B</li></ul><img src="assets/img/herbalife/hero-herbalife.jpg" alt="Herbalife app on a phone" loading="lazy" /></div>
           <h3 class="case__client">Herbalife <span class="case__dot" aria-hidden="true">•</span> 2023</h3>
           <p class="case__desc" data-i18n="case.herbalife.desc">Designing a customizable profile builder for Herbalife distributors. A component system that lets each distributor personalize their space while keeping the brand consistent.</p>
         </a>
 
         <a href="./projects/dxc" class="case case--b reveal">
-          <div class="case__media"><ul class="tags tags--dark case__tags"><li data-i18n="tag.designsystem">Design System</li><li data-i18n="home.svc2.name">UI Design</li><li data-i18n="tag.research">Research</li><li>B2B</li><li data-i18n="tag.accessibility">Accessibility</li></ul><img src="assets/img/dxc.jpg" alt="Dashboard on a laptop" loading="lazy" /></div>
+          <div class="case__media"><ul class="tags tags--dark case__tags"><li>SaaS</li><li data-i18n="tag.designsystem">Design System</li><li data-i18n="home.svc2.name">UI Design</li><li data-i18n="tag.research">Research</li><li>B2B</li><li data-i18n="tag.accessibility">Accessibility</li></ul><img src="assets/img/dxc/hero-dxc.jpg" alt="Dashboard on a laptop" loading="lazy" /></div>
           <h3 class="case__client">Diageo Experience Center <span class="case__dot" aria-hidden="true">•</span> 2024</h3>
           <p class="case__desc" data-i18n="home.case.dxc.desc">Building a Shared Foundation and the result was fewer bug reports (~35%), consistent UI across modules, and a faster path from design to production.</p>
         </a>
 
-        <a href="./projects/mccain" class="case case--c reveal">
+        <div class="case case--soon case--c reveal">
           <div class="case__media"><ul class="tags tags--dark case__tags"><li data-i18n="tag.webmobile">Web &amp; Mobile</li><li data-i18n="tag.designsystem">Design System</li><li data-i18n="home.svc2.name">UI Design</li><li data-i18n="tag.research">Research</li><li>B2B</li></ul><img src="assets/img/mccainmain.jpg" alt="McCain component library" loading="lazy" /><video class="media-video" src="assets/mccainsmall.mp4" autoplay muted loop playsinline disablepictureinpicture preload="auto" aria-hidden="true"></video></div>
-          <h3 class="case__client">McCain <span class="case__dot" aria-hidden="true">•</span> 2026</h3>
+          <h3 class="case__client">McCain <span class="case__dot" aria-hidden="true">•</span> 2026 <span class="case__dot" aria-hidden="true">•</span> <span class="case__soon">Coming soon</span></h3>
           <p class="case__desc" data-i18n="home.case.mccain.desc">A design system that gave design and engineering a shared language</p>
-        </a>
+        </div>
 
-        <!-- AI Hub: hidden for now. To bring it back, delete the "hidden" attribute on the line below. -->
-        <a href="./projects/ai-hub" class="case case--d reveal" hidden>
-          <div class="case__media"><ul class="tags tags--dark case__tags"><li data-i18n="tag.webmobile">Web &amp; Mobile</li><li data-i18n="tag.research">Research</li><li>B2B</li><li data-i18n="home.svc2.name">UI Design</li></ul><img src="assets/img/ai-hub.jpg" alt="AI Hub, coming soon" loading="lazy" /></div>
-          <h3 class="case__client">AI Hub <span class="case__dot" aria-hidden="true">•</span> 2026</h3>
+        <div class="case case--soon case--d reveal">
+          <div class="case__media"><ul class="tags tags--dark case__tags"><li data-i18n="tag.webmobile">Web &amp; Mobile</li><li data-i18n="tag.research">Research</li><li>B2B</li><li data-i18n="home.svc2.name">UI Design</li></ul><img src="assets/img/ai-hub.jpg?v=2" alt="AI Hub tool page on a phone" loading="lazy" /></div>
+          <h3 class="case__client">AI Hub <span class="case__dot" aria-hidden="true">•</span> 2026 <span class="case__dot" aria-hidden="true">•</span> <span class="case__soon">Coming soon</span></h3>
           <p class="case__desc" data-i18n="case.aihub.desc">Unifying tools, workflows and culture for 68,000 people across 120+ markets, in 15 languages.</p>
-        </a>
+        </div>
       </div>
 
-      <a href="./projects" class="all-cases">
-        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M3 12h18M14 5l7 7-7 7"/></svg>
-        <span data-i18n="home.allcases">All cases</span>
-      </a>
     </section>
 
     <!-- Clients -->

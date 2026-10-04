@@ -109,7 +109,7 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
 
 /* The Menu button only exists on tablet and mobile, where the nav links are hidden */
 .menu-toggle { display: none; align-items: center; gap: 20px; }
-.menu-toggle__lines { display: grid; gap: 8px; width: 42px; }
+.menu-toggle__lines { display: grid; gap: 7px; width: 42px; }
 .menu-toggle__lines span { height: 2px; background: currentColor; transition: transform 0.3s; }
 .menu-toggle__label { font-family: var(--font-display); font-size: 50px; line-height: 1; }
 
@@ -360,18 +360,6 @@ html.intro-active { overflow: hidden; }
   text-transform: uppercase;
 }
 
-.all-cases {
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  gap: 24px;
-  margin-top: 40px;
-  font-size: clamp(36px, 3.8vw, 55px);
-  font-weight: 500;
-  letter-spacing: -0.05em;
-}
-.all-cases svg { transition: transform 0.3s; }
-.all-cases:hover svg { transform: translateX(8px); }
 
 /* Autoplay videos sit invisibly over their image and fade in only once
    they are actually playing, so a blocked video never shows a play button */
@@ -472,7 +460,7 @@ html.intro-active { overflow: hidden; }
 }
 .footer__gradient { position: relative; height: clamp(200px, 28vw, 400px); margin-bottom: 56px; }
 .footer__label { font-size: 18px; font-weight: 500; margin-bottom: 6px; }
-.footer__email { display: inline-block; font-size: clamp(22px, 2.2vw, 32px); font-weight: 600; letter-spacing: -0.05em; margin-bottom: 40px; }
+.footer__email { display: inline-block; font-size: clamp(22px, 2.2vw, 32px); font-weight: 600; letter-spacing: -0.05em; margin-bottom: 28px; }
 .footer__email:hover { color: var(--red); }
 .footer__copy { font-size: 16px; font-weight: 500; color: var(--ink-soft); }
 
@@ -514,7 +502,6 @@ html.intro-active { overflow: hidden; }
   .case__client { font-size: 19px; }
   .case__tags { top: 14px; left: 14px; right: 40px; gap: 6px; }
   .case__tags li { padding: 6px 10px; font-size: 10px; }
-  .all-cases { justify-content: flex-start; }
 
   .services__body { grid-template-columns: 1fr; }
   .services__head { margin-bottom: 64px; }
@@ -534,7 +521,7 @@ html.intro-active { overflow: hidden; }
 @media (max-width: 480px) {
   .header { gap: 14px; }
   .logo, .menu-toggle__label { font-size: 32px; }
-  .menu-toggle__lines { display: none; }
+  .menu-toggle__lines { width: 26px; gap: 6px; }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -600,13 +587,10 @@ html.intro-active { overflow: hidden; }
   cursor: default;
 }
 .human__notes {
-  display: grid;
-  /* same columns as the paragraphs above: notes 1-3 left, 4-6 right */
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: repeat(3, auto);
-  grid-auto-flow: column;
+  /* same columns as the paragraphs above (notes 1-4 left, 5-7 right); text columns,
+     not grid rows, so a two-line note doesn't push down the note beside it */
+  columns: 2;
   column-gap: clamp(32px, 7vw, 110px);
-  row-gap: 8px;
   margin: 80px 0 0;
   padding: 32px 0 0;
   border-top: 1px solid rgba(255, 255, 255, 0.12);
@@ -614,6 +598,8 @@ html.intro-active { overflow: hidden; }
   counter-reset: fn;
 }
 .human__notes li {
+  break-inside: avoid;
+  margin-bottom: 8px;
   counter-increment: fn;
   font-family: "Gambetta", Georgia, serif;
   font-size: 20px;
@@ -623,6 +609,16 @@ html.intro-active { overflow: hidden; }
 }
 .human__notes li::before { content: counter(fn); color: var(--red); margin-right: 8px; }
 .human__notes li.is-on { color: #fff; }
+
+/* Desktop: the whole section fits in one screen, so type and spacing follow the viewport height too */
+@media (min-width: 861px) {
+  .human { display: flex; flex-direction: column; justify-content: center; min-height: calc(100vh - 54px); padding: clamp(24px, 5vh, 64px) var(--gutter); }
+  .human__eyebrow { margin-bottom: clamp(16px, 3.5vh, 48px); font-size: 20px; }
+  .human__col p { font-size: clamp(15px, min(1.3vw, 2.3vh), 22px); line-height: 1.5; }
+  .human__col p + p { margin-top: 0.8em; }
+  .human__notes { margin-top: clamp(16px, 3.5vh, 48px); padding-top: clamp(12px, 2.2vh, 24px); }
+  .human__notes li { margin-bottom: 4px; font-size: clamp(15px, min(1.25vw, 2.3vh), 20px); }
+}
 
 
 /* Workstation photo */
@@ -671,6 +667,12 @@ html.intro-active { overflow: hidden; }
   height: 8px;
   border-top: 2px solid var(--red);
   border-right: 2px solid var(--red);
+}
+/* Bright cover (DxC): darken the top too, so the white header links stay readable */
+.case-hero--scrim::before {
+  background:
+    linear-gradient(180deg, rgba(0,0,0,0.55) 0, rgba(0,0,0,0.25) 110px, rgba(0,0,0,0) 200px),
+    linear-gradient(180deg, rgba(0,0,0,0) 30%, rgba(0,0,0,0.55) 100%);
 }
 .case-hero__content { position: relative; z-index: 2; padding: 0 clamp(16px, 2.5vw, 30px) 64px; max-width: 1000px; }
 .case-hero__title {
@@ -756,7 +758,8 @@ html.intro-active { overflow: hidden; }
   letter-spacing: -0.06em;
   margin-bottom: 56px;
 }
-.case-more__row { display: grid; grid-template-columns: 90px 1fr 1fr; gap: 20px; }
+/* only published cases are listed here (no "Coming soon" ones); the cards share the width, however many there are */
+.case-more__row { display: grid; grid-template-columns: 90px repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
 .case-more__all {
   position: relative;
   display: flex;
@@ -801,7 +804,7 @@ html.intro-active { overflow: hidden; }
   .human__cols { grid-template-columns: 1fr; gap: 0; }
   /* one column: keep the paragraph rhythm across the two columns */
   .human__col + .human__col p:first-child { margin-top: 1.1em; }
-  .human__notes { grid-template-columns: 1fr; grid-template-rows: none; grid-auto-flow: row; margin-top: 48px; }
+  .human__notes { columns: 1; margin-top: 48px; }
 
   .about-photo { padding-bottom: 64px; }
   .about-photo__caption { flex-direction: column; gap: 4px; }
@@ -1001,7 +1004,7 @@ html.intro-active { overflow: hidden; }
 .marquee__track { display: flex; width: max-content; animation: marquee 30s linear infinite; }
 .marquee__set { display: flex; }
 .books .marquee__set { gap: 16px; padding-right: 16px; }
-.books img { display: block; height: 300px; width: auto; border-radius: 14px; }
+.books img { display: block; height: 300px; width: auto; border-radius: 14px; outline: 1px solid rgba(12, 12, 12, 0.1); outline-offset: -1px; } /* the hairline keeps white covers from melting into the page */
 .books__marquee:hover .marquee__track { animation-play-state: paused; }
 
 @media (max-width: 860px) {
@@ -1054,7 +1057,7 @@ html.intro-active { overflow: hidden; }
    frame, so it is scaled and offset to show only the app inside that frame. */
 .case-figure.mockup { overflow: visible; border-radius: 0; }
 .mockup__device { position: relative; width: 23.25%; margin: 0 auto; }
-.case-row .mockup__device { width: 48%; }
+:is(.case-row, .cs-section) .mockup__device { width: 48%; }
 /* soft contact shadow, as if the phone were resting on a surface */
 .mockup__device::before {
   content: "";
@@ -1142,23 +1145,21 @@ html.intro-active { overflow: hidden; }
 .case-row .case-block { display: block; padding: 0; }
 .case-row .case-block__label { margin-bottom: 20px; }
 .case-row .case-block__text { font-size: clamp(19px, 1.6vw, 24px); }
-.case-row .case-figure { margin: 0; }
+:is(.case-row, .cs-section) .case-figure { margin: 0; }
 .case-row--flip .case-block { order: 2; }
 .case-row--flip .case-figure { order: 1; }
-.case-row .case-figure:not(.mockup) img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; }
+:is(.case-row, .cs-section) .case-figure:not(.mockup) img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; }
 
 @media (max-width: 860px) {
   .case-row { grid-template-columns: 1fr; gap: 32px; padding: 56px 0; }
   .case-row--flip .case-block, .case-row--flip .case-figure { order: 0; }
-  .case-row .mockup__device { width: 62%; }
+  :is(.case-row, .cs-section) .mockup__device { width: 62%; }
 }
 
 /* Case images that should not be cropped to 4:3 */
-.case-row .case-figure.case-figure--natural img { aspect-ratio: auto; }
+:is(.case-row, .cs-section) .case-figure.case-figure--natural img { aspect-ratio: auto; }
 /* Tall annotated spec: show the top, open the full image on click */
-.case-row .case-figure.case-figure--spec img { aspect-ratio: 1 / 1; object-position: top; }
-.case-figure--spec a { cursor: zoom-in; }
-.case-figure--spec a { position: relative; display: block; }
+:is(.case-row, .cs-section) .case-figure.case-figure--spec img { aspect-ratio: 1 / 1; object-position: top; }
 
 /* Case pages: placeholders until the real images arrive */
 .case-figure--placeholder,
@@ -1173,7 +1174,7 @@ html.intro-active { overflow: hidden; }
   text-transform: uppercase;
   letter-spacing: 0.02em;
 }
-.case-row .case-figure--placeholder { aspect-ratio: 4 / 3; }
+:is(.case-row, .cs-section) .case-figure--placeholder { aspect-ratio: 4 / 3; }
 .case-achievements--placeholder { aspect-ratio: 16 / 9; }
 /* Hero with a looping video over the cover image (McCain) */
 .case-hero .case-hero__video { z-index: 0; }
@@ -1186,12 +1187,12 @@ html.intro-active { overflow: hidden; }
 }
 
 /* Case images: slow, soft zoom on hover (the figure clips the overflow) */
-.case-row .case-figure:not(.mockup):not(.case-figure--placeholder) { overflow: hidden; }
-.case-row .case-figure:not(.mockup):not(.case-figure--placeholder) img { transition: transform 1.2s cubic-bezier(.2,.7,.2,1); }
-.case-row .case-figure:not(.mockup):not(.case-figure--placeholder):hover img { transform: scale(1.05); }
+:is(.case-row, .cs-section) .case-figure:not(.mockup):not(.case-figure--placeholder) { overflow: hidden; }
+:is(.case-row, .cs-section) .case-figure:not(.mockup):not(.case-figure--placeholder) img { transition: transform 1.2s cubic-bezier(.2,.7,.2,1); }
+:is(.case-row, .cs-section) .case-figure:not(.mockup):not(.case-figure--placeholder):hover img { transform: scale(1.05); }
 @media (prefers-reduced-motion: reduce) {
-  .case-row .case-figure img { transition: none; }
-  .case-row .case-figure:hover img { transform: none; }
+  :is(.case-row, .cs-section) .case-figure img { transition: none; }
+  :is(.case-row, .cs-section) .case-figure:hover img { transform: none; }
 }
 
 /* A case row with text only (no image): the text keeps the same column
@@ -1206,14 +1207,14 @@ html.intro-active { overflow: hidden; }
   transition: transform 0.7s cubic-bezier(.65,0,.25,1);
   touch-action: pan-y;
 }
-.case-row .case-figure.case-carousel img.case-carousel__slide {
+:is(.case-row, .cs-section) .case-figure.case-carousel img.case-carousel__slide {
   flex: 0 0 100%;
   width: 100%;
   aspect-ratio: 1229 / 803;
   object-fit: cover;
   border-radius: 24px;
 }
-.case-row .case-figure.case-carousel:hover img { transform: none; }
+:is(.case-row, .cs-section) .case-figure.case-carousel:hover img { transform: none; }
 /* first time on screen: slide over a little to show the edge of the next image */
 .case-carousel__track.is-peeking { animation: carousel-peek 1.6s cubic-bezier(.45,0,.25,1) 0.3s both; }
 @keyframes carousel-peek {
@@ -1243,7 +1244,7 @@ html.intro-active { overflow: hidden; }
 .case-carousel__dots span { width: 7px; height: 7px; border-radius: 50%; background: rgba(255, 255, 255, 0.6); box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.15); transition: background-color 0.2s, width 0.2s; }
 .case-carousel__dots span.is-active { width: 18px; border-radius: 999px; background: #fff; }
 @media (max-width: 860px) {
-  .case-row .case-figure.case-carousel img.case-carousel__slide { border-radius: 16px; }
+  :is(.case-row, .cs-section) .case-figure.case-carousel img.case-carousel__slide { border-radius: 16px; }
   .case-carousel__btn { width: 36px; height: 36px; }
 }
 @media (prefers-reduced-motion: reduce) {
@@ -1252,8 +1253,8 @@ html.intro-active { overflow: hidden; }
 }
 
 /* Case image that is a cut-out device (transparent PNG): no frame, no shadow */
-.case-row .case-figure.case-figure--device { overflow: visible; border-radius: 0; }
-.case-row .case-figure.case-figure--device img {
+:is(.case-row, .cs-section) .case-figure.case-figure--device { overflow: visible; border-radius: 0; }
+:is(.case-row, .cs-section) .case-figure.case-figure--device img {
   display: block;
   width: 72%;
   height: auto;
@@ -1262,11 +1263,11 @@ html.intro-active { overflow: hidden; }
   border-radius: 0;
 }
 /* lighter zoom for the cut-out device, and never clipped (it can grow past its box) */
-.case-row .case-figure.case-figure--device:not(.mockup):not(.case-figure--placeholder):hover img { transform: scale(1.03); }
-@media (max-width: 860px) { .case-row .case-figure.case-figure--device img { width: 80%; } }
+:is(.case-row, .cs-section) .case-figure.case-figure--device:not(.mockup):not(.case-figure--placeholder):hover img { transform: scale(1.03); }
+@media (max-width: 860px) { :is(.case-row, .cs-section) .case-figure.case-figure--device img { width: 80%; } }
 /* Soft round contact shadow under the tablet's lower-left corner (where it touches the surface) */
-.case-row .case-figure.case-figure--device:not(.mockup) { position: relative; isolation: isolate; overflow: visible; }
-.case-row .case-figure.case-figure--device::after {
+:is(.case-row, .cs-section) .case-figure.case-figure--device:not(.mockup) { position: relative; isolation: isolate; overflow: visible; }
+:is(.case-row, .cs-section) .case-figure.case-figure--device::after {
   content: "";
   position: absolute;
   z-index: -1;
@@ -1279,4 +1280,246 @@ html.intro-active { overflow: hidden; }
   filter: blur(6px);
   transform: translate(-50%, -50%);
   pointer-events: none;
+}
+
+/* =========================================================
+   Long-form case (DxC): sticky contents on the left + labelled sections
+   ========================================================= */
+.page-case { --header-h: 58px; }
+.cs-layout {
+  display: grid;
+  grid-template-columns: minmax(160px, 1fr) 2fr;
+  column-gap: clamp(40px, 6vw, 96px);
+  padding: 0 var(--gutter);
+}
+
+/* Contents (left column, follows the scroll) */
+.cs-toc { position: sticky; top: calc(var(--header-h) + 40px); align-self: start; padding: 56px 0; }
+.cs-toc__title { margin-bottom: 16px; font-size: 13px; font-weight: 600; text-transform: uppercase; color: var(--ink-soft); }
+.cs-toc__list { margin: 0; padding: 0; list-style: none; border-left: 1px solid var(--line); }
+.cs-toc a {
+  display: block;
+  margin-left: -1px;
+  padding: 7px 0 7px 16px;
+  border-left: 2px solid transparent;
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--ink-soft);
+  transition: color 0.2s, border-color 0.2s;
+}
+.cs-toc a:hover { color: var(--ink); }
+.cs-toc a.is-active { color: var(--ink); font-weight: 600; border-left-color: var(--red); }
+
+.cs-body { min-width: 0; }
+.cs-section {
+  padding: 48px 0;
+  /* land just above the section label */
+  scroll-margin-top: calc(var(--header-h) + 16px);
+}
+.cs-section + .cs-section { border-top: 1px solid var(--line); }
+.cs-section > .cs-section__label { margin-bottom: 20px; color: var(--ink-soft); }
+.cs-section > :not(.cs-section__label) + * { margin-top: 40px; }
+.cs-section__content > * + * { margin-top: 24px; }
+.cs-section__content { max-width: 760px; }
+
+.cs-heading { font-size: clamp(34px, 4vw, 60px); font-weight: 600; line-height: 1; letter-spacing: -0.05em; margin-bottom: 28px; }
+.cs-subheading { padding-top: 16px; font-size: clamp(22px, 2vw, 28px); font-weight: 600; letter-spacing: -0.03em; }
+.cs-lead { font-size: clamp(24px, 2.4vw, 34px); font-weight: 500; line-height: 1.25; letter-spacing: -0.03em; }
+.cs-text { font-size: clamp(17px, 1.3vw, 19px); font-weight: 400; line-height: 1.6; color: rgba(12, 12, 12, 0.75); }
+.cs-text strong { font-weight: 600; color: var(--ink); }
+
+/* Quote + North Star */
+.cs-quote { margin: 48px 0 0; padding-left: 28px; border-left: 3px solid var(--red); }
+.cs-quote p { font-size: clamp(22px, 2.2vw, 30px); font-weight: 500; line-height: 1.3; letter-spacing: -0.03em; }
+.cs-quote footer { margin-top: 16px; font-size: 14px; font-weight: 600; text-transform: uppercase; color: var(--ink-soft); }
+.cs-section__content > .cs-callout { margin-top: 48px; }
+.cs-callout { padding: clamp(28px, 3.5vw, 48px); border-radius: 24px; background: var(--ink); color: #fff; }
+.cs-callout__label { margin-bottom: 16px; font-size: 13px; font-weight: 600; text-transform: uppercase; color: var(--g-yellow); }
+.cs-callout__text { font-size: clamp(24px, 2.6vw, 38px); font-weight: 600; line-height: 1.15; letter-spacing: -0.04em; }
+
+/* Insight cards */
+.cs-insights, .cs-steps { margin: 0; padding: 0; list-style: none; }
+.cs-insights { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; counter-reset: insight; }
+.cs-insights li { counter-increment: insight; padding: 28px; border-radius: 20px; background: #fff; }
+.cs-insights li::before { content: "0" counter(insight); display: block; margin-bottom: 28px; font-size: 13px; font-weight: 600; color: var(--red); }
+.cs-insights h4 { margin: 0 0 10px; font-size: 19px; font-weight: 600; letter-spacing: -0.02em; line-height: 1.25; }
+.cs-insights p { font-size: 16px; line-height: 1.5; color: var(--ink-soft); }
+.cs-methods li { background: #fff; text-transform: none; font-size: 13px; }
+
+/* Numbered decisions */
+.cs-steps li { display: grid; grid-template-columns: 72px 1fr; gap: 16px; padding: 36px 0; border-top: 1px solid var(--line); }
+.cs-steps li:first-child { border-top: 0; padding-top: 0; }
+.cs-steps__num { font-family: var(--font-display); font-size: 48px; line-height: 0.9; color: var(--red); }
+.cs-steps h3 { margin-bottom: 12px; font-size: clamp(21px, 1.8vw, 26px); font-weight: 600; letter-spacing: -0.03em; }
+.cs-steps p { font-size: clamp(17px, 1.3vw, 19px); line-height: 1.6; color: rgba(12, 12, 12, 0.75); }
+.cs-steps__figure { margin-top: 28px; aspect-ratio: 16 / 9; }
+
+/* Stats */
+.cs-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin: 0; }
+.cs-stats--inline { grid-template-columns: repeat(2, minmax(0, 260px)); padding-top: 16px; }
+.cs-stats div { padding: 28px; border-radius: 20px; background: #fff; }
+.cs-stats dt { font-size: clamp(44px, 5vw, 76px); font-weight: 600; line-height: 1; letter-spacing: -0.06em; }
+.cs-stats dd { margin: 12px 0 0; font-size: 16px; font-weight: 500; line-height: 1.35; color: var(--ink-soft); }
+.cs-section__content > .cs-stats + .cs-text { margin-top: 40px; }
+
+/* What testing changed */
+.cs-changes li { display: grid; grid-template-columns: 140px 1fr; gap: 20px; align-items: baseline; padding: 22px 0; border-top: 1px solid var(--line); }
+.cs-changes__status { justify-self: start; padding: 6px 12px; border-radius: 999px; background: var(--ink); color: #fff; font-size: 11px; font-weight: 600; text-transform: uppercase; white-space: nowrap; }
+.cs-changes__status--muted { background: transparent; color: var(--ink-soft); box-shadow: inset 0 0 0 1px var(--line); }
+.cs-changes p { font-size: 17px; line-height: 1.5; color: rgba(12, 12, 12, 0.75); }
+.cs-changes strong { font-weight: 600; color: var(--ink); }
+
+/* Figures */
+.cs-figure.case-figure--placeholder, .cs-figures .case-figure--placeholder { aspect-ratio: 16 / 10; }
+.cs-figures { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.cs-figure--wide { margin: 0; }
+.cs-figure--wide .case-figure--placeholder { aspect-ratio: 16 / 9; }
+.cs-figure__media { overflow: hidden; }
+.cs-figure__media img { display: block; width: 100%; height: auto; transition: transform 1.2s cubic-bezier(.2,.7,.2,1); }
+/* same slow, soft zoom as the other case images (no link to a bigger file: client data) */
+.cs-figure__media:hover img { transform: scale(1.05); }
+@media (prefers-reduced-motion: reduce) { .cs-figure__media img { transition: none; } .cs-figure__media:hover img { transform: none; } }
+.cs-figure--wide figcaption { margin-top: 14px; font-size: 15px; font-weight: 500; color: var(--ink-soft); }
+.case-figure--placeholder span { padding: 0 16px; text-align: center; }
+
+/* Reflections */
+.cs-reflections { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(32px, 4vw, 64px); }
+.cs-reflections h3 { margin-bottom: 14px; font-size: clamp(21px, 1.8vw, 26px); font-weight: 600; line-height: 1.2; letter-spacing: -0.03em; }
+.cs-reflections p { font-size: 17px; line-height: 1.6; color: rgba(12, 12, 12, 0.75); }
+
+@media (max-width: 860px) {
+  .page-case { --header-h: 46px; }
+  /* no room for the contents column: it becomes a bar fixed under the header,
+     scrolling sideways (the active link is kept in view, see script.js) */
+  .cs-layout { grid-template-columns: minmax(0, 1fr); }
+  .cs-toc {
+    top: var(--header-h);
+    z-index: 40;
+    margin: 0 calc(-1 * var(--gutter));
+    padding: 0;
+    background: rgba(244, 244, 244, 0.9);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--line);
+  }
+  .cs-toc__title { display: none; }
+  .cs-toc__list { position: relative; display: flex; gap: 4px; padding: 8px var(--gutter); border-left: 0; overflow-x: auto; scrollbar-width: none; }
+  .cs-toc__list::-webkit-scrollbar { display: none; }
+  .cs-toc a { margin: 0; padding: 8px 14px; border: 0; border-radius: 999px; font-size: 13px; font-weight: 600; white-space: nowrap; }
+  .cs-toc a.is-active { color: #fff; background: var(--ink); font-weight: 600; }
+  .cs-section, .cs-body > [id] { scroll-margin-top: calc(var(--header-h) + 56px); }
+  .cs-section { padding: 36px 0; }
+  .cs-section > .cs-section__label { margin-bottom: 16px; }
+  .cs-section > :not(.cs-section__label) + * { margin-top: 24px; }
+  .cs-heading { margin-bottom: 20px; }
+  .cs-insights, .cs-figures, .cs-reflections { grid-template-columns: 1fr; }
+  .cs-stats { grid-template-columns: 1fr; }
+  .cs-stats--inline { grid-template-columns: 1fr 1fr; }
+  .cs-stats div { padding: 22px; }
+  .cs-steps li { grid-template-columns: 1fr; gap: 12px; }
+  .cs-changes li { grid-template-columns: 1fr; gap: 10px; }
+  .cs-callout { border-radius: 16px; }
+}
+
+/* Cases not published yet (McCain, AI Hub): not clickable, faded image, "Coming soon" next to the year */
+.case--soon { cursor: default; }
+/* a white veil over the media (not opacity on the image and the video, which would show both layers at once) */
+.case--soon .case__media::after {
+  inset: 0;
+  z-index: 1;
+  width: auto;
+  height: auto;
+  border: 0;
+  background: rgba(255, 255, 255, 0.55);
+}
+.case--soon:hover .case__media img, .case--soon:hover .case__media video { transform: none; }
+.case__soon { color: var(--ink-soft); }
+
+/* Herbalife in the long-form layout: images inside the numbered steps,
+   and the tablet + phone side by side in Final product */
+.cs-steps .case-figure { margin-top: 28px; }
+.cs-section__content > .cs-text + .cs-steps { margin-top: 48px; }
+.cs-steps .case-figure.case-figure--spec img { aspect-ratio: 4 / 3; }
+.cs-figures--devices { align-items: center; }
+.cs-figures--devices .case-figure.case-figure--device img { width: 92%; }
+.cs-figures--devices .case-figure.case-figure--device::after { left: 22%; width: 20%; }
+/* phone as tall as the tablet beside it (tablet 92% of its column, phone ~2.06x taller than wide) */
+.cs-section .cs-figures--devices .mockup__device { width: 57%; }
+@media (max-width: 860px) {
+  .cs-figures--devices { gap: 40px; }
+  .cs-figures--devices .case-figure.case-figure--device img { width: 80%; }
+  .cs-section .cs-figures--devices .mockup__device { width: 50%; }
+  .cs-figures--devices .case-figure.case-figure--device::after { left: 27%; width: 16%; }
+}
+/* header is 42px tall on small phones: the contents bar sits right under it, no gap */
+@media (max-width: 480px) { .page-case { --header-h: 42px; } }
+/* Square slides (DxC component library pages) */
+:is(.case-row, .cs-section) .case-figure.case-carousel.case-carousel--square img.case-carousel__slide { aspect-ratio: 1 / 1; }
+
+/* DxC Final product: four tools converging into one flow */
+.cs-flow { display: grid; grid-template-columns: minmax(0, 1fr) clamp(48px, 8vw, 110px) minmax(0, 1.15fr); align-items: stretch; margin: 0; }
+.cs-flow__label { margin-bottom: 14px; font-size: 13px; font-weight: 600; text-transform: uppercase; color: var(--ink-soft); }
+.cs-flow__before, .cs-flow__after { display: flex; flex-direction: column; }
+/* four equal rows with no gap, so each card's centre sits at 12.5 / 37.5 / 62.5 / 87.5% for the lines */
+.cs-flow__before ul { flex: 1; display: grid; grid-template-rows: repeat(4, 1fr); margin: 0; padding: 0; list-style: none; }
+.cs-flow__before li { display: flex; flex-direction: column; justify-content: center; margin: 5px 0; padding: 14px 18px; border-radius: 14px; background: #fff; }
+.cs-flow__before li.is-dxc { background: transparent; border: 1px dashed rgba(12, 12, 12, 0.25); }
+.cs-flow strong { font-size: 16px; font-weight: 600; letter-spacing: -0.01em; }
+.cs-flow span { margin-top: 2px; font-size: 14px; line-height: 1.35; color: var(--ink-soft); }
+.cs-flow__lines { width: 100%; height: calc(100% - 31px); margin-top: 31px; overflow: visible; }
+.cs-flow__lines path { fill: none; stroke: rgba(12, 12, 12, 0.3); stroke-width: 1.5; vector-effect: non-scaling-stroke; }
+.cs-flow__after ol { flex: 1; display: flex; flex-direction: column; justify-content: center; gap: 22px; margin: 5px 0; padding: 28px; border-radius: 20px; background: var(--ink); list-style: none; counter-reset: flow; }
+.cs-flow__after li { display: flex; flex-direction: column; padding-left: 40px; position: relative; counter-increment: flow; }
+.cs-flow__after li::before { content: "0" counter(flow); position: absolute; left: 0; top: 1px; font-size: 13px; font-weight: 600; color: var(--red); }
+.cs-flow__after strong { color: #fff; font-size: 18px; }
+.cs-flow__after span { color: rgba(255, 255, 255, 0.65); }
+.cs-flow figcaption { grid-column: 1 / -1; margin-top: 16px; font-size: 15px; font-weight: 500; color: var(--ink-soft); }
+@media (max-width: 860px) {
+  .cs-flow { grid-template-columns: 1fr; }
+  .cs-flow__before ul { grid-template-rows: none; grid-template-columns: 1fr 1fr; gap: 8px; }
+  .cs-flow__before li { margin: 0; padding: 12px 14px; }
+  /* the four lines become one arrow pointing down */
+  .cs-flow__lines { display: none; }
+  .cs-flow__after { margin-top: 44px; position: relative; }
+  .cs-flow__after::before { content: ""; position: absolute; left: 50%; top: -36px; width: 1.5px; height: 26px; background: rgba(12, 12, 12, 0.3); }
+  .cs-flow__after::after { content: ""; position: absolute; left: calc(50% - 4px); top: -14px; width: 8px; height: 8px; border-right: 1.5px solid rgba(12, 12, 12, 0.45); border-bottom: 1.5px solid rgba(12, 12, 12, 0.45); transform: rotate(45deg); }
+  .cs-flow__after ol { padding: 22px; }
+}
+
+/* DxC Final product: animated walkthrough inside a desktop browser window */
+.dx-demo { margin: 0; }
+.dx-demo__window { overflow: hidden; border-radius: 14px; background: #fff; box-shadow: 0 0 0 1px rgba(12, 12, 12, 0.08), 0 30px 60px -30px rgba(12, 12, 12, 0.35); }
+.dx-demo__bar { position: relative; display: flex; align-items: center; justify-content: center; height: 34px; background: #ececec; border-bottom: 1px solid rgba(12, 12, 12, 0.08); }
+.dx-demo__dots { position: absolute; left: 14px; display: flex; gap: 7px; }
+.dx-demo__dots i { width: 11px; height: 11px; border-radius: 50%; background: #ff5f57; }
+.dx-demo__dots i:nth-child(2) { background: #febc2e; }
+.dx-demo__dots i:nth-child(3) { background: #28c840; }
+.dx-demo__url { padding: 3px 40px; border-radius: 6px; background: #fff; font-size: 11px; color: var(--ink-soft); }
+.dx-demo__screen { position: relative; aspect-ratio: 16 / 9; overflow: hidden; background: #fff; }
+.dx-demo__shot { position: absolute; top: 0; left: 0; width: 100%; height: auto; opacity: 0; transform: scale(1.015); transition: opacity 0.6s ease, transform 0.9s cubic-bezier(.2,.7,.2,1); }
+.dx-demo__shot.is-active { opacity: 1; transform: none; }
+/* the tall form scrolls inside the screen; JS sets the distance and duration */
+.dx-demo__shot[data-scroll].is-active { transform: translateY(var(--scroll-y, 0)); transition: opacity 0.6s ease, transform var(--scroll-t, 0s) cubic-bezier(.45,0,.35,1); }
+/* the form's sidebar stays put while the form scrolls (the export is only one screen tall there) */
+.dx-demo__pin { position: absolute; top: 0; left: 0; z-index: 1; width: calc(94 / 1600 * 100%); height: auto; opacity: 0; transition: opacity 0.6s ease; }
+.dx-demo.is-pinned .dx-demo__pin { opacity: 1; }
+.dx-demo__steps { display: grid; grid-template-columns: repeat(8, 1fr); gap: 6px; margin-top: 16px; }
+.dx-demo__steps button { height: 16px; padding: 6px 0; }
+.dx-demo__steps span { display: block; height: 4px; border-radius: 2px; background: rgba(12, 12, 12, 0.12); overflow: hidden; position: relative; }
+.dx-demo__steps span::after { content: ""; position: absolute; inset: 0; background: var(--ink); transform: scaleX(0); transform-origin: left; }
+.dx-demo__steps button.is-done span::after { transform: scaleX(1); }
+.dx-demo__steps button.is-active span::after { animation: dx-progress var(--step-t, 3s) linear forwards; }
+.dx-demo.is-paused .dx-demo__steps button.is-active span::after { animation-play-state: paused; }
+@keyframes dx-progress { to { transform: scaleX(1); } }
+.dx-demo__caption { margin-top: 10px; font-size: 15px; font-weight: 500; color: var(--ink-soft); }
+@media (max-width: 860px) {
+  .dx-demo__window { border-radius: 10px; }
+  .dx-demo__bar { height: 24px; }
+  .dx-demo__dots { left: 10px; gap: 5px; }
+  .dx-demo__dots i { width: 7px; height: 7px; }
+  .dx-demo__url { padding: 1px 24px; font-size: 9px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .dx-demo__shot, .dx-demo__shot[data-scroll].is-active { transition: none; transform: none; }
+  .dx-demo__steps button.is-active span::after { animation: none; transform: scaleX(1); }
 }

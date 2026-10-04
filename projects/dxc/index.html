@@ -15,25 +15,25 @@
       7. .case-more    → the two "More projects" cards (link to the other cases)
   -->
   <title>DxC • Sarah Albagli</title>
-  <meta name="description" content="Building a shared component library for the Diageo Experience Center platform." />
+  <meta name="description" content="A shared component library and a redesigned planning flow that made Diageo's event platform worth trusting again." />
   <!-- Link previews (WhatsApp, LinkedIn, Slack, iMessage, browsers) -->
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Sarah Albagli" />
   <meta property="og:title" content="DxC • Sarah Albagli" />
-  <meta property="og:description" content="Building a shared component library for the Diageo Experience Center platform." />
+  <meta property="og:description" content="A shared component library and a redesigned planning flow that made Diageo's event platform worth trusting again." />
   <meta property="og:url" content="https://sarahalbagli.vercel.app/projects/dxc/" />
-  <meta property="og:image" content="https://sarahalbagli.vercel.app/og-image.jpg" />
+  <meta property="og:image" content="https://sarahalbagli.vercel.app/assets/og-image.jpg" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
   <meta property="og:image:alt" content="Sarah Albagli, Product Designer" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="DxC • Sarah Albagli" />
-  <meta name="twitter:description" content="Building a shared component library for the Diageo Experience Center platform." />
-  <meta name="twitter:image" content="https://sarahalbagli.vercel.app/og-image.jpg" />
-  <link rel="icon" href="/favicon.ico" sizes="32x32" />
-  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png" />
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
-  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <meta name="twitter:description" content="A shared component library and a redesigned planning flow that made Diageo's event platform worth trusting again." />
+  <meta name="twitter:image" content="https://sarahalbagli.vercel.app/assets/og-image.jpg" />
+  <link rel="icon" href="/assets/favicon.ico" sizes="32x32" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png" />
+  <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
@@ -50,7 +50,7 @@
     <nav class="header__nav">
       <a href="/about/" data-i18n="nav.about">About</a>
       <a href="/projects/" data-i18n="nav.work">Projects</a>
-      <a href="https://www.linkedin.com/in/sarahalbagli/" target="_blank" rel="noopener">LinkedIn <span class="arrow-up">↗</span></a>
+      <a href="https://www.linkedin.com/in/sarahalbagli/">LinkedIn <span class="arrow-up">↗</span></a>
     </nav>
     <a href="/assets/sarah-albagli-cv.pdf" class="btn-cv" download>
       <span data-i18n="nav.cv">Download my CV</span>
@@ -62,7 +62,7 @@
       <button type="button" data-lang="es" aria-pressed="false">ES</button>
     </div>
     <button class="menu-toggle" aria-expanded="false" aria-controls="menu">
-      <span class="menu-toggle__lines" aria-hidden="true"><span></span><span></span></span>
+      <span class="menu-toggle__lines" aria-hidden="true"><span></span><span></span><span></span></span>
       <span class="menu-toggle__label" data-i18n="menu.label">Menu</span>
     </button>
   </header>
@@ -81,7 +81,7 @@
       <a href="/" data-label="Home"><span data-i18n="menu.home">Home</span></a>
       <a href="/about/" data-label="About"><span data-i18n="menu.about">About</span></a>
       <a href="/projects/" data-label="Projects"><span data-i18n="menu.projects">Projects</span></a>
-      <a href="https://www.linkedin.com/in/sarahalbagli/" target="_blank" rel="noopener" data-label="LinkedIn ↗"><span>LinkedIn ↗</span></a>
+      <a href="https://www.linkedin.com/in/sarahalbagli/" data-label="LinkedIn ↗"><span>LinkedIn ↗</span></a>
       <a href="/assets/sarah-albagli-cv.pdf" download data-label="Download my CV"><span data-i18n="nav.cv">Download my CV</span></a>
     </nav>
   </div>
@@ -89,120 +89,309 @@
   <main>
 
     <!-- Hero -->
-    <section class="case-hero" data-hero>
-      <img class="case-hero__img" src="/assets/img/dxc.jpg" alt="DxC dashboard on a laptop" />
+    <section class="case-hero case-hero--scrim" data-hero>
+      <img class="case-hero__img" src="/assets/img/dxc/hero-dxc.jpg" alt="DxC dashboard on a laptop" />
       <div class="case-hero__content">
-        <ul class="tags tags--dark"><li data-i18n="tag.designsystem">Design System</li><li data-i18n="tag.uidesign">UI Design</li><li data-i18n="tag.research">Research</li><li>B2B</li><li data-i18n="tag.accessibility">Accessibility</li></ul>
-        <h1 class="case-hero__title" data-i18n="case.dxc.title">Building a Shared Foundation</h1>
-        <p class="case-hero__summary" data-i18n="case.dxc.desc">Fewer bug reports (~35%), consistent UI across modules, and a faster path from design to production.</p>
+        <ul class="tags tags--dark"><li>SaaS</li><li data-i18n="tag.designsystem">Design System</li><li data-i18n="tag.uidesign">UI Design</li><li data-i18n="tag.research">Research</li><li>B2B</li><li data-i18n="tag.accessibility">Accessibility</li></ul>
+        <h1 class="case-hero__title">Making DxC worth trusting again</h1>
+        <p class="case-hero__summary">A shared component library, then a redesigned planning flow for the platform where Diageo plans around 100,000 events a year.</p>
         <p class="case-hero__year">2024</p>
       </div>
     </section>
 
     <!-- Project facts -->
     <dl class="case-meta">
-      <div><dt data-i18n="meta.client">Client</dt><dd>Diageo Experience Center</dd></div>
-      <div><dt data-i18n="meta.role">Role</dt><dd data-i18n="dxc.role">Product Designer</dd></div>
-      <div><dt data-i18n="meta.duration">Duration</dt><dd data-i18n="dxc.duration">12 months</dd></div>
-      <div><dt data-i18n="meta.year">Year</dt><dd>2024</dd></div>
+      <div><dt data-i18n="meta.role">Role</dt><dd>Product Designer</dd></div>
+      <div><dt>Timeline</dt><dd>2024, 12 months</dd></div>
+      <div><dt>Team</dt><dd>5 designers, 3 PMs, 2 POs, 8 engineers</dd></div>
+      <div><dt>Tools</dt><dd>Figma, Storybook, Jira, Confluence, Miro, AI</dd></div>
     </dl>
 
-    <div class="case-body">
+    <div class="cs-layout">
 
-      <div class="case-row">
-        <section class="case-block">
-          <h2 class="case-block__label" data-i18n="dxc.b0.label">Overview</h2>
-          <div class="case-block__content">
-            <p class="case-block__text" data-i18n="dxc.b0.text">DxC was growing fast. New modules were planned, and users kept asking for simpler processes. The design team proposed building a shared component library before designing anything new.</p>
-            <p class="case-block__note" data-i18n="dxc.b0.note">New modules were coming. We needed a foundation, before new screens.</p>
-          </div>
-        </section>
+      <!-- Contents: sticks on the left while you scroll; the active link follows the section being read (see script.js) -->
+      <nav class="cs-toc" aria-label="Case sections">
+        <p class="cs-toc__title">Contents</p>
+        <ol class="cs-toc__list">
+          <li><a href="#tldr">TL;DR</a></li>
+          <li><a href="#background">Background</a></li>
+          <li><a href="#problem">Problem</a></li>
+          <li><a href="#research">Research</a></li>
+          <li><a href="#process">Process</a></li>
+          <li><a href="#testing">Testing</a></li>
+          <li><a href="#final-product">Final product</a></li>
+          <li><a href="#impact">Impact</a></li>
+          <li><a href="#reflections">Reflections</a></li>
+        </ol>
+      </nav>
 
-        <figure class="case-figure case-figure--placeholder" aria-hidden="true">
-          <span>Image coming soon</span>
+    <div class="cs-body">
+
+      <!-- TL;DR -->
+      <section class="cs-section" id="tldr">
+        <p class="cs-section__label eyebrow">TL;DR</p>
+        <div class="cs-section__content">
+          <p class="cs-lead">Diageo plans around 100,000 events a year in DxC. The platform had grown one screen at a time, and teams had stopped trusting it.</p>
+          <p class="cs-text">They planned in spreadsheets, Tableau and Google Forms, and used DxC only to record what was already decided.</p>
+          <p class="cs-text">We started by building a shared component library with engineering. Then we used it to redesign <strong>Planning Non Premise</strong>, the module where brand sponsorships and activations are planned and approved.</p>
+          <p class="cs-text">I worked across research, interaction design, the component library, documentation and handoff.</p>
+          <dl class="cs-stats cs-stats--inline">
+            <div><dt>90%</dt><dd>task completion in usability testing</dd></div>
+            <div><dt>~35%</dt><dd>fewer UI bug reports</dd></div>
+          </dl>
+        </div>
+      </section>
+
+      <!-- Background -->
+      <section class="cs-section" id="background">
+        <p class="cs-section__label eyebrow">Background</p>
+        <div class="cs-section__content">
+          <h2 class="cs-heading">A platform people worked around</h2>
+          <p class="cs-text">Diageo is one of the largest spirits companies in the world. DxC is where its teams plan and approve brand presence at events: names, dates, sponsorship deals and activation budgets.</p>
+          <p class="cs-text">New modules were on the roadmap. Users kept asking for the same thing: simpler processes.</p>
+        </div>
+        <figure class="cs-figure cs-figure--wide">
+          <div class="cs-figure__media"><img src="/assets/img/dxc/old-dxc.jpg?v=2" width="1600" height="981" alt="Three screens of the old DxC: an event form, the program standards settings and the planned events list, all built screen by screen with different patterns" loading="lazy" /></div>
+          <figcaption>Where we started: DxC as we found it, before the library or any redesign.</figcaption>
         </figure>
-      </div>
+      </section>
 
-      <div class="case-row case-row--flip">
-        <section class="case-block">
-          <h2 class="case-block__label" data-i18n="dxc.b1.label">The challenge</h2>
-          <div class="case-block__content">
-            <p class="case-block__text" data-i18n="dxc.b1.text">The platform had grown screen by screen. Simple flows felt complex, and every new feature added more inconsistency.</p>
-            <p class="case-block__note" data-i18n="dxc.b1.note">We needed to pause and create something the team could design from, not around.</p>
-          </div>
-        </section>
-
-        <figure class="case-figure case-figure--placeholder" aria-hidden="true">
-          <span>Image coming soon</span>
-        </figure>
-      </div>
-
-      <div class="case-row">
-        <section class="case-block">
-          <h2 class="case-block__label" data-i18n="dxc.b2.label">Listened first</h2>
-          <div class="case-block__content">
-            <p class="case-block__text" data-i18n="dxc.b2.text">User interviews and feedback analysis showed where flows broke down.</p>
-          </div>
-        </section>
-
-        <figure class="case-figure case-figure--placeholder" aria-hidden="true">
-          <span>Image coming soon</span>
-        </figure>
-      </div>
-
-      <div class="case-row case-row--flip">
-        <section class="case-block">
-          <h2 class="case-block__label" data-i18n="dxc.b3.label">Proposed a plan</h2>
-          <div class="case-block__content">
-            <p class="case-block__text" data-i18n="dxc.b3.text">A redesign proposal with a component library and an execution timeline.</p>
-          </div>
-        </section>
-
-        <figure class="case-figure case-figure--placeholder" aria-hidden="true">
-          <span>Image coming soon</span>
-        </figure>
-      </div>
-
-      <div class="case-row">
-        <section class="case-block">
-          <h2 class="case-block__label" data-i18n="dxc.b4.label">Built with engineering</h2>
-          <div class="case-block__content">
-            <p class="case-block__text" data-i18n="dxc.b4.text">Components were built in parallel with the frontend lead in Storybook.</p>
-          </div>
-        </section>
-
-        <figure class="case-figure case-figure--placeholder" aria-hidden="true">
-          <span>Image coming soon</span>
-        </figure>
-      </div>
-
-      <div class="case-row case-row--flip">
-        <section class="case-block">
-          <h2 class="case-block__label" data-i18n="dxc.b5.label">Documented everything</h2>
-          <div class="case-block__content">
-            <p class="case-block__text" data-i18n="dxc.b5.text">Usage guidelines in Jira became a shared reference for the whole team.</p>
-          </div>
-        </section>
-
-        <figure class="case-figure case-figure--placeholder" aria-hidden="true">
-          <span>Image coming soon</span>
-        </figure>
-      </div>
-
-      <section class="case-block case-block--stacked">
-        <h2 class="case-block__label" data-i18n="dxc.impact.label">Impact</h2>
-        <div class="case-closing">
-          <div>
-            <p class="case-block__text" data-i18n="dxc.impact.text">Fewer bug reports (~35%), consistent UI across modules, and a faster path from design to production.</p>
-            <p class="case-block__note" data-i18n="dxc.impact.note">The library became the starting point for the platform-wide redesign that followed.</p>
-          </div>
-          <div>
-            <h3 class="case-closing__label" data-i18n="dxc.learned.label">What I learned</h3>
-            <p class="case-block__text" data-i18n="dxc.learned.text">A design system starts with alignment, not components. Building side by side with engineering made the library something the team actually used.</p>
-            <p class="case-block__note" data-i18n="dxc.learned.note">Next time, I'd bring developers in even earlier, from the first audit.</p>
+      <!-- Problem -->
+      <section class="cs-section" id="problem">
+        <p class="cs-section__label eyebrow">Problem</p>
+        <div class="cs-section__content">
+          <h2 class="cs-heading">Easy to fill in, hard to trust</h2>
+          <p class="cs-text">The same event lived in four places, and none of them agreed. Every new feature added another layer of inconsistency on top.</p>
+          <blockquote class="cs-quote">
+            <p>“DxC planned events are not a source of truth because information is scattered around multiple tools.”</p>
+            <footer>User interview</footer>
+          </blockquote>
+          <div class="cs-callout">
+            <p class="cs-callout__label">Our North Star</p>
+            <p class="cs-callout__text">How might we make DxC the place where events are planned, not just recorded?</p>
           </div>
         </div>
       </section>
+
+      <!-- Research -->
+      <section class="cs-section" id="research">
+        <p class="cs-section__label eyebrow">Research</p>
+        <div class="cs-section__content">
+          <h2 class="cs-heading">Rounds of listening</h2>
+          <p class="cs-text">Before the interviews, we went through a process of getting to know the platform and its complexity: every page, action and role in Planning Non Premise.</p>
+        </div>
+        <figure class="cs-figure cs-figure--wide">
+          <!-- TODO: points at the raw "Research DxC.png" (new version from Sarah); export a light ~1600px version (keep transparency if it has any) and set width/height -->
+          <div class="cs-figure__media"><img src="/assets/img/dxc/Research%20DxC.png" alt="Map of the Planning Non Premise module: its pages, the actions on each page, the roles that use them, details and opportunities" loading="lazy" /></div>
+          <figcaption>Getting to know the platform first: pages, actions and roles in Planning Non Premise.</figcaption>
+        </figure>
+        <div class="cs-section__content">
+          <p class="cs-text">We ran three rounds of interviews with US based Regional Directors, Senior Managers, Directors of Experiential Production and planning teams. Each round built on the one before.</p>
+          <p class="cs-text">I used AI to cross reference notes across all three rounds and surface recurring patterns faster, then checked every cluster against the raw notes before it went into the affinity diagram. From there, we built a map of problems and opportunities across six areas, from budget management to photo management.</p>
+        </div>
+        <figure class="cs-figure cs-figure--wide">
+          <div class="cs-figure__media"><img src="/assets/img/dxc/research-opportunities.jpg" width="1600" height="1024" alt="Research boards: interview notes per participant, jobs to be done, and the map of problems and opportunities from budget management to photo management" loading="lazy" /></div>
+          <figcaption>From interview notes to jobs to be done to a map of problems and opportunities.</figcaption>
+        </figure>
+        <div class="cs-section__content">
+          <h3 class="cs-subheading">Key insights</h3>
+          <ol class="cs-insights">
+            <li><h4>Data lived everywhere except DxC.</h4><p>Requests came in through a Google Form, analysis happened in Tableau, and without a Salesforce integration the same data was typed in twice.</p></li>
+            <li><h4>Nobody could see the budget.</h4><p>Checking the total cost of an event meant opening it.</p></li>
+            <li><h4>The form fought the task.</h4><p>One long page with no structure, where sponsorship and activation were entered separately even though people think about them together.</p></li>
+            <li><h4>Navigation broke focus.</h4><p>Filters reset every time someone opened an event and came back.</p></li>
+          </ol>
+          <p class="cs-text">We used these methods to turn the insights into a shared MVP scope with PMs and engineering:</p>
+          <ul class="tags cs-methods"><li>Jobs to be Done</li><li>As is service blueprint</li><li>Future state journey map</li><li>Story mapping</li></ul>
+        </div>
+      </section>
+
+      <!-- Process -->
+      <section class="cs-section" id="process">
+        <p class="cs-section__label eyebrow">Process</p>
+        <div class="cs-section__content">
+          <h2 class="cs-heading">Decisions, and what they cost</h2>
+          <ol class="cs-steps">
+            <li>
+              <span class="cs-steps__num">01</span>
+              <div>
+                <h3>Foundation before features</h3>
+                <p>The quick option was to redesign the module on top of the existing UI. Instead, the design team proposed building a component library first, together with the frontend lead in Storybook, with weekly reviews. It slowed the first months down. In return, every screen after that was built from the same parts.</p>
+                <!-- Carousel: arrows to switch; on first view it nudges sideways to hint at the next image -->
+                <figure class="case-figure case-carousel case-carousel--square" aria-roledescription="carousel" aria-label="Pages from the DxC component library">
+                  <div class="case-carousel__viewport">
+                    <div class="case-carousel__track">
+                      <img class="case-carousel__slide" src="/assets/img/dxc/table-of-contents.jpg" width="1600" height="1600" alt="DxC design system table of contents: foundations (color, containers, grids, icons, typography) and the list of components" loading="lazy" />
+                      <img class="case-carousel__slide" src="/assets/img/dxc/typography.jpg" width="1600" height="1600" alt="Typography page of the DxC design system: Montserrat heading and body styles with sizes and line heights" loading="lazy" />
+                      <img class="case-carousel__slide" src="/assets/img/dxc/scale.jpg" width="1600" height="1600" alt="Scale page of the DxC design system: container-first and padding-first spacing rules and the spacing scale in px and rem" loading="lazy" />
+                      <img class="case-carousel__slide" src="/assets/img/dxc/text-input.jpg" width="1600" height="1600" alt="Text input component in every state: default, filled, focused, error and disabled" loading="lazy" />
+                      <img class="case-carousel__slide" src="/assets/img/dxc/filters.jpg" width="1600" height="1600" alt="Filters component: filter items and the side panel filter with chips" loading="lazy" />
+                    </div>
+                  </div>
+                  <button type="button" class="case-carousel__btn case-carousel__btn--prev" aria-label="Previous image"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+                  <button type="button" class="case-carousel__btn case-carousel__btn--next" aria-label="Next image"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+                  <div class="case-carousel__dots" aria-hidden="true"><span class="is-active"></span><span></span><span></span><span></span><span></span></div>
+                </figure>
+              </div>
+            </li>
+            <li>
+              <span class="cs-steps__num">02</span>
+              <div>
+                <h3>Splitting the form the way people think</h3>
+                <p>The single page became three tabs: Event information, Sponsorship and Activation. Approval history stays visible in a side panel the whole time. Tabs hide fields, so we added validation on each tab, showing exactly what is missing before anyone submits.</p>
+              </div>
+            </li>
+            <li>
+              <span class="cs-steps__num">03</span>
+              <div>
+                <h3>Budget at a glance</h3>
+                <p>A Core Stats dashboard shows event count, projected cost, sponsorship and activation spend, and opportunity score. We kept only the numbers approvers actually use to make decisions and left the rest for detailed views.</p>
+              </div>
+            </li>
+            <li>
+              <span class="cs-steps__num">04</span>
+              <div>
+                <h3>Approve without losing your place</h3>
+                <p>Event details open in a side panel over the list. Approvers can review, approve or decline from there, and their filters stay exactly where they left them.</p>
+              </div>
+            </li>
+            <li>
+              <span class="cs-steps__num">05</span>
+              <div>
+                <h3>Low fidelity on purpose</h3>
+                <p>We tested clickable wireframes, not polished UI, so feedback stayed on the flow and we could iterate between sessions.</p>
+              </div>
+            </li>
+            <li>
+              <span class="cs-steps__num">06</span>
+              <div>
+                <h3>Documentation as part of the product</h3>
+                <p>A library only works if people know how to use it. I documented every component in Confluence with usage guidelines, states and accessibility requirements. Handoff specs came with annotations covering behavior, keyboard interaction and ARIA notes. The guidelines became a shared reference for the whole team, including PMs and QA, not just design and frontend.</p>
+              </div>
+            </li>
+          </ol>
+        </div>
+      </section>
+
+      <!-- Testing -->
+      <section class="cs-section" id="testing">
+        <p class="cs-section__label eyebrow">Testing</p>
+        <div class="cs-section__content">
+          <h2 class="cs-heading">90% task completion before launch</h2>
+          <p class="cs-text">Four participants, Regional Directors and Senior Managers, completed five tasks in moderated sessions.</p>
+          <dl class="cs-stats cs-stats--inline">
+            <div><dt>90%</dt><dd>overall task completion</dd></div>
+            <div><dt>3 of 5</dt><dd>tasks reached 100%</dd></div>
+          </dl>
+          <h3 class="cs-subheading">What testing changed</h3>
+          <ul class="cs-changes">
+            <li><span class="cs-changes__status">Shipped</span><p><strong>The calendar control needed more prominence,</strong> so we made it more visible.</p></li>
+            <li><span class="cs-changes__status">Added to MVP</span><p><strong>Prefilled fields came up as the biggest way to reduce effort,</strong> so they went into the MVP.</p></li>
+            <li><span class="cs-changes__status cs-changes__status--muted">Backlog</span><p><strong>Saved filters were valuable but not essential,</strong> so they went into the backlog for after launch.</p></li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- Final product -->
+      <section class="cs-section" id="final-product">
+        <p class="cs-section__label eyebrow">Final product</p>
+        <div class="cs-section__content">
+          <h2 class="cs-heading">From four tools to one flow</h2>
+        </div>
+        <!-- Diagram: the four places an event used to live, converging into one flow in DxC -->
+        <figure class="cs-flow">
+          <div class="cs-flow__before">
+            <p class="cs-flow__label">Before · four places</p>
+            <ul>
+              <li><strong>Google Form</strong><span>where requests came in</span></li>
+              <li><strong>Spreadsheets</strong><span>where planning happened</span></li>
+              <li><strong>Tableau</strong><span>where budgets were analyzed</span></li>
+              <li class="is-dxc"><strong>DxC</strong><span>only to record what was decided</span></li>
+            </ul>
+          </div>
+          <svg class="cs-flow__lines" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+            <path d="M0 12.5 C 50 12.5, 50 50, 100 50" />
+            <path d="M0 37.5 C 50 37.5, 50 50, 100 50" />
+            <path d="M0 62.5 C 50 62.5, 50 50, 100 50" />
+            <path d="M0 87.5 C 50 87.5, 50 50, 100 50" />
+          </svg>
+          <div class="cs-flow__after">
+            <p class="cs-flow__label">After · one flow in DxC</p>
+            <ol>
+              <li><strong>Plan</strong><span>One form, three tabs: event information, sponsorship and activation</span></li>
+              <li><strong>Check the budget</strong><span>Core Stats show cost and spend at a glance</span></li>
+              <li><strong>Approve</strong><span>From a side panel, without losing filters</span></li>
+            </ol>
+          </div>
+          <figcaption>The same event used to live in four places. Now it is planned, budgeted and approved in one.</figcaption>
+        </figure>
+        <!-- Animated walkthrough: the redesigned Planning Non Premise flow inside a desktop browser (script.js plays it while on screen) -->
+        <figure class="dx-demo" data-demo>
+          <div class="dx-demo__window">
+            <div class="dx-demo__bar" aria-hidden="true"><span class="dx-demo__dots"><i></i><i></i><i></i></span><span class="dx-demo__url">www.dxc.com</span></div>
+            <div class="dx-demo__screen">
+              <img class="dx-demo__shot is-active" src="/assets/img/dxc/flow/01-dashboard.jpg" width="1600" height="900" alt="Planned events dashboard with Core Stats and the events table" data-caption="Planned events: Core Stats and the event list in one view" loading="lazy" />
+              <img class="dx-demo__shot" src="/assets/img/dxc/flow/02-new-event.jpg" width="1600" height="900" alt="New event side panel open over the planned events list" data-caption="A new event starts in a side panel, without leaving the list" loading="lazy" />
+              <img class="dx-demo__shot" src="/assets/img/dxc/flow/03-form.jpg" width="1600" height="2369" alt="Event form on the Event information tab, with the event history beside it" data-caption="One form, three tabs: event information, sponsorship and activation" data-scroll loading="lazy" />
+              <img class="dx-demo__pin" src="/assets/img/dxc/flow/03-form-sidebar.jpg" width="94" height="900" alt="" loading="lazy" />
+              <img class="dx-demo__shot" src="/assets/img/dxc/flow/04-sent-to-approval.jpg" width="1600" height="900" alt="Event form after it was sent to approval, with the progress history" data-caption="Sent to approval: the event history shows every stage" loading="lazy" />
+              <img class="dx-demo__shot" src="/assets/img/dxc/flow/05-side-peek.jpg" width="1600" height="900" alt="Event details open in a side panel over the planned events list" data-caption="Approvers open the event in a side panel over the list" loading="lazy" />
+              <img class="dx-demo__shot" src="/assets/img/dxc/flow/06-decide.jpg" width="1600" height="900" alt="Side panel with the Actions menu and the Decline and Recommend buttons" data-caption="Decline or recommend from the same panel" loading="lazy" />
+              <img class="dx-demo__shot" src="/assets/img/dxc/flow/07-confirm.jpg" width="1600" height="900" alt="Recommend event confirmation dialog" data-caption="A clear warning before the event moves on" loading="lazy" />
+              <img class="dx-demo__shot" src="/assets/img/dxc/flow/08-recommended.jpg" width="1600" height="900" alt="Side panel with an Event recommended confirmation message" data-caption="Recommended, and the filters are exactly where they were" loading="lazy" />
+            </div>
+          </div>
+          <div class="dx-demo__steps">
+            <button type="button" aria-label="Step 1: Planned events: Core Stats and the event list in one view"><span></span></button>
+            <button type="button" aria-label="Step 2: A new event starts in a side panel, without leaving the list"><span></span></button>
+            <button type="button" aria-label="Step 3: One form, three tabs: event information, sponsorship and activation"><span></span></button>
+            <button type="button" aria-label="Step 4: Sent to approval: the event history shows every stage"><span></span></button>
+            <button type="button" aria-label="Step 5: Approvers open the event in a side panel over the list"><span></span></button>
+            <button type="button" aria-label="Step 6: Decline or recommend from the same panel"><span></span></button>
+            <button type="button" aria-label="Step 7: A clear warning before the event moves on"><span></span></button>
+            <button type="button" aria-label="Step 8: Recommended, and the filters are exactly where they were"><span></span></button>
+          </div>
+          <figcaption class="dx-demo__caption" aria-live="polite">Planned events: Core Stats and the event list in one view</figcaption>
+        </figure>
+        <figure class="cs-figure cs-figure--wide">
+          <!-- TODO: pnphandoff.png is the 11787x7272 source; replace with a resized PNG/WebP (~2400px) that KEEPS the transparent background -->
+
+          <div class="cs-figure__media"><img src="/assets/img/dxc/pnphandoff.png" width="11787" height="7272" alt="Annotated handoff of the Planned events page: numbered notes on breadcrumbs, global filters, core stats, the events table, sorting, status chips, opportunity score and export, plus accessibility notes for breadcrumbs, buttons and chips" loading="lazy" /></div>
+          <figcaption>Every screen shipped with behavior, states and accessibility notes.</figcaption>
+        </figure>
+      </section>
+
+      <!-- Impact -->
+      <section class="cs-section" id="impact">
+        <p class="cs-section__label eyebrow">Impact</p>
+        <div class="cs-section__content">
+          <dl class="cs-stats">
+            <div><dt>90%</dt><dd>task completion in usability testing</dd></div>
+            <div><dt>~35%</dt><dd>fewer UI bug reports</dd></div>
+            <div><dt>One</dt><dd>shared library across modules</dd></div>
+          </dl>
+          <p class="cs-text">The library became the starting point for the platform wide redesign that followed.</p>
+        </div>
+      </section>
+
+      <!-- Reflections -->
+      <section class="cs-section" id="reflections">
+        <p class="cs-section__label eyebrow">Reflections</p>
+        <div class="cs-section__content">
+          <div class="cs-reflections">
+            <div>
+              <h3>A design system starts with alignment, not components.</h3>
+              <p>Building side by side with engineering made the library something the team actually used, instead of a Figma file nobody opened.</p>
+            </div>
+            <div>
+              <h3>Next time</h3>
+              <p>I would bring developers in from the first audit, and I would set up adoption tracking from launch. We measured usability before release, but we lacked clear data on how many teams stopped using spreadsheets afterward.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
 
     </div>
 
@@ -226,21 +415,11 @@
         </a>
 
         <a href="/projects/herbalife/" class="case-card">
-          <img src="/assets/img/herbalife.jpg" alt="" loading="lazy" />
-          <ul class="tags tags--dark"><li data-i18n="tag.webmobile">Web &amp; Mobile</li><li data-i18n="tag.designsystem">Design System</li><li data-i18n="tag.uidesign">UI Design</li></ul>
+          <img src="/assets/img/herbalife/hero-herbalife.jpg" alt="" loading="lazy" />
+          <ul class="tags tags--dark"><li data-i18n="tag.webmobile">Web &amp; Mobile</li><li data-i18n="tag.designsystem">Design System</li><li data-i18n="tag.uidesign">UI Design</li><li>B2B</li></ul>
           <div class="case-card__text">
             <h3 data-i18n="case.herbalife.title">One system, every distributor profile</h3>
             <p data-i18n="case.herbalife.desc">Designing a customizable profile builder for Herbalife distributors. A component system that lets each distributor personalize their space while keeping the brand consistent.</p>
-          </div>
-        </a>
-
-        <a href="/projects/mccain/" class="case-card">
-          <img src="/assets/img/mccainmain.jpg" alt="" loading="lazy" />
-          <video class="media-video" src="/assets/mccainsmall.mp4" autoplay muted loop playsinline disablepictureinpicture preload="auto" aria-hidden="true"></video>
-          <ul class="tags tags--dark"><li data-i18n="tag.webmobile">Web &amp; Mobile</li><li data-i18n="tag.designsystem">Design System</li><li data-i18n="tag.uidesign">UI Design</li></ul>
-          <div class="case-card__text">
-            <h3>McCain</h3>
-            <p data-i18n="home.case.mccain.desc">A design system that gave design and engineering a shared language</p>
           </div>
         </a>
       </div>
@@ -257,33 +436,6 @@
     <p class="footer__copy" data-i18n="footer.copy">© 2026 | Created by me, powered by lofi music &amp; green tea.</p>
   </footer>
 
-  <!-- Spanish translations for this page (shared strings live in /i18n.js) -->
-  <script type="application/json" id="i18n-es">
-{
-  "dxc.role": "Diseñadora de Producto",
-  "dxc.duration": "12 meses",
-  "dxc.b0.label": "Resumen",
-  "dxc.b0.text": "DxC crecía rápido. Había nuevos módulos en camino y los usuarios pedían procesos más simples. El equipo de diseño propuso construir una librería de componentes compartida antes de diseñar nada nuevo.",
-  "dxc.b0.note": "Llegaban nuevos módulos. Necesitábamos una base antes de nuevas pantallas.",
-  "dxc.b1.label": "El reto",
-  "dxc.b1.text": "La plataforma había crecido pantalla a pantalla. Los flujos simples se sentían complejos y cada nueva funcionalidad sumaba más inconsistencia.",
-  "dxc.b1.note": "Necesitábamos parar y crear algo desde lo que el equipo pudiera diseñar, no alrededor de ello.",
-  "dxc.b2.label": "Primero, escuchar",
-  "dxc.b2.text": "Las entrevistas con usuarios y el análisis de feedback mostraron dónde se rompían los flujos.",
-  "dxc.b3.label": "Una propuesta",
-  "dxc.b3.text": "Una propuesta de rediseño con librería de componentes y un calendario de ejecución.",
-  "dxc.b4.label": "Construido con ingeniería",
-  "dxc.b4.text": "Los componentes se construyeron en paralelo con el lead de frontend en Storybook.",
-  "dxc.b5.label": "Todo documentado",
-  "dxc.b5.text": "Las guías de uso en Jira se convirtieron en una referencia compartida para todo el equipo.",
-  "dxc.impact.label": "Impacto",
-  "dxc.impact.text": "Menos reportes de errores (~35 %), una UI coherente entre módulos y un camino más rápido del diseño a producción.",
-  "dxc.impact.note": "La librería fue el punto de partida del rediseño de toda la plataforma que vino después.",
-  "dxc.learned.label": "Lo que aprendí",
-  "dxc.learned.text": "Un sistema de diseño empieza por la alineación, no por los componentes. Construir codo a codo con ingeniería hizo que la librería fuera algo que el equipo realmente usaba.",
-  "dxc.learned.note": "La próxima vez, sumaría a los desarrolladores aún antes, desde la primera auditoría."
-}
-  </script>
   <script src="/i18n.js"></script>
   <script src="/script.js"></script>
 </body>
