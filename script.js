@@ -31,8 +31,13 @@ function setLanguage(lang) {
   document.dispatchEvent(new CustomEvent('langchange'));
 }
 
+// The switch is hidden while the Spanish copy is being reviewed: everyone gets
+// English. Set to true (and remove "hidden" from .lang in the HTML) to enable it.
+const LANG_SWITCH_ENABLED = false;
+
 // Saved choice first; otherwise follow the browser language
 function initialLanguage() {
+  if (!LANG_SWITCH_ENABLED) return 'en';
   const saved = store.get('lang');
   if (saved === 'en' || saved === 'es') return saved;
   return (navigator.language || '').toLowerCase().startsWith('es') ? 'es' : 'en';
@@ -157,13 +162,21 @@ if (quote) {
   splitWords();
 }
 
-// ---------- Clients marquee: duplicate the logo set so the loop is seamless ----------
-const track = document.querySelector('.clients__track');
-if (track) {
-  const copy = track.querySelector('.clients__set').cloneNode(true);
+// ---------- Marquees (home logos, About books) ----------
+// Duplicate each set so the loop is seamless, and give every marquee the same
+// speed in px/s, whatever its length.
+const MARQUEE_SPEED = 48; // px per second (the home logos: 1450px every 30s)
+document.querySelectorAll('.marquee__track').forEach((track) => {
+  const set = track.querySelector('.marquee__set');
+  const copy = set.cloneNode(true);
   copy.setAttribute('aria-hidden', 'true');
+  copy.querySelectorAll('img').forEach((img) => { img.alt = ''; });
   track.appendChild(copy);
-}
+  const setSpeed = () => { track.style.animationDuration = set.getBoundingClientRect().width / MARQUEE_SPEED + 's'; };
+  setSpeed();
+  set.querySelectorAll('img').forEach((img) => { if (!img.complete) img.addEventListener('load', setSpeed); });
+  window.addEventListener('resize', setSpeed);
+});
 
 // ---------- About: hovering a footnote marker highlights its note ----------
 // Delegated, because switching language re-renders the paragraphs
@@ -334,3 +347,114 @@ filterButtons.forEach((button) => {
     });
   });
 });
+
+// ---------- About: footnote GIFs ----------
+// A clip pops up next to a footnote marker on hover (or tap on touch), at its
+// original proportions. Add more by mapping a footnote id to a video here.
+//   ratio:    width / height of the frame
+//   position: which part of the video to show when the frame crops it
+const FOOTNOTE_MEDIA = {
+  fn1: { src: 'https://media.tenor.com/ikqm5TccRnoAAAPo/tvg-galego.mp4', ratio: 1.81818, label: 'Tvg Galego GIF', credit: 'https://tenor.com/view/tvg-galego-galiza-galicia-serramoura-gif-17697865' },
+  fn2: { src: 'https://media.tenor.com/uC9B5qE3SDAAAAPo/asain-japan.mp4', ratio: 1.78771, label: 'Asain Japan GIF', credit: 'https://tenor.com/view/asain-japan-gif-19431061' },
+  // only the bottom scene of this GIF (466x357 of 466x640)
+  fn3: { src: 'https://media.tenor.com/cRt6jjaaTT4AAAPo/diy-the-simpsons.mp4', ratio: 466 / 357, position: 'center bottom', label: 'Diy The Simpsons GIF', credit: 'https://tenor.com/view/diy-the-simpsons-ralph-wiggum-crafts-other-girls-gif-16552779' },
+  fn4: { src: 'https://media.tenor.com/QQjyeltpwW8AAAPo/it-admin-troubleshooting.mp4', ratio: 1.0628, label: 'It Admin Troubleshooting GIF', credit: 'https://tenor.com/view/it-admin-troubleshooting-pc-computer-old-school-gif-12708513' },
+  fn5: { src: 'https://media.tenor.com/Jaz8h4LUeRMAAAPo/santiago.mp4', ratio: 1.33663, label: 'Santiago GIF', credit: 'https://tenor.com/view/santiago-gif-9684106' },
+  fn6: { src: 'https://media.tenor.com/vKftz2A4_jIAAAPo/mc-escher-escher.mp4', ratio: 1.35593, label: 'Mc Escher Escher GIF', credit: 'https://tenor.com/view/mc-escher-escher-mcesher-impossible-stairs-stairs-gif-23297343' },
+};
+const humanSection = document.querySelector('.human');
+if (humanSection) {
+  const pop = document.createElement('div');
+  pop.className = 'fn-pop';
+  pop.setAttribute('aria-hidden', 'true');
+  const credit = document.createElement('a');
+  credit.className = 'fn-pop__credit';
+  credit.target = '_blank';
+  credit.rel = 'noopener';
+  credit.textContent = 'via Tenor';
+  pop.appendChild(credit);
+  document.body.appendChild(pop);
+
+  // One video per footnote, so switching between numbers is instant
+  const videos = {};
+  Object.entries(FOOTNOTE_MEDIA).forEach(([id, media]) => {
+    const v = document.createElement('video');
+    v.muted = true;
+    v.loop = true;
+    v.playsInline = true;
+    v.preload = 'none';
+    v.src = media.src;
+    v.setAttribute('aria-label', media.label);
+    if (media.position) v.style.objectPosition = media.position;
+    pop.insertBefore(v, credit);
+    videos[id] = v;
+  });
+  // Start downloading as soon as the visitor gets near the section
+  let preloaded = false;
+  const preload = () => {
+    if (preloaded) return;
+    preloaded = true;
+    Object.values(videos).forEach((v) => { v.preload = 'auto'; v.load(); });
+  };
+  humanSection.addEventListener('pointerenter', preload);
+  new IntersectionObserver((entries, obs) => {
+    if (entries[0].isIntersecting) { preload(); obs.disconnect(); }
+  }, { rootMargin: '200px 0px' }).observe(humanSection);
+
+  let current = null;
+  const show = (marker) => {
+    const id = marker.getAttribute('aria-describedby');
+    const media = FOOTNOTE_MEDIA[id];
+    if (!media) return;
+    current = marker;
+    Object.entries(videos).forEach(([key, v]) => {
+      const active = key === id;
+      v.classList.toggle('is-active', active);
+      if (!active) v.pause();
+    });
+    credit.href = media.credit;
+
+    // Fit inside 320x260 (smaller on narrow screens) keeping the frame's shape
+    let width = Math.min(320, window.innerWidth - 32);
+    let height = width / media.ratio;
+    if (height > 260) { height = 260; width = height * media.ratio; }
+    width = Math.round(width);
+    height = Math.round(height);
+    const r = marker.getBoundingClientRect();
+    const left = Math.min(Math.max(16, r.left + r.width / 2 - width / 2), window.innerWidth - width - 16);
+    const above = r.top > height + 40;
+    pop.style.width = width + 'px';
+    pop.style.height = height + 'px';
+    pop.style.left = left + window.scrollX + 'px';
+    // leave room under the frame for the "via Tenor" credit
+    pop.style.top = (above ? r.top - height - 28 : r.bottom + 12) + window.scrollY + 'px';
+    pop.classList.add('is-on');
+    const attempt = videos[id].play();
+    if (attempt) attempt.catch(() => {});
+  };
+  const hide = () => {
+    current = null;
+    pop.classList.remove('is-on');
+    Object.values(videos).forEach((v) => v.pause());
+  };
+
+  // Hover only for a real mouse; taps are handled by the click listener below
+  document.addEventListener('pointerover', (e) => {
+    const marker = e.pointerType === 'mouse' && e.target.closest && e.target.closest('.fn');
+    if (marker) show(marker);
+  });
+  document.addEventListener('pointerout', (e) => {
+    const marker = e.pointerType === 'mouse' && e.target.closest && e.target.closest('.fn');
+    if (marker && !marker.contains(e.relatedTarget)) hide();
+  });
+  // Touch: tap the number to toggle, tap anywhere else to close
+  document.addEventListener('click', (e) => {
+    const marker = e.target.closest && e.target.closest('.fn');
+    if (marker) {
+      if (e.pointerType === 'mouse' || current !== marker) show(marker); else hide();
+      return;
+    }
+    if (!pop.contains(e.target)) hide();
+  });
+  window.addEventListener('scroll', () => { if (current) hide(); }, { passive: true });
+}

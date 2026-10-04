@@ -2,11 +2,10 @@
 // Page-specific strings live in each page, in <script id="i18n-es">.
 window.I18N_ES = {
   "nav.about": "Sobre mí",
-  "nav.work": "Trabajo",
+  "nav.work": "Proyectos",
   "nav.cv": "Descargar mi CV",
   "menu.label": "Menú",
   "menu.talk": "Hablemos",
-  "menu.home": "Inicio",
   "menu.about": "Sobre mí",
   "menu.projects": "Proyectos",
   "footer.label": "Escríbeme",
@@ -28,5 +27,6 @@ window.I18N_ES = {
   "meta.duration": "Duración",
   "meta.year": "Año",
   "home.case.dxc.desc": "Construimos una base compartida y el resultado fue menos reportes de errores (~35 %), una UI coherente entre módulos y un camino más rápido del diseño a producción.",
-  "home.case.mccain.desc": "Un sistema de diseño que dio a diseño e ingeniería un lenguaje común"
+  "home.case.mccain.desc": "Un sistema de diseño que dio a diseño e ingeniería un lenguaje común",
+  "footer.statement": "Ya sea que estés formando un equipo, desenredando un producto complejo o lanzando algo ambicioso, aporto la práctica de una diseñadora y la mentalidad de una desarrolladora para sacarlo adelante."
 };

@@ -21,14 +21,15 @@
     <a href="/" class="logo">Sarah Albagli</a>
     <nav class="header__nav">
       <a href="/about/" data-i18n="nav.about">About</a>
-      <a href="/#work" data-i18n="nav.work">Work</a>
+      <a href="/projects/" data-i18n="nav.work">Projects</a>
       <a href="https://www.linkedin.com/in/sarahalbagli/" target="_blank" rel="noopener">LinkedIn <span class="arrow-up">↗</span></a>
     </nav>
     <a href="/assets/sarah-albagli-cv.pdf" class="btn-cv" download>
       <span data-i18n="nav.cv">Download my CV</span>
       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"/></svg>
     </a>
-    <div class="lang" role="group" aria-label="Language">
+    <!-- Language switch hidden until the Spanish copy is reviewed: remove "hidden" and set LANG_SWITCH_ENABLED = true in script.js -->
+    <div class="lang" role="group" aria-label="Language" hidden>
       <button type="button" data-lang="en" aria-pressed="true">EN</button>
       <button type="button" data-lang="es" aria-pressed="false">ES</button>
     </div>
@@ -40,7 +41,6 @@
 
   <!-- Fullscreen menu -->
   <div class="menu" id="menu" aria-label="Site menu" inert>
-    <a href="/" class="menu__logo">srh lbgl</a>
     <button class="menu__close" aria-label="Close menu">
       <span class="menu__close-icon" aria-hidden="true"><span></span><span></span></span>
       <span class="menu__close-label" data-i18n="menu.label">Menu</span>
@@ -50,9 +50,10 @@
       <a href="mailto:albagli.sarah@gmail.com">albagli.sarah@gmail.com</a>
     </div>
     <nav class="menu__links">
-      <a href="/" data-label="Home"><span data-i18n="menu.home">Home</span></a>
       <a href="/about/" data-label="About"><span data-i18n="menu.about">About</span></a>
       <a href="/projects/" data-label="Projects"><span data-i18n="menu.projects">Projects</span></a>
+      <a href="https://www.linkedin.com/in/sarahalbagli/" target="_blank" rel="noopener" data-label="LinkedIn ↗"><span>LinkedIn ↗</span></a>
+      <a href="/assets/sarah-albagli-cv.pdf" download data-label="Download my CV"><span data-i18n="nav.cv">Download my CV</span></a>
     </nav>
   </div>
 
@@ -65,7 +66,7 @@
 
   <!-- Footer -->
   <footer class="footer">
-    <span class="footer__mark">srh lbgl</span>
+    <p class="footer__statement" data-i18n="footer.statement">Whether you're building a team, untangling a complex product, or shipping something ambitious, I bring a designer's practice and a developer's mindset to get it done.</p>
     <div class="footer__gradient flow" data-flow="/assets/img/footer-background.jpg" aria-hidden="true"><canvas></canvas></div>
     <p class="footer__label" data-i18n="footer.label">Get in touch</p>
     <a href="mailto:albagli.sarah@gmail.com" class="footer__email">albagli.sarah@gmail.com</a>
