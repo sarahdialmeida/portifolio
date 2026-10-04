@@ -191,37 +191,67 @@ document.addEventListener('mouseout', (e) => toggleNote(e, false));
 document.addEventListener('focusin', (e) => toggleNote(e, true));
 document.addEventListener('focusout', (e) => toggleNote(e, false));
 
-// ---------- Autoplay videos ----------
-// The image underneath is the default; the video only fades in once it is
-// really playing. Blocked autoplay (Low Power Mode, reduce motion, errors)
-// just leaves the image in place.
+// ---------- Autoplay videos (McCain card) ----------
+// Muted loops that should always be running. The image underneath shows until
+// the video really plays. Safari can refuse an early play() call, so we retry
+// whenever the card comes on screen and once the video has data.
 document.querySelectorAll('video.media-video').forEach((video) => {
   if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
     video.remove();
     return;
   }
+  video.muted = true;
+  video.defaultMuted = true;
+  const tryPlay = () => {
+    if (!video.paused) return;
+    const attempt = video.play();
+    if (attempt) attempt.catch(() => {});
+  };
   video.addEventListener('playing', () => video.classList.add('is-playing'));
   video.addEventListener('error', () => video.remove());
-  const attempt = video.play();
-  if (attempt) attempt.catch(() => {});
+  video.addEventListener('loadeddata', tryPlay);
+  video.addEventListener('canplay', tryPlay);
+  new IntersectionObserver(([entry]) => {
+    if (entry.isIntersecting) tryPlay();
+  }, { threshold: 0.1 }).observe(video);
+  // Last resort (e.g. Low Power Mode): start on the first interaction
+  ['pointerdown', 'touchstart', 'scroll'].forEach((evt) =>
+    window.addEventListener(evt, tryPlay, { once: true, passive: true }));
+  tryPlay();
 });
 
-// ---------- Case study videos: play (muted) only while on screen ----------
-// They have controls, so visitors can unmute or scrub; a manual pause sticks.
+// ---------- Case study videos: poster + play button ----------
+// The poster shows until the visitor presses play; then the video plays with
+// sound and native controls. It pauses when scrolled out of view.
 document.querySelectorAll('video.case-video').forEach((video) => {
-  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-  let pausedByUser = false;
-  video.addEventListener('pause', () => { if (video.dataset.autoPausing !== '1') pausedByUser = true; });
-  video.addEventListener('play', () => { pausedByUser = false; });
+  const box = video.closest('.case-achievements');
+  const button = box && box.querySelector('.case-video__play');
+  if (!button) return;
+  button.addEventListener('click', () => {
+    video.controls = true;
+    video.muted = false;
+    box.classList.add('is-playing');
+    const attempt = video.play();
+    if (attempt) attempt.catch(() => {});
+  });
   new IntersectionObserver(([entry]) => {
-    if (entry.isIntersecting) {
-      if (!pausedByUser) { const a = video.play(); if (a) a.catch(() => {}); }
-    } else if (!video.paused) {
-      video.dataset.autoPausing = '1';
-      video.pause();
-      video.dataset.autoPausing = '';
-    }
-  }, { threshold: 0.35 }).observe(video);
+    if (!entry.isIntersecting && !video.paused) video.pause();
+  }, { threshold: 0.2 }).observe(video);
+});
+
+// ---------- Email buttons: also copy the address ----------
+// mailto: does nothing when the visitor has no email app set up, so the click
+// copies the address too and says so.
+document.querySelectorAll('[data-copy-email]').forEach((link) => {
+  const label = link.querySelector('.case-invite__cta-label');
+  link.addEventListener('click', () => {
+    if (!navigator.clipboard || !label) return;
+    navigator.clipboard.writeText(link.dataset.copyEmail).then(() => {
+      const original = label.innerHTML;
+      label.textContent = document.documentElement.lang === 'es' ? 'Email copiado' : 'Email copied';
+      setTimeout(() => { label.innerHTML = original; }, 2500);
+    }).catch(() => {});
+  });
 });
 
 // ---------- Flowing gradient backgrounds (hero + footer) ----------
@@ -376,7 +406,7 @@ const FOOTNOTE_MEDIA = {
   fn2: { src: 'https://media.tenor.com/uC9B5qE3SDAAAAPo/asain-japan.mp4', ratio: 1.78771, label: 'Asain Japan GIF', credit: 'https://tenor.com/view/asain-japan-gif-19431061' },
   // only the bottom scene of this GIF (466x357 of 466x640)
   fn3: { src: 'https://media.tenor.com/cRt6jjaaTT4AAAPo/diy-the-simpsons.mp4', ratio: 466 / 357, position: 'center bottom', label: 'Diy The Simpsons GIF', credit: 'https://tenor.com/view/diy-the-simpsons-ralph-wiggum-crafts-other-girls-gif-16552779' },
-  fn4: { src: 'https://media.tenor.com/QQjyeltpwW8AAAPo/it-admin-troubleshooting.mp4', ratio: 1.0628, label: 'It Admin Troubleshooting GIF', credit: 'https://tenor.com/view/it-admin-troubleshooting-pc-computer-old-school-gif-12708513' },
+  fn4: { src: 'https://media.tenor.com/3TEqWT1vov4AAAPo/big-book-huge-book.mp4', ratio: 0.674699, label: 'Big Book Huge Book GIF', credit: 'https://tenor.com/view/big-book-huge-book-big-book-meme-thick-book-meme-struggling-to-turn-page-gif-15938567119012078334' },
   fn5: { src: 'https://media.tenor.com/Jaz8h4LUeRMAAAPo/santiago.mp4', ratio: 1.33663, label: 'Santiago GIF', credit: 'https://tenor.com/view/santiago-gif-9684106' },
   fn6: { src: 'https://media.tenor.com/vKftz2A4_jIAAAPo/mc-escher-escher.mp4', ratio: 1.35593, label: 'Mc Escher Escher GIF', credit: 'https://tenor.com/view/mc-escher-escher-mcesher-impossible-stairs-stairs-gif-23297343' },
 };

@@ -569,7 +569,8 @@ html.intro-active { overflow: hidden; }
   line-height: 1.3;
   letter-spacing: -0.02em;
 }
-.about-intro__note { margin-top: 32px; font-size: 20px; font-weight: 500; color: var(--ink-soft); }
+/* same measure as the lead above (34em of the lead's font size) */
+.about-intro__note { max-width: calc(34 * clamp(20px, 1.95vw, 28px)); margin-top: 32px; font-size: 20px; font-weight: 500; line-height: 1.4; color: var(--ink-soft); }
 
 
 /* As a human */
@@ -709,13 +710,41 @@ html.intro-active { overflow: hidden; }
 .case-block__label { font-size: 16px; font-weight: 500; color: var(--ink-soft); }
 .case-block__text { font-size: clamp(20px, 1.95vw, 28px); font-weight: 500; line-height: 1.3; letter-spacing: -0.02em; color: #0b0b0c; }
 .case-block__note { margin-top: 24px; font-size: 18px; font-weight: 500; line-height: 1.4; color: var(--ink-soft); }
-.case-block--stacked { grid-template-columns: 1fr; gap: 80px; padding-bottom: 80px; }
+.case-block--stacked { grid-template-columns: 1fr; gap: 28px; padding-bottom: 80px; }
+/* "Big Achievements": a big black title, a step below "More projects" */
+.case-block--stacked .case-block__label {
+  font-size: clamp(40px, 5vw, 72px);
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: -0.06em;
+  color: var(--ink);
+}
 
 .case-figure { margin: 0; overflow: hidden; border-radius: 24px; }
 .case-figure img { width: 100%; height: auto; }
 
-.case-achievements { overflow: hidden; border-radius: 24px; background: #0c0c0c; }
+.case-achievements { position: relative; overflow: hidden; border-radius: 24px; background: #0c0c0c; }
 .case-video { display: block; width: 100%; aspect-ratio: 16 / 9; object-fit: cover; }
+/* Play button over the poster; hidden once the video starts */
+.case-video__play {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: grid;
+  place-items: center;
+  width: 88px;
+  height: 88px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.92);
+  color: var(--ink);
+  transform: translate(-50%, -50%);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.3);
+  transition: transform 0.2s ease, background-color 0.2s ease, opacity 0.2s ease;
+}
+.case-video__play svg { margin-left: 4px; }
+.case-video__play:hover { transform: translate(-50%, -50%) scale(1.06); background: #fff; }
+.case-achievements.is-playing .case-video__play { opacity: 0; pointer-events: none; }
+@media (max-width: 860px) { .case-video__play { width: 64px; height: 64px; } }
 
 /* Latest projects */
 .case-more { padding: 140px var(--gutter) 120px; }
@@ -769,6 +798,8 @@ html.intro-active { overflow: hidden; }
   .human { padding: 72px var(--gutter); }
   .human__eyebrow { margin-bottom: 48px; }
   .human__cols { grid-template-columns: 1fr; gap: 0; }
+  /* one column: keep the paragraph rhythm across the two columns */
+  .human__col + .human__col p:first-child { margin-top: 1.1em; }
   .human__notes { grid-template-columns: 1fr; grid-template-rows: none; grid-auto-flow: row; margin-top: 48px; }
 
   .about-photo { padding-bottom: 64px; }
@@ -778,6 +809,7 @@ html.intro-active { overflow: hidden; }
   .case-hero__content { padding-bottom: 40px; }
   .case-meta { grid-template-columns: 1fr 1fr; padding: 40px var(--gutter); }
   .case-block { grid-template-columns: 1fr; gap: 16px; padding: 72px 0; }
+  .case-block--stacked { gap: 20px; }
   .case-figure, .case-achievements { border-radius: 16px; }
 
   .case-more { padding: 96px var(--gutter) 80px; }
@@ -835,7 +867,6 @@ html.intro-active { overflow: hidden; }
   line-height: 1;
   letter-spacing: -0.06em;
 }
-.projects-head__text { max-width: 26em; font-size: 18px; font-weight: 500; line-height: 1.4; color: var(--ink-soft); }
 
 .projects-filters {
   display: flex;
@@ -991,4 +1022,134 @@ html.intro-active { overflow: hidden; }
   .marquee-head { margin-bottom: 24px; }
   .marquee-head .eyebrow { align-items: flex-start; text-align: left; }
   .marquee-head .eyebrow::before { flex: none; margin-top: 4px; }
+}
+
+/* Project detail: closing invite to talk about the case */
+.case-invite { padding: 120px var(--gutter) 40px; max-width: 980px; }
+.case-invite__eyebrow { margin-bottom: 24px; }
+.case-invite__title { font-size: clamp(32px, 4vw, 56px); font-weight: 600; line-height: 1.05; letter-spacing: -0.04em; margin-bottom: 24px; }
+.case-invite__text { max-width: 36em; font-size: clamp(17px, 1.4vw, 20px); font-weight: 500; line-height: 1.5; color: var(--ink-soft); margin-bottom: 36px; }
+.case-invite__cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 22px;
+  border-radius: 999px;
+  background: var(--ink);
+  color: #fff;
+  font-size: 16px;
+  font-weight: 600;
+  transition: background-color 0.2s, transform 0.2s;
+}
+.case-invite__cta:hover { background: var(--blue); transform: translateY(-2px); }
+.case-invite__actions { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 24px; }
+.case-invite__email { font-size: 15px; font-weight: 500; color: var(--ink-soft); }
+.case-invite__email a { color: var(--ink); border-bottom: 1px solid currentColor; }
+.case-invite__email a:hover { color: var(--blue); }
+@media (max-width: 860px) { .case-invite { padding: 72px var(--gutter) 24px; } }
+
+/* Project detail: video playing inside a phone mockup.
+   phone-frame.png is the phone cut out of mockup-phone.jpg (465x958); its screen
+   sits at x 19-450, y 21-936. The phone keeps the size it had in the full photo
+   (23.25% of the column). The recording (740x1390) has its own drawn device
+   frame, so it is scaled and offset to show only the app inside that frame. */
+.case-figure.mockup { overflow: visible; border-radius: 0; }
+.mockup__device { position: relative; width: 23.25%; margin: 0 auto; }
+.case-row .mockup__device { width: 48%; }
+/* soft contact shadow, as if the phone were resting on a surface */
+.mockup__device::before {
+  content: "";
+  position: absolute;
+  left: 8%;
+  right: 8%;
+  bottom: -5%;
+  height: 8%;
+  border-radius: 50%;
+  background: radial-gradient(closest-side, rgba(0, 0, 0, 0.28), rgba(0, 0, 0, 0));
+  filter: blur(10px);
+  z-index: 0;
+}
+.mockup__frame { position: relative; z-index: 1; display: block; width: 100%; height: auto; filter: drop-shadow(0 18px 24px rgba(0, 0, 0, 0.14)); }
+.mockup__screen {
+  position: absolute;
+  z-index: 2;
+  /* a few px larger than the measured screen so no grey from the photo
+     peeks out between the white screen and the black bezel */
+  left: 3.44%;
+  top: 1.36%;
+  width: 93.76%;
+  height: 97.18%;
+  overflow: hidden;
+  border-radius: 10.1% / 4.73%;
+  background: #fff;
+  container-type: inline-size;
+}
+/* Status bar drawn on top of the screen (time, island, signal, wifi, battery) */
+.mockup__status {
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 9.3cqw;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 7cqw 0 9cqw;
+  color: #0c0c0c;
+}
+.mockup__time { font-size: 3.6cqw; font-weight: 600; letter-spacing: -0.02em; line-height: 1; }
+.mockup__island {
+  position: absolute;
+  top: 1.6cqw;
+  left: 50%;
+  width: 27cqw;
+  height: 6.6cqw;
+  border-radius: 999px;
+  background: #0b0b0b;
+  transform: translateX(-50%);
+}
+.mockup__icons { display: flex; align-items: center; gap: 1.3cqw; }
+.mockup__icons svg { display: block; height: 2.6cqw; width: auto; fill: currentColor; }
+/* The app recording below the status bar. It shows only the area inside the
+   recording's own drawn frame (x 84-653, y 96-1312 of 740x1390). */
+.mockup__app {
+  position: absolute;
+  left: 2.44%;
+  top: 4.37%;
+  width: 95.15%;
+  height: 95.63%;
+  overflow: hidden;
+}
+.mockup .media-video {
+  inset: auto;
+  left: -14.74%;
+  top: -7.9%;
+  width: 129.9%;
+  height: auto;
+  aspect-ratio: 740 / 1390;
+  object-fit: fill;
+  opacity: 1;
+  border-radius: 0;
+}
+
+/* Project detail: text and image side by side, alternating sides.
+   Row 1 = text left / image right, row 2 = image left / text right, ... */
+.case-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: clamp(40px, 6vw, 96px);
+  padding: 96px 0;
+}
+.case-row + .case-row { border-top: 1px solid var(--line); }
+.case-row .case-block { display: block; padding: 0; }
+.case-row .case-block__label { margin-bottom: 20px; }
+.case-row .case-block__text { font-size: clamp(19px, 1.6vw, 24px); }
+.case-row .case-figure { margin: 0; }
+.case-row--flip .case-block { order: 2; }
+.case-row--flip .case-figure { order: 1; }
+.case-row .case-figure:not(.mockup) img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; }
+
+@media (max-width: 860px) {
+  .case-row { grid-template-columns: 1fr; gap: 32px; padding: 56px 0; }
+  .case-row--flip .case-block, .case-row--flip .case-figure { order: 0; }
+  .case-row .mockup__device { width: 62%; }
 }

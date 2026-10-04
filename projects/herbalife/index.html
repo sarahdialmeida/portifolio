@@ -11,7 +11,8 @@
       3. .case-meta    → client, role, duration, year
       4. .case-block   → one per chapter (label + text + optional note)
       5. .case-figure  → images between chapters (add/remove freely)
-      6. .case-more    → the two "Latest projects" cards (link to the other cases)
+      6. .case-invite  → closing invite (update the email subject with the case name)
+      7. .case-more    → the two "More projects" cards (link to the other cases)
   -->
   <title>Herbalife • Sarah Albagli</title>
   <meta name="description" content="Designing a customizable profile builder for Herbalife distributors." />
@@ -107,101 +108,146 @@
 
     <div class="case-body">
 
-      <section class="case-block">
-        <h2 class="case-block__label" data-i18n="hl.b0.label">This is a placeholder and I'll add a text soon</h2>
-        <div class="case-block__content">
-          <p class="case-block__text" data-i18n="hl.b0.text">This project was about making shopping simpler and more trustworthy through clear navigation, a secure checkout, and integrated support. At the same time, we gave Herbalife distributors the tools to personalize the experience for their clients maintaining a consistent brand.</p>
-        </div>
-      </section>
+      <div class="case-row">
+  <section class="case-block">
+          <h2 class="case-block__label" data-i18n="hl.b0.label">Overview</h2>
+          <div class="case-block__content">
+            <p class="case-block__text" data-i18n="hl.b0.text">This project was about making shopping simpler and more trustworthy through clear navigation, a secure checkout, and integrated support. At the same time, we gave Herbalife distributors the tools to personalize the experience for their clients maintaining a consistent brand.</p>
+          </div>
+        </section>
 
-      <figure class="case-figure">
-        <img src="/assets/img/herbalife/mockup-wide.jpg" alt="Two phones showing the app, on a concrete surface" loading="lazy" />
-      </figure>
+        <!-- Phone mockup with the product page recording playing on its screen -->
+        <figure class="case-figure mockup">
+          <div class="mockup__device">
+            <img class="mockup__frame" src="/assets/img/herbalife/phone-frame.png" alt="" />
+            <div class="mockup__screen">
+              <div class="mockup__status" aria-hidden="true">
+                <span class="mockup__time">9:41</span>
+                <span class="mockup__island"></span>
+                <span class="mockup__icons">
+                  <svg viewBox="0 0 18 12"><rect x="0" y="8" width="3" height="4" rx="1"/><rect x="5" y="5.5" width="3" height="6.5" rx="1"/><rect x="10" y="3" width="3" height="9" rx="1"/><rect x="15" y="0" width="3" height="12" rx="1"/></svg>
+                  <svg viewBox="0 0 16 12"><path d="M8 2.2c2.4 0 4.6.9 6.3 2.5l1.2-1.2A10.6 10.6 0 0 0 8 .5 10.6 10.6 0 0 0 .5 3.5l1.2 1.2A9 9 0 0 1 8 2.2z"/><path d="M8 5.6c1.5 0 2.9.6 4 1.6l1.2-1.2A7.3 7.3 0 0 0 8 3.9a7.3 7.3 0 0 0-5.2 2.1L4 7.2a5.7 5.7 0 0 1 4-1.6z"/><path d="M8 9c.6 0 1.1.2 1.6.6L8 11.5 6.4 9.6C6.9 9.2 7.4 9 8 9z"/></svg>
+                  <svg viewBox="0 0 27 12"><rect x=".6" y=".6" width="22.8" height="10.8" rx="3.2" fill="none" stroke="currentColor" stroke-opacity=".4" stroke-width="1.2"/><rect x="2.4" y="2.4" width="19.2" height="7.2" rx="1.8"/><path d="M25 4v4c.8-.3 1.4-1.1 1.4-2s-.6-1.7-1.4-2z" fill-opacity=".45"/></svg>
+                </span>
+              </div>
+              <div class="mockup__app">
+                <video class="media-video" src="/assets/img/herbalife/pdp-mobile.mp4" poster="/assets/img/herbalife/pdp-mobile-poster.jpg" autoplay muted loop playsinline disablepictureinpicture preload="auto" aria-label="Herbalife product page on mobile: browsing a product and adding it to the bag"></video>
+              </div>
+            </div>
+          </div>
+        </figure>
+      </div>
 
-      <section class="case-block">
-        <h2 class="case-block__label" data-i18n="hl.b1.label">Creative Process</h2>
-        <div class="case-block__content">
-          <p class="case-block__text" data-i18n="hl.b1.text">The project was organized into cross-functional pods with the flexibility to shift focus each sprint. The final solution evolved through four structured phases: Discovery &amp; Research, Prioritization, Custom Design System, and High-Fidelity Design &amp; Handoff.</p>
-          <p class="case-block__note" data-i18n="hl.b1.note">Each phase reinforced alignment between business requirements, user needs, and scalable interface standards.</p>
-        </div>
-      </section>
+      <div class="case-row case-row--flip">
+  <section class="case-block">
+          <h2 class="case-block__label" data-i18n="hl.b1.label">Creative Process</h2>
+          <div class="case-block__content">
+            <p class="case-block__text" data-i18n="hl.b1.text">The project was organized into cross-functional pods with the flexibility to shift focus each sprint. The final solution evolved through four structured phases: Discovery &amp; Research, Prioritization, Custom Design System, and High-Fidelity Design &amp; Handoff.</p>
+            <p class="case-block__note" data-i18n="hl.b1.note">Each phase reinforced alignment between business requirements, user needs, and scalable interface standards.</p>
+          </div>
+        </section>
 
-      <figure class="case-figure">
-        <img src="/assets/img/herbalife/mockup-phone.jpg" alt="Phone showing the app on a concrete surface" loading="lazy" />
-      </figure>
+        <figure class="case-figure">
+          <img src="/assets/img/herbalife/mockup-phone.jpg" alt="Phone showing the app on a concrete surface" loading="lazy" />
+        </figure>
+      </div>
 
-      <section class="case-block">
-        <h2 class="case-block__label" data-i18n="hl.b2.label">Discovery &amp; Research</h2>
-        <div class="case-block__content">
-          <p class="case-block__text" data-i18n="hl.b2.text">The design process was deeply collaborative, starting from understanding real user pain points and working through prioritization, testing, and delivery. What made it complex was designing for both distributors trying to connect with clients, and customers trying to trust a brand.</p>
-        </div>
-      </section>
+      <div class="case-row">
+  <section class="case-block">
+          <h2 class="case-block__label" data-i18n="hl.b2.label">Discovery &amp; Research</h2>
+          <div class="case-block__content">
+            <p class="case-block__text" data-i18n="hl.b2.text">The design process was deeply collaborative, starting from understanding real user pain points and working through prioritization, testing, and delivery. What made it complex was designing for both distributors trying to connect with clients, and customers trying to trust a brand.</p>
+          </div>
+        </section>
 
-      <figure class="case-figure">
-        <img src="/assets/img/herbalife/mockup-phone.jpg" alt="" loading="lazy" />
-      </figure>
+        <figure class="case-figure">
+          <img src="/assets/img/herbalife/mockup-phone.jpg" alt="" loading="lazy" />
+        </figure>
+      </div>
 
-      <section class="case-block">
-        <h2 class="case-block__label" data-i18n="hl.b3.label">Prioritization</h2>
-        <div class="case-block__content">
-          <p class="case-block__text" data-i18n="hl.b3.text">The team uncovered over 120 Jobs to Be Done across the personas. Prioritization sessions translated research insights into structured feature sets, defining what would be standardized versus customizable within the platform.</p>
-        </div>
-      </section>
+      <div class="case-row case-row--flip">
+  <section class="case-block">
+          <h2 class="case-block__label" data-i18n="hl.b3.label">Prioritization</h2>
+          <div class="case-block__content">
+            <p class="case-block__text" data-i18n="hl.b3.text">The team uncovered over 120 Jobs to Be Done across the personas. Prioritization sessions translated research insights into structured feature sets, defining what would be standardized versus customizable within the platform.</p>
+          </div>
+        </section>
 
-      <figure class="case-figure">
-        <img src="/assets/img/herbalife/mockup-phone.jpg" alt="" loading="lazy" />
-      </figure>
+        <figure class="case-figure">
+          <img src="/assets/img/herbalife/mockup-phone.jpg" alt="" loading="lazy" />
+        </figure>
+      </div>
 
-      <section class="case-block">
-        <h2 class="case-block__label" data-i18n="hl.b4.label">Custom Design System</h2>
-        <div class="case-block__content">
-          <p class="case-block__text" data-i18n="hl.b4.text">To ensure consistency and scalability, we structured a dedicated design system library in Figma. Components were built using Auto Layout and variant logic, enabling flexible, reusable patterns across breakpoints. The system balanced global brand standards with controlled customization options for distributors.</p>
-        </div>
-      </section>
+      <div class="case-row">
+  <section class="case-block">
+          <h2 class="case-block__label" data-i18n="hl.b4.label">Custom Design System</h2>
+          <div class="case-block__content">
+            <p class="case-block__text" data-i18n="hl.b4.text">To ensure consistency and scalability, we structured a dedicated design system library in Figma. Components were built using Auto Layout and variant logic, enabling flexible, reusable patterns across breakpoints. The system balanced global brand standards with controlled customization options for distributors.</p>
+          </div>
+        </section>
 
-      <figure class="case-figure">
-        <img src="/assets/img/herbalife/mockup-phone.jpg" alt="" loading="lazy" />
-      </figure>
+        <figure class="case-figure">
+          <img src="/assets/img/herbalife/mockup-phone.jpg" alt="" loading="lazy" />
+        </figure>
+      </div>
 
-      <section class="case-block">
-        <h2 class="case-block__label" data-i18n="hl.b5.label">High Fidelity &amp; Handoff</h2>
-        <div class="case-block__content">
-          <p class="case-block__text" data-i18n="hl.b5.text">We delivered comprehensive handoff documentation including UX annotations, UI guidelines, motion specifications, and component behavior definitions to ensure engineering alignment and implementation accuracy.</p>
-        </div>
-      </section>
+      <div class="case-row case-row--flip">
+  <section class="case-block">
+          <h2 class="case-block__label" data-i18n="hl.b5.label">High Fidelity &amp; Handoff</h2>
+          <div class="case-block__content">
+            <p class="case-block__text" data-i18n="hl.b5.text">We delivered comprehensive handoff documentation including UX annotations, UI guidelines, motion specifications, and component behavior definitions to ensure engineering alignment and implementation accuracy.</p>
+          </div>
+        </section>
 
-      <figure class="case-figure">
-        <img src="/assets/img/herbalife/mockup-phone.jpg" alt="" loading="lazy" />
-      </figure>
+        <figure class="case-figure">
+          <img src="/assets/img/herbalife/mockup-phone.jpg" alt="" loading="lazy" />
+        </figure>
+      </div>
 
-      <section class="case-block">
-        <h2 class="case-block__label" data-i18n="hl.b6.label">Why it mattered</h2>
-        <div class="case-block__content">
-          <p class="case-block__text" data-i18n="hl.b6.text">One challenge was ensuring privacy controls while maintaining an easy-to-use interface. Our team developed an accessible settings menu that lets users control visibility without overwhelming them.</p>
-          <p class="case-block__note" data-i18n="hl.b6.note">Designing an ad-free experience meant creating engaging content flows without traditional ads. We achieved this by focusing on rich, visual content and user-driven discovery options.</p>
-        </div>
-      </section>
+      <div class="case-row">
+  <section class="case-block">
+          <h2 class="case-block__label" data-i18n="hl.b6.label">Why it mattered</h2>
+          <div class="case-block__content">
+            <p class="case-block__text" data-i18n="hl.b6.text">One challenge was ensuring privacy controls while maintaining an easy-to-use interface. Our team developed an accessible settings menu that lets users control visibility without overwhelming them.</p>
+            <p class="case-block__note" data-i18n="hl.b6.note">Designing an ad-free experience meant creating engaging content flows without traditional ads. We achieved this by focusing on rich, visual content and user-driven discovery options.</p>
+          </div>
+        </section>
 
-      <figure class="case-figure">
-        <img src="/assets/img/herbalife/mockup-phone.jpg" alt="" loading="lazy" />
-      </figure>
+        <figure class="case-figure">
+          <img src="/assets/img/herbalife/mockup-phone.jpg" alt="" loading="lazy" />
+        </figure>
+      </div>
 
       <section class="case-block case-block--stacked">
         <h2 class="case-block__label" data-i18n="hl.b7.label">Big Achievements</h2>
         <div class="case-achievements">
-          <video class="case-video" src="/assets/img/herbalife/achievements.mp4" muted loop playsinline controls preload="metadata" aria-label="Herbalife project achievements video"></video>
+          <video class="case-video" src="/assets/img/herbalife/achievements.mp4" poster="/assets/img/herbalife/achievements-poster.jpg" playsinline preload="none" aria-label="Herbalife project achievements video"></video>
+          <button type="button" class="case-video__play" aria-label="Play the Herbalife achievements video">
+            <svg width="28" height="28" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l10.5-6.5z" fill="currentColor"/></svg>
+          </button>
         </div>
       </section>
 
     </div>
 
-    <!-- Latest projects -->
+    <!-- Closing invite: every case ends with one (change the subject line per case) -->
+    <section class="case-invite">
+      <p class="eyebrow case-invite__eyebrow" data-i18n="case.invite.eyebrow">Want the full story?</p>
+      <h2 class="case-invite__title" data-i18n="case.invite.title">There's a lot more behind this case than fits on a page.</h2>
+      <p class="case-invite__text" data-i18n="case.invite.text">The research that changed our direction, the trade-offs we argued about, and what I'd do differently today. I'm happy to walk you through it.</p>
+      <div class="case-invite__actions">
+        <a class="case-invite__cta" href="mailto:albagli.sarah@gmail.com?subject=Let%27s%20talk%20about%20the%20Herbalife%20case" data-copy-email="albagli.sarah@gmail.com"><span class="case-invite__cta-label" data-i18n="case.invite.cta">Let's talk about it</span> <span aria-hidden="true">→</span></a>
+        <p class="case-invite__email"><span data-i18n="case.invite.or">or write to</span> <a href="mailto:albagli.sarah@gmail.com">albagli.sarah@gmail.com</a></p>
+      </div>
+    </section>
+
+    <!-- More projects -->
     <section class="case-more">
-      <h2 class="case-more__title" data-i18n="hl.more.title">Latest projects</h2>
+      <h2 class="case-more__title" data-i18n="hl.more.title">More projects</h2>
       <div class="case-more__row">
         <a href="/projects/" class="case-more__all">
           <span class="case-more__corner" aria-hidden="true"></span>
-          <span class="case-more__all-label" data-i18n="hl.more.all">More projects</span>
+          <span class="case-more__all-label" data-i18n="hl.more.all">All projects</span>
         </a>
 
         <a href="/projects/dxc/" class="case-card">
@@ -215,7 +261,7 @@
 
         <a href="/projects/mccain/" class="case-card">
           <img src="/assets/img/mccainmain.jpg" alt="" loading="lazy" />
-          <video class="media-video" src="/assets/mccainsmall.mp4" autoplay muted loop playsinline disablepictureinpicture preload="metadata" aria-hidden="true"></video>
+          <video class="media-video" src="/assets/mccainsmall.mp4" autoplay muted loop playsinline disablepictureinpicture preload="auto" aria-hidden="true"></video>
           <ul class="tags tags--dark"><li data-i18n="tag.webmobile">Web &amp; Mobile</li><li data-i18n="tag.designsystem">Design System</li><li data-i18n="tag.uidesign">UI Design</li></ul>
           <div class="case-card__text">
             <h3>McCain</h3>
@@ -241,7 +287,7 @@
 {
   "hl.role": "Diseñadora UI",
   "hl.duration": "8 meses",
-  "hl.b0.label": "Texto provisional, pronto añadiré el definitivo",
+  "hl.b0.label": "Resumen",
   "hl.b0.text": "Este proyecto buscaba hacer las compras más simples y confiables mediante una navegación clara, un checkout seguro y soporte integrado. Al mismo tiempo, dimos a los distribuidores de Herbalife las herramientas para personalizar la experiencia de sus clientes manteniendo una marca coherente.",
   "hl.b1.label": "Proceso creativo",
   "hl.b1.text": "El proyecto se organizó en pods multifuncionales con flexibilidad para cambiar de foco en cada sprint. La solución final evolucionó a través de cuatro fases estructuradas: discovery e investigación, priorización, sistema de diseño a medida, y diseño de alta fidelidad y handoff.",
@@ -258,8 +304,8 @@
   "hl.b6.text": "Uno de los retos fue garantizar controles de privacidad manteniendo una interfaz fácil de usar. Nuestro equipo desarrolló un menú de configuración accesible que permite a los usuarios controlar su visibilidad sin abrumarlos.",
   "hl.b6.note": "Diseñar una experiencia sin anuncios implicó crear flujos de contenido atractivos sin publicidad tradicional. Lo logramos apostando por contenido visual rico y opciones de descubrimiento guiadas por el usuario.",
   "hl.b7.label": "Grandes logros",
-  "hl.more.title": "Últimos proyectos",
-  "hl.more.all": "Más proyectos"
+  "hl.more.title": "Más proyectos",
+  "hl.more.all": "Todos los proyectos"
 }
   </script>
   <script src="/i18n.js"></script>

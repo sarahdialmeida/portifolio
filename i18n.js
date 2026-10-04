@@ -28,5 +28,11 @@ window.I18N_ES = {
   "meta.year": "Año",
   "home.case.dxc.desc": "Construimos una base compartida y el resultado fue menos reportes de errores (~35 %), una UI coherente entre módulos y un camino más rápido del diseño a producción.",
   "home.case.mccain.desc": "Un sistema de diseño que dio a diseño e ingeniería un lenguaje común",
-  "footer.statement": "Ya sea que estés formando un equipo, desenredando un producto complejo o lanzando algo ambicioso, aporto la práctica de una diseñadora y la mentalidad de una desarrolladora para sacarlo adelante."
+  "footer.statement": "Ya sea que estés formando un equipo, desenredando un producto complejo o lanzando algo ambicioso, aporto la práctica de una diseñadora y la mentalidad de una desarrolladora para sacarlo adelante.",
+  "case.invite.eyebrow": "¿Quieres la historia completa?",
+  "case.invite.title": "Detrás de este caso hay mucho más de lo que cabe en una página.",
+  "case.invite.text": "La investigación que cambió nuestro rumbo, las decisiones que discutimos y lo que haría distinto hoy. Te lo cuento con gusto.",
+  "case.invite.cta": "Hablemos de ello",
+  "case.invite.or": "o escríbeme a",
+  "case.invite.copied": "Email copiado"
 };
