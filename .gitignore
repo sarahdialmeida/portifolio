@@ -1,2 +1,6 @@
 .DS_Store
 .vscode/
+
+# Raw design sources (kept locally, optimized copies are published)
+assets/img/dxc/pnphandoff.png
+assets/img/dxc/Research DxC.png
