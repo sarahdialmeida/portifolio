@@ -456,7 +456,8 @@ html.intro-active { overflow: hidden; }
 
 /* ---------- Footer ---------- */
 .footer {
-  margin: 0 30px 30px;
+  /* same white frame on all four sides */
+  margin: 30px;
   padding: 60px 60px 60px;
   background: var(--paper-2);
 }
@@ -525,7 +526,7 @@ html.intro-active { overflow: hidden; }
 
   .clients__cell { width: 200px; height: 140px; }
 
-  .footer { margin: 0 0 0; padding: 40px var(--gutter); }
+  .footer { margin: 12px; padding: 40px 20px; }
   .footer__statement { margin-bottom: 32px; }
   .footer__gradient { margin-bottom: 40px; }
 }
@@ -1025,7 +1026,8 @@ html.intro-active { overflow: hidden; }
 }
 
 /* Project detail: closing invite to talk about the case */
-.case-invite { padding: 120px var(--gutter) 40px; max-width: 980px; }
+.case-invite { padding: 64px var(--gutter); background: #fff; }
+.case-invite > * { max-width: 980px; }
 .case-invite__eyebrow { margin-bottom: 24px; }
 .case-invite__title { font-size: clamp(32px, 4vw, 56px); font-weight: 600; line-height: 1.05; letter-spacing: -0.04em; margin-bottom: 24px; }
 .case-invite__text { max-width: 36em; font-size: clamp(17px, 1.4vw, 20px); font-weight: 500; line-height: 1.5; color: var(--ink-soft); margin-bottom: 36px; }
@@ -1043,10 +1045,7 @@ html.intro-active { overflow: hidden; }
 }
 .case-invite__cta:hover { background: var(--blue); transform: translateY(-2px); }
 .case-invite__actions { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 24px; }
-.case-invite__email { font-size: 15px; font-weight: 500; color: var(--ink-soft); }
-.case-invite__email a { color: var(--ink); border-bottom: 1px solid currentColor; }
-.case-invite__email a:hover { color: var(--blue); }
-@media (max-width: 860px) { .case-invite { padding: 72px var(--gutter) 24px; } }
+@media (max-width: 860px) { .case-invite { padding: 48px var(--gutter); } }
 
 /* Project detail: video playing inside a phone mockup.
    phone-frame.png is the phone cut out of mockup-phone.jpg (465x958); its screen
@@ -1157,23 +1156,9 @@ html.intro-active { overflow: hidden; }
 /* Case images that should not be cropped to 4:3 */
 .case-row .case-figure.case-figure--natural img { aspect-ratio: auto; }
 /* Tall annotated spec: show the top, open the full image on click */
-.case-row .case-figure.case-figure--spec img { aspect-ratio: 4 / 5; object-position: top; transition: transform 0.6s cubic-bezier(.2,.7,.2,1); }
+.case-row .case-figure.case-figure--spec img { aspect-ratio: 4 / 5; object-position: top; }
+.case-figure--spec a { cursor: zoom-in; }
 .case-figure--spec a { position: relative; display: block; }
-.case-figure--spec a:hover img { transform: scale(1.02); }
-.case-figure__badge {
-  position: absolute;
-  right: 16px;
-  bottom: 16px;
-  padding: 10px 16px;
-  border-radius: 999px;
-  background: rgba(12, 12, 12, 0.85);
-  color: #fff;
-  font-size: 14px;
-  font-weight: 600;
-  backdrop-filter: blur(6px);
-  transition: background-color 0.2s;
-}
-.case-figure--spec a:hover .case-figure__badge { background: var(--blue); }
 
 /* Case pages: placeholders until the real images arrive */
 .case-figure--placeholder,
@@ -1198,4 +1183,70 @@ html.intro-active { overflow: hidden; }
 @media (max-width: 860px) {
   .case-closing { grid-template-columns: 1fr; gap: 48px; }
   .case-figure--placeholder, .case-achievements--placeholder { border-radius: 16px; }
+}
+
+/* Case images: slow, soft zoom on hover (the figure clips the overflow) */
+.case-row .case-figure:not(.mockup):not(.case-figure--placeholder) { overflow: hidden; }
+.case-row .case-figure:not(.mockup):not(.case-figure--placeholder) img { transition: transform 1.2s cubic-bezier(.2,.7,.2,1); }
+.case-row .case-figure:not(.mockup):not(.case-figure--placeholder):hover img { transform: scale(1.05); }
+@media (prefers-reduced-motion: reduce) {
+  .case-row .case-figure img { transition: none; }
+  .case-row .case-figure:hover img { transform: none; }
+}
+
+/* A case row with text only (no image): the text keeps the same column
+   width as the text in the rows below, the other column stays empty */
+
+/* Case image carousel (Herbalife: Discovery & Research) */
+.case-carousel { position: relative; }
+.case-carousel__viewport { overflow: hidden; border-radius: inherit; }
+.case-carousel__track {
+  display: flex;
+  gap: 16px;
+  transition: transform 0.7s cubic-bezier(.65,0,.25,1);
+  touch-action: pan-y;
+}
+.case-row .case-figure.case-carousel img.case-carousel__slide {
+  flex: 0 0 100%;
+  width: 100%;
+  aspect-ratio: 1229 / 803;
+  object-fit: cover;
+  border-radius: 24px;
+}
+.case-row .case-figure.case-carousel:hover img { transform: none; }
+/* first time on screen: slide over a little to show the edge of the next image */
+.case-carousel__track.is-peeking { animation: carousel-peek 1.6s cubic-bezier(.45,0,.25,1) 0.3s both; }
+@keyframes carousel-peek {
+  0%, 100% { transform: translateX(0); }
+  45%, 60% { transform: translateX(-16%); }
+}
+.case-carousel__btn {
+  position: absolute;
+  top: 50%;
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.92);
+  color: var(--ink);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.18);
+  transform: translateY(-50%);
+  transition: opacity 0.2s, background-color 0.2s, transform 0.2s;
+}
+.case-carousel__btn svg { width: 20px; height: 20px; }
+.case-carousel__btn--prev { left: 14px; }
+.case-carousel__btn--next { right: 14px; }
+.case-carousel__btn:hover { background: #fff; transform: translateY(-50%) scale(1.06); }
+.case-carousel__btn:disabled { opacity: 0; pointer-events: none; }
+.case-carousel__dots { position: absolute; left: 50%; bottom: 14px; display: flex; gap: 6px; transform: translateX(-50%); }
+.case-carousel__dots span { width: 7px; height: 7px; border-radius: 50%; background: rgba(255, 255, 255, 0.6); box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.15); transition: background-color 0.2s, width 0.2s; }
+.case-carousel__dots span.is-active { width: 18px; border-radius: 999px; background: #fff; }
+@media (max-width: 860px) {
+  .case-row .case-figure.case-carousel img.case-carousel__slide { border-radius: 16px; }
+  .case-carousel__btn { width: 36px; height: 36px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .case-carousel__track { transition: none; }
+  .case-carousel__track.is-peeking { animation: none; }
 }

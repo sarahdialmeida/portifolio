@@ -254,6 +254,51 @@ document.querySelectorAll('[data-copy-email]').forEach((link) => {
   });
 });
 
+// ---------- Case image carousels ----------
+// Arrows (and swipe on touch) move between slides, looping at the ends so
+// both arrows always work. The first time the
+// carousel comes on screen it nudges sideways to show the next image's edge.
+document.querySelectorAll('.case-carousel').forEach((carousel) => {
+  const track = carousel.querySelector('.case-carousel__track');
+  const slides = track.children;
+  const prev = carousel.querySelector('.case-carousel__btn--prev');
+  const next = carousel.querySelector('.case-carousel__btn--next');
+  const dots = carousel.querySelectorAll('.case-carousel__dots span');
+  let index = 0;
+  const go = (i) => {
+    index = (i + slides.length) % slides.length;
+    const gap = parseFloat(getComputedStyle(track).columnGap) || 0;
+    track.style.transform = `translateX(calc(${-index * 100}% - ${index * gap}px))`;
+    dots.forEach((d, n) => d.classList.toggle('is-active', n === index));
+  };
+  prev.addEventListener('click', () => go(index - 1));
+  next.addEventListener('click', () => go(index + 1));
+  carousel.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowLeft') go(index - 1);
+    if (e.key === 'ArrowRight') go(index + 1);
+  });
+  // swipe
+  let startX = null;
+  track.addEventListener('pointerdown', (e) => { if (e.pointerType !== 'mouse') startX = e.clientX; });
+  track.addEventListener('pointerup', (e) => {
+    if (startX === null) return;
+    const dx = e.clientX - startX;
+    if (Math.abs(dx) > 40) go(index + (dx < 0 ? 1 : -1));
+    startX = null;
+  });
+  go(0);
+  // one-time peek hint
+  if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    new IntersectionObserver(([entry], obs) => {
+      if (!entry.isIntersecting) return;
+      obs.disconnect();
+      if (index !== 0) return;
+      track.classList.add('is-peeking');
+      track.addEventListener('animationend', () => track.classList.remove('is-peeking'), { once: true });
+    }, { threshold: 0.6 }).observe(carousel);
+  }
+});
+
 // ---------- Flowing gradient backgrounds (hero + footer) ----------
 // The image is drawn on a WebGL canvas and slowly warped by layered sine
 // waves, so the colours drift like liquid. If WebGL is unavailable the

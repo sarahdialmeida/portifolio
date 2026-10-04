@@ -108,34 +108,13 @@
 
     <div class="case-body">
 
-      <div class="case-row">
+      <div class="case-row case-row--text">
   <section class="case-block">
           <h2 class="case-block__label" data-i18n="hl.b0.label">Overview</h2>
           <div class="case-block__content">
             <p class="case-block__text" data-i18n="hl.b0.text">This project was about making shopping simpler and more trustworthy through clear navigation, a secure checkout, and integrated support. At the same time, we gave Herbalife distributors the tools to personalize the experience for their clients maintaining a consistent brand.</p>
           </div>
         </section>
-
-        <!-- Phone mockup with the product page recording playing on its screen -->
-        <figure class="case-figure mockup">
-          <div class="mockup__device">
-            <img class="mockup__frame" src="/assets/img/herbalife/phone-frame.png" alt="" />
-            <div class="mockup__screen">
-              <div class="mockup__status" aria-hidden="true">
-                <span class="mockup__time">9:41</span>
-                <span class="mockup__island"></span>
-                <span class="mockup__icons">
-                  <svg viewBox="0 0 18 12"><rect x="0" y="8" width="3" height="4" rx="1"/><rect x="5" y="5.5" width="3" height="6.5" rx="1"/><rect x="10" y="3" width="3" height="9" rx="1"/><rect x="15" y="0" width="3" height="12" rx="1"/></svg>
-                  <svg viewBox="0 0 16 12"><path d="M8 2.2c2.4 0 4.6.9 6.3 2.5l1.2-1.2A10.6 10.6 0 0 0 8 .5 10.6 10.6 0 0 0 .5 3.5l1.2 1.2A9 9 0 0 1 8 2.2z"/><path d="M8 5.6c1.5 0 2.9.6 4 1.6l1.2-1.2A7.3 7.3 0 0 0 8 3.9a7.3 7.3 0 0 0-5.2 2.1L4 7.2a5.7 5.7 0 0 1 4-1.6z"/><path d="M8 9c.6 0 1.1.2 1.6.6L8 11.5 6.4 9.6C6.9 9.2 7.4 9 8 9z"/></svg>
-                  <svg viewBox="0 0 27 12"><rect x=".6" y=".6" width="22.8" height="10.8" rx="3.2" fill="none" stroke="currentColor" stroke-opacity=".4" stroke-width="1.2"/><rect x="2.4" y="2.4" width="19.2" height="7.2" rx="1.8"/><path d="M25 4v4c.8-.3 1.4-1.1 1.4-2s-.6-1.7-1.4-2z" fill-opacity=".45"/></svg>
-                </span>
-              </div>
-              <div class="mockup__app">
-                <video class="media-video" src="/assets/img/herbalife/pdp-mobile.mp4" poster="/assets/img/herbalife/pdp-mobile-poster.jpg" autoplay muted loop playsinline disablepictureinpicture preload="auto" aria-label="Herbalife product page on mobile: browsing a product and adding it to the bag"></video>
-              </div>
-            </div>
-          </div>
-        </figure>
       </div>
 
       <div class="case-row case-row--flip">
@@ -160,8 +139,17 @@
           </div>
         </section>
 
-        <figure class="case-figure">
-          <img src="/assets/img/herbalife/mockup-phone.jpg" alt="" loading="lazy" />
+        <!-- Carousel: arrows to switch; on first view it nudges sideways to hint at the next image -->
+        <figure class="case-figure case-carousel" aria-roledescription="carousel" aria-label="Discovery and research boards">
+          <div class="case-carousel__viewport">
+            <div class="case-carousel__track">
+              <img class="case-carousel__slide" src="/assets/img/herbalife/discovery-1.jpg" width="1229" height="803" alt="Research boards: guidelines and case studies, a user journey map, and persona cards with experience opportunities" loading="lazy" />
+              <img class="case-carousel__slide" src="/assets/img/herbalife/discovery-2.jpg" width="1229" height="803" alt="Persona boards for four distributor profiles, a priority matrix and mapped needs per persona" loading="lazy" />
+            </div>
+          </div>
+          <button type="button" class="case-carousel__btn case-carousel__btn--prev" aria-label="Previous image"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+          <button type="button" class="case-carousel__btn case-carousel__btn--next" aria-label="Next image"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+          <div class="case-carousel__dots" aria-hidden="true"><span class="is-active"></span><span></span></div>
         </figure>
       </div>
 
@@ -173,8 +161,8 @@
           </div>
         </section>
 
-        <figure class="case-figure">
-          <img src="/assets/img/herbalife/mockup-phone.jpg" alt="" loading="lazy" />
+        <figure class="case-figure case-figure--natural">
+          <img src="/assets/img/herbalife/prioritization.webp" width="1084" height="942" alt="Prioritization flow: personas, interviews, surveys and quantitative data led to 120+ jobs to be done, prioritized into key features and priorities for each persona" loading="lazy" />
         </figure>
       </div>
 
@@ -201,8 +189,7 @@
 
         <figure class="case-figure case-figure--spec">
           <a href="/assets/img/herbalife/high-fidelity-handoff.jpg" target="_blank" rel="noopener">
-            <img src="/assets/img/herbalife/high-fidelity-handoff.jpg" width="1711" height="3000" alt="Annotated high-fidelity spec of the Weight Management product listing page, on mobile and desktop, with numbered notes on each component" loading="lazy" />
-            <span class="case-figure__badge"><span data-i18n="hl.spec.open">View full spec</span> <span aria-hidden="true">↗</span></span>
+            <img src="/assets/img/herbalife/high-fidelity-handoff.jpg" width="1663" height="2952" alt="Annotated high-fidelity spec of the Weight Management product listing page, on mobile and desktop, with numbered notes on each component" loading="lazy" />
           </a>
         </figure>
       </div>
@@ -216,8 +203,25 @@
           </div>
         </section>
 
-        <figure class="case-figure">
-          <img src="/assets/img/herbalife/mockup-phone.jpg" alt="" loading="lazy" />
+        <!-- Phone mockup with the product page recording playing on its screen -->
+        <figure class="case-figure mockup">
+          <div class="mockup__device">
+            <img class="mockup__frame" src="/assets/img/herbalife/phone-frame.png" alt="" />
+            <div class="mockup__screen">
+              <div class="mockup__status" aria-hidden="true">
+                <span class="mockup__time">9:41</span>
+                <span class="mockup__island"></span>
+                <span class="mockup__icons">
+                  <svg viewBox="0 0 18 12"><rect x="0" y="8" width="3" height="4" rx="1"/><rect x="5" y="5.5" width="3" height="6.5" rx="1"/><rect x="10" y="3" width="3" height="9" rx="1"/><rect x="15" y="0" width="3" height="12" rx="1"/></svg>
+                  <svg viewBox="0 0 16 12"><path d="M8 2.2c2.4 0 4.6.9 6.3 2.5l1.2-1.2A10.6 10.6 0 0 0 8 .5 10.6 10.6 0 0 0 .5 3.5l1.2 1.2A9 9 0 0 1 8 2.2z"/><path d="M8 5.6c1.5 0 2.9.6 4 1.6l1.2-1.2A7.3 7.3 0 0 0 8 3.9a7.3 7.3 0 0 0-5.2 2.1L4 7.2a5.7 5.7 0 0 1 4-1.6z"/><path d="M8 9c.6 0 1.1.2 1.6.6L8 11.5 6.4 9.6C6.9 9.2 7.4 9 8 9z"/></svg>
+                  <svg viewBox="0 0 27 12"><rect x=".6" y=".6" width="22.8" height="10.8" rx="3.2" fill="none" stroke="currentColor" stroke-opacity=".4" stroke-width="1.2"/><rect x="2.4" y="2.4" width="19.2" height="7.2" rx="1.8"/><path d="M25 4v4c.8-.3 1.4-1.1 1.4-2s-.6-1.7-1.4-2z" fill-opacity=".45"/></svg>
+                </span>
+              </div>
+              <div class="mockup__app">
+                <video class="media-video" src="/assets/img/herbalife/pdp-mobile.mp4" poster="/assets/img/herbalife/pdp-mobile-poster.jpg" autoplay muted loop playsinline disablepictureinpicture preload="auto" aria-label="Herbalife product page on mobile: browsing a product and adding it to the bag"></video>
+              </div>
+            </div>
+          </div>
         </figure>
       </div>
 
@@ -240,7 +244,6 @@
       <p class="case-invite__text" data-i18n="case.invite.text">The research that changed our direction, the trade-offs we argued about, and what I'd do differently today. I'm happy to walk you through it.</p>
       <div class="case-invite__actions">
         <a class="case-invite__cta" href="mailto:albagli.sarah@gmail.com?subject=Let%27s%20talk%20about%20the%20Herbalife%20case" data-copy-email="albagli.sarah@gmail.com"><span class="case-invite__cta-label" data-i18n="case.invite.cta">Let's talk about it</span> <span aria-hidden="true">→</span></a>
-        <p class="case-invite__email"><span data-i18n="case.invite.or">or write to</span> <a href="mailto:albagli.sarah@gmail.com">albagli.sarah@gmail.com</a></p>
       </div>
     </section>
 
@@ -308,8 +311,7 @@
   "hl.b6.note": "Diseñar una experiencia sin anuncios implicó crear flujos de contenido atractivos sin publicidad tradicional. Lo logramos apostando por contenido visual rico y opciones de descubrimiento guiadas por el usuario.",
   "hl.b7.label": "Grandes logros",
   "hl.more.title": "Más proyectos",
-  "hl.more.all": "Todos los proyectos",
-  "hl.spec.open": "Ver especificación completa"
+  "hl.more.all": "Todos los proyectos"
 }
   </script>
   <script src="/i18n.js"></script>

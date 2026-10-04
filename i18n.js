@@ -33,7 +33,6 @@ window.I18N_ES = {
   "case.invite.title": "Detrás de este caso hay mucho más de lo que cabe en una página.",
   "case.invite.text": "La investigación que cambió nuestro rumbo, las decisiones que discutimos y lo que haría distinto hoy. Te lo cuento con gusto.",
   "case.invite.cta": "Hablemos de ello",
-  "case.invite.or": "o escríbeme a",
   "case.invite.copied": "Email copiado",
   "case.more.title": "Más proyectos",
   "case.more.all": "Todos los proyectos"
