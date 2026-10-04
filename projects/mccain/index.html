@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <!--
+    PROJECT DETAIL TEMPLATE
+    To create a new case: copy this folder to /projects/<slug>/ and edit:
+      1. <title> + meta description
+      2. .case-hero    → cover image, tags, title, summary, year
+      3. .case-meta    → client, role, duration, year
+      4. .case-block   → one per chapter (label + text + optional note)
+      5. .case-figure  → images between chapters (add/remove freely)
+      6. .case-invite  → closing invite (update the email subject with the case name)
+      7. .case-more    → the two "More projects" cards (link to the other cases)
+  -->
+  <title>McCain • Sarah Albagli</title>
+  <meta name="description" content="A design system that gave design and engineering a shared language." />
+  <!-- Link previews (WhatsApp, LinkedIn, Slack, iMessage, browsers) -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Sarah Albagli" />
+  <meta property="og:title" content="McCain • Sarah Albagli" />
+  <meta property="og:description" content="A design system that gave design and engineering a shared language." />
+  <meta property="og:url" content="https://sarahalbagli.vercel.app/projects/mccain/" />
+  <meta property="og:image" content="https://sarahalbagli.vercel.app/og-image.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Sarah Albagli, Product Designer" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="McCain • Sarah Albagli" />
+  <meta name="twitter:description" content="A design system that gave design and engineering a shared language." />
+  <meta name="twitter:image" content="https://sarahalbagli.vercel.app/og-image.jpg" />
+  <link rel="icon" href="/favicon.ico" sizes="32x32" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/style.css" />
+  <!-- Vercel Web Analytics (only loads on Vercel; enable it in the project's Analytics tab) -->
+  <script>window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };</script>
+  <script defer src="/_vercel/insights/script.js"></script>
+</head>
+<body class="page-case">
+
+  <!-- Header -->
+  <header class="header">
+    <a href="/" class="logo">Sarah Albagli</a>
+    <nav class="header__nav">
+      <a href="/about/" data-i18n="nav.about">About</a>
+      <a href="/projects/" data-i18n="nav.work">Projects</a>
+      <a href="https://www.linkedin.com/in/sarahalbagli/" target="_blank" rel="noopener">LinkedIn <span class="arrow-up">↗</span></a>
+    </nav>
+    <a href="/assets/sarah-albagli-cv.pdf" class="btn-cv" download>
+      <span data-i18n="nav.cv">Download my CV</span>
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"/></svg>
+    </a>
+    <!-- Language switch hidden until the Spanish copy is reviewed: remove "hidden" and set LANG_SWITCH_ENABLED = true in script.js -->
+    <div class="lang" role="group" aria-label="Language" hidden>
+      <button type="button" data-lang="en" aria-pressed="true">EN</button>
+      <button type="button" data-lang="es" aria-pressed="false">ES</button>
+    </div>
+    <button class="menu-toggle" aria-expanded="false" aria-controls="menu">
+      <span class="menu-toggle__lines" aria-hidden="true"><span></span><span></span></span>
+      <span class="menu-toggle__label" data-i18n="menu.label">Menu</span>
+    </button>
+  </header>
+
+  <!-- Fullscreen menu -->
+  <div class="menu" id="menu" aria-label="Site menu" inert>
+    <button class="menu__close" aria-label="Close menu">
+      <span class="menu__close-icon" aria-hidden="true"><span></span><span></span></span>
+      <span class="menu__close-label" data-i18n="menu.label">Menu</span>
+    </button>
+    <div class="menu__contact">
+      <p data-i18n="menu.talk">Let's talk</p>
+      <a href="mailto:albagli.sarah@gmail.com">albagli.sarah@gmail.com</a>
+    </div>
+    <nav class="menu__links">
+      <a href="/about/" data-label="About"><span data-i18n="menu.about">About</span></a>
+      <a href="/projects/" data-label="Projects"><span data-i18n="menu.projects">Projects</span></a>
+      <a href="https://www.linkedin.com/in/sarahalbagli/" target="_blank" rel="noopener" data-label="LinkedIn ↗"><span>LinkedIn ↗</span></a>
+      <a href="/assets/sarah-albagli-cv.pdf" download data-label="Download my CV"><span data-i18n="nav.cv">Download my CV</span></a>
+    </nav>
+  </div>
+
+  <main>
+
+    <!-- Hero -->
+    <section class="case-hero" data-hero>
+      <img class="case-hero__img" src="/assets/img/mccainmain.jpg" alt="McCain design system components" />
+      <video class="media-video case-hero__video" src="/assets/mccainsmall.mp4" autoplay muted loop playsinline disablepictureinpicture preload="auto" aria-hidden="true"></video>
+      <div class="case-hero__content">
+        <ul class="tags tags--dark"><li data-i18n="tag.webmobile">Web &amp; Mobile</li><li data-i18n="tag.designsystem">Design System</li><li data-i18n="tag.uidesign">UI Design</li><li data-i18n="tag.research">Research</li><li>B2B</li></ul>
+        <h1 class="case-hero__title">McCain</h1>
+        <p class="case-hero__summary" data-i18n="home.case.mccain.desc">A design system that gave design and engineering a shared language</p>
+        <p class="case-hero__year">2026</p>
+      </div>
+    </section>
+
+    <!-- Project facts -->
+    <dl class="case-meta">
+      <div><dt data-i18n="meta.client">Client</dt><dd>McCain</dd></div>
+      <div><dt data-i18n="meta.role">Role</dt><dd>Lorem ipsum</dd></div>
+      <div><dt data-i18n="meta.duration">Duration</dt><dd>Lorem ipsum</dd></div>
+      <div><dt data-i18n="meta.year">Year</dt><dd>2026</dd></div>
+    </dl>
+
+    <div class="case-body">
+
+      <div class="case-row">
+        <section class="case-block">
+          <h2 class="case-block__label" data-i18n="mc.b0.label">Overview</h2>
+          <div class="case-block__content">
+            <p class="case-block__text" data-i18n="mc.b0.text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua, ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</p>
+            <p class="case-block__note" data-i18n="mc.b0.note">Sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+          </div>
+        </section>
+
+        <figure class="case-figure case-figure--placeholder" aria-hidden="true">
+          <span>Image coming soon</span>
+        </figure>
+      </div>
+
+      <div class="case-row case-row--flip">
+        <section class="case-block">
+          <h2 class="case-block__label" data-i18n="mc.b1.label">The challenge</h2>
+          <div class="case-block__content">
+            <p class="case-block__text" data-i18n="mc.b1.text">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.</p>
+          </div>
+        </section>
+
+        <figure class="case-figure case-figure--placeholder" aria-hidden="true">
+          <span>Image coming soon</span>
+        </figure>
+      </div>
+
+      <div class="case-row">
+        <section class="case-block">
+          <h2 class="case-block__label" data-i18n="mc.b2.label">Discovery &amp; Research</h2>
+          <div class="case-block__content">
+            <p class="case-block__text" data-i18n="mc.b2.text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua, ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</p>
+          </div>
+        </section>
+
+        <figure class="case-figure case-figure--placeholder" aria-hidden="true">
+          <span>Image coming soon</span>
+        </figure>
+      </div>
+
+      <div class="case-row case-row--flip">
+        <section class="case-block">
+          <h2 class="case-block__label" data-i18n="mc.b3.label">Prioritization</h2>
+          <div class="case-block__content">
+            <p class="case-block__text" data-i18n="mc.b3.text">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.</p>
+          </div>
+        </section>
+
+        <figure class="case-figure case-figure--placeholder" aria-hidden="true">
+          <span>Image coming soon</span>
+        </figure>
+      </div>
+
+      <div class="case-row">
+        <section class="case-block">
+          <h2 class="case-block__label" data-i18n="mc.b4.label">Custom Design System</h2>
+          <div class="case-block__content">
+            <p class="case-block__text" data-i18n="mc.b4.text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua, ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</p>
+            <p class="case-block__note" data-i18n="mc.b4.note">Sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+          </div>
+        </section>
+
+        <figure class="case-figure case-figure--placeholder" aria-hidden="true">
+          <span>Image coming soon</span>
+        </figure>
+      </div>
+
+      <div class="case-row case-row--flip">
+        <section class="case-block">
+          <h2 class="case-block__label" data-i18n="mc.b5.label">High Fidelity &amp; Handoff</h2>
+          <div class="case-block__content">
+            <p class="case-block__text" data-i18n="mc.b5.text">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.</p>
+          </div>
+        </section>
+
+        <figure class="case-figure case-figure--placeholder" aria-hidden="true">
+          <span>Image coming soon</span>
+        </figure>
+      </div>
+
+      <div class="case-row">
+        <section class="case-block">
+          <h2 class="case-block__label" data-i18n="mc.b6.label">Why it mattered</h2>
+          <div class="case-block__content">
+            <p class="case-block__text" data-i18n="mc.b6.text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua, ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</p>
+            <p class="case-block__note" data-i18n="mc.b6.note">Sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+          </div>
+        </section>
+
+        <figure class="case-figure case-figure--placeholder" aria-hidden="true">
+          <span>Image coming soon</span>
+        </figure>
+      </div>
+
+      <section class="case-block case-block--stacked">
+        <h2 class="case-block__label" data-i18n="mc.b7.label">Big Achievements</h2>
+        <div class="case-achievements case-achievements--placeholder" aria-hidden="true"><span>Video or image coming soon</span></div>
+      </section>
+
+    </div>
+
+    <!-- Closing invite: every case ends with one (change the subject line per case) -->
+    <section class="case-invite">
+      <p class="eyebrow case-invite__eyebrow" data-i18n="case.invite.eyebrow">Want the full story?</p>
+      <h2 class="case-invite__title" data-i18n="case.invite.title">There's a lot more behind this case than fits on a page.</h2>
+      <p class="case-invite__text" data-i18n="case.invite.text">The research that changed our direction, the trade-offs we argued about, and what I'd do differently today. I'm happy to walk you through it.</p>
+      <div class="case-invite__actions">
+        <a class="case-invite__cta" href="mailto:albagli.sarah@gmail.com?subject=Let%27s%20talk%20about%20the%20McCain%20case" data-copy-email="albagli.sarah@gmail.com"><span class="case-invite__cta-label" data-i18n="case.invite.cta">Let's talk about it</span> <span aria-hidden="true">→</span></a>
+        <p class="case-invite__email"><span data-i18n="case.invite.or">or write to</span> <a href="mailto:albagli.sarah@gmail.com">albagli.sarah@gmail.com</a></p>
+      </div>
+    </section>
+
+    <!-- More projects -->
+    <section class="case-more">
+      <h2 class="case-more__title" data-i18n="case.more.title">More projects</h2>
+      <div class="case-more__row">
+        <a href="/projects/" class="case-more__all">
+          <span class="case-more__corner" aria-hidden="true"></span>
+          <span class="case-more__all-label" data-i18n="case.more.all">All projects</span>
+        </a>
+
+        <a href="/projects/herbalife/" class="case-card">
+          <img src="/assets/img/herbalife.jpg" alt="" loading="lazy" />
+          <ul class="tags tags--dark"><li data-i18n="tag.webmobile">Web &amp; Mobile</li><li data-i18n="tag.designsystem">Design System</li><li data-i18n="tag.uidesign">UI Design</li></ul>
+          <div class="case-card__text">
+            <h3 data-i18n="case.herbalife.title">One system, every distributor profile</h3>
+            <p data-i18n="case.herbalife.desc">Designing a customizable profile builder for Herbalife distributors. A component system that lets each distributor personalize their space while keeping the brand consistent.</p>
+          </div>
+        </a>
+
+        <a href="/projects/dxc/" class="case-card">
+          <img src="/assets/img/dxc.jpg" alt="" loading="lazy" />
+          <ul class="tags tags--dark"><li data-i18n="tag.designsystem">Design System</li><li data-i18n="tag.uidesign">UI Design</li><li data-i18n="tag.research">Research</li></ul>
+          <div class="case-card__text">
+            <h3 data-i18n="case.dxc.title">Building a Shared Foundation</h3>
+            <p data-i18n="case.dxc.desc">Fewer bug reports (~35%), consistent UI across modules, and a faster path from design to production.</p>
+          </div>
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p class="footer__statement" data-i18n="footer.statement">Whether you're building a team, untangling a complex product, or shipping something ambitious, I bring a designer's practice and a developer's mindset to get it done.</p>
+    <div class="footer__gradient flow" data-flow="/assets/img/footer-background.jpg" aria-hidden="true"><canvas></canvas></div>
+    <p class="footer__label" data-i18n="footer.label">Get in touch</p>
+    <a href="mailto:albagli.sarah@gmail.com" class="footer__email">albagli.sarah@gmail.com</a>
+    <p class="footer__copy" data-i18n="footer.copy">© 2026 | Created by me, powered by lofi music &amp; green tea.</p>
+  </footer>
+
+  <!-- Spanish translations for this page (shared strings live in /i18n.js) -->
+  <script type="application/json" id="i18n-es">
+{
+  "mc.b0.label": "Resumen",
+  "mc.b1.label": "El reto",
+  "mc.b2.label": "Discovery e investigación",
+  "mc.b3.label": "Priorización",
+  "mc.b4.label": "Sistema de diseño a medida",
+  "mc.b5.label": "Alta fidelidad y handoff",
+  "mc.b6.label": "Por qué importó",
+  "mc.b7.label": "Grandes logros"
+}
+  </script>
+  <script src="/i18n.js"></script>
+  <script src="/script.js"></script>
+</body>
+</html>

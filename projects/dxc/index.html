@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <!--
+    PROJECT DETAIL TEMPLATE
+    To create a new case: copy this folder to /projects/<slug>/ and edit:
+      1. <title> + meta description
+      2. .case-hero    → cover image, tags, title, summary, year
+      3. .case-meta    → client, role, duration, year
+      4. .case-block   → one per chapter (label + text + optional note)
+      5. .case-figure  → images between chapters (add/remove freely)
+      6. .case-invite  → closing invite (update the email subject with the case name)
+      7. .case-more    → the two "More projects" cards (link to the other cases)
+  -->
+  <title>DxC • Sarah Albagli</title>
+  <meta name="description" content="Building a shared component library for the Diageo Experience Center platform." />
+  <!-- Link previews (WhatsApp, LinkedIn, Slack, iMessage, browsers) -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Sarah Albagli" />
+  <meta property="og:title" content="DxC • Sarah Albagli" />
+  <meta property="og:description" content="Building a shared component library for the Diageo Experience Center platform." />
+  <meta property="og:url" content="https://sarahalbagli.vercel.app/projects/dxc/" />
+  <meta property="og:image" content="https://sarahalbagli.vercel.app/og-image.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Sarah Albagli, Product Designer" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="DxC • Sarah Albagli" />
+  <meta name="twitter:description" content="Building a shared component library for the Diageo Experience Center platform." />
+  <meta name="twitter:image" content="https://sarahalbagli.vercel.app/og-image.jpg" />
+  <link rel="icon" href="/favicon.ico" sizes="32x32" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/style.css" />
+  <!-- Vercel Web Analytics (only loads on Vercel; enable it in the project's Analytics tab) -->
+  <script>window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };</script>
+  <script defer src="/_vercel/insights/script.js"></script>
+</head>
+<body class="page-case">
+
+  <!-- Header -->
+  <header class="header">
+    <a href="/" class="logo">Sarah Albagli</a>
+    <nav class="header__nav">
+      <a href="/about/" data-i18n="nav.about">About</a>
+      <a href="/projects/" data-i18n="nav.work">Projects</a>
+      <a href="https://www.linkedin.com/in/sarahalbagli/" target="_blank" rel="noopener">LinkedIn <span class="arrow-up">↗</span></a>
+    </nav>
+    <a href="/assets/sarah-albagli-cv.pdf" class="btn-cv" download>
+      <span data-i18n="nav.cv">Download my CV</span>
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"/></svg>
+    </a>
+    <!-- Language switch hidden until the Spanish copy is reviewed: remove "hidden" and set LANG_SWITCH_ENABLED = true in script.js -->
+    <div class="lang" role="group" aria-label="Language" hidden>
+      <button type="button" data-lang="en" aria-pressed="true">EN</button>
+      <button type="button" data-lang="es" aria-pressed="false">ES</button>
+    </div>
+    <button class="menu-toggle" aria-expanded="false" aria-controls="menu">
+      <span class="menu-toggle__lines" aria-hidden="true"><span></span><span></span></span>
+      <span class="menu-toggle__label" data-i18n="menu.label">Menu</span>
+    </button>
+  </header>
+
+  <!-- Fullscreen menu -->
+  <div class="menu" id="menu" aria-label="Site menu" inert>
+    <button class="menu__close" aria-label="Close menu">
+      <span class="menu__close-icon" aria-hidden="true"><span></span><span></span></span>
+      <span class="menu__close-label" data-i18n="menu.label">Menu</span>
+    </button>
+    <div class="menu__contact">
+      <p data-i18n="menu.talk">Let's talk</p>
+      <a href="mailto:albagli.sarah@gmail.com">albagli.sarah@gmail.com</a>
+    </div>
+    <nav class="menu__links">
+      <a href="/about/" data-label="About"><span data-i18n="menu.about">About</span></a>
+      <a href="/projects/" data-label="Projects"><span data-i18n="menu.projects">Projects</span></a>
+      <a href="https://www.linkedin.com/in/sarahalbagli/" target="_blank" rel="noopener" data-label="LinkedIn ↗"><span>LinkedIn ↗</span></a>
+      <a href="/assets/sarah-albagli-cv.pdf" download data-label="Download my CV"><span data-i18n="nav.cv">Download my CV</span></a>
+    </nav>
+  </div>
+
+  <main>
+
+    <!-- Hero -->
+    <section class="case-hero" data-hero>
+      <img class="case-hero__img" src="/assets/img/dxc.jpg" alt="DxC dashboard on a laptop" />
+      <div class="case-hero__content">
+        <ul class="tags tags--dark"><li data-i18n="tag.designsystem">Design System</li><li data-i18n="tag.uidesign">UI Design</li><li data-i18n="tag.research">Research</li><li>B2B</li><li data-i18n="tag.accessibility">Accessibility</li></ul>
+        <h1 class="case-hero__title" data-i18n="case.dxc.title">Building a Shared Foundation</h1>
+        <p class="case-hero__summary" data-i18n="case.dxc.desc">Fewer bug reports (~35%), consistent UI across modules, and a faster path from design to production.</p>
+        <p class="case-hero__year">2024</p>
+      </div>
+    </section>
+
+    <!-- Project facts -->
+    <dl class="case-meta">
+      <div><dt data-i18n="meta.client">Client</dt><dd>Diageo Experience Center</dd></div>
+      <div><dt data-i18n="meta.role">Role</dt><dd data-i18n="dxc.role">Product Designer</dd></div>
+      <div><dt data-i18n="meta.duration">Duration</dt><dd data-i18n="dxc.duration">12 months</dd></div>
+      <div><dt data-i18n="meta.year">Year</dt><dd>2024</dd></div>
+    </dl>
+
+    <div class="case-body">
+
+      <div class="case-row">
+        <section class="case-block">
+          <h2 class="case-block__label" data-i18n="dxc.b0.label">Overview</h2>
+          <div class="case-block__content">
+            <p class="case-block__text" data-i18n="dxc.b0.text">DxC was growing fast. New modules were planned, and users kept asking for simpler processes. The design team proposed building a shared component library before designing anything new.</p>
+            <p class="case-block__note" data-i18n="dxc.b0.note">New modules were coming. We needed a foundation, before new screens.</p>
+          </div>
+        </section>
+
+        <figure class="case-figure case-figure--placeholder" aria-hidden="true">
+          <span>Image coming soon</span>
+        </figure>
+      </div>
+
+      <div class="case-row case-row--flip">
+        <section class="case-block">
+          <h2 class="case-block__label" data-i18n="dxc.b1.label">The challenge</h2>
+          <div class="case-block__content">
+            <p class="case-block__text" data-i18n="dxc.b1.text">The platform had grown screen by screen. Simple flows felt complex, and every new feature added more inconsistency.</p>
+            <p class="case-block__note" data-i18n="dxc.b1.note">We needed to pause and create something the team could design from, not around.</p>
+          </div>
+        </section>
+
+        <figure class="case-figure case-figure--placeholder" aria-hidden="true">
+          <span>Image coming soon</span>
+        </figure>
+      </div>
+
+      <div class="case-row">
+        <section class="case-block">
+          <h2 class="case-block__label" data-i18n="dxc.b2.label">Listened first</h2>
+          <div class="case-block__content">
+            <p class="case-block__text" data-i18n="dxc.b2.text">User interviews and feedback analysis showed where flows broke down.</p>
+          </div>
+        </section>
+
+        <figure class="case-figure case-figure--placeholder" aria-hidden="true">
+          <span>Image coming soon</span>
+        </figure>
+      </div>
+
+      <div class="case-row case-row--flip">
+        <section class="case-block">
+          <h2 class="case-block__label" data-i18n="dxc.b3.label">Proposed a plan</h2>
+          <div class="case-block__content">
+            <p class="case-block__text" data-i18n="dxc.b3.text">A redesign proposal with a component library and an execution timeline.</p>
+          </div>
+        </section>
+
+        <figure class="case-figure case-figure--placeholder" aria-hidden="true">
+          <span>Image coming soon</span>
+        </figure>
+      </div>
+
+      <div class="case-row">
+        <section class="case-block">
+          <h2 class="case-block__label" data-i18n="dxc.b4.label">Built with engineering</h2>
+          <div class="case-block__content">
+            <p class="case-block__text" data-i18n="dxc.b4.text">Components were built in parallel with the frontend lead in Storybook.</p>
+          </div>
+        </section>
+
+        <figure class="case-figure case-figure--placeholder" aria-hidden="true">
+          <span>Image coming soon</span>
+        </figure>
+      </div>
+
+      <div class="case-row case-row--flip">
+        <section class="case-block">
+          <h2 class="case-block__label" data-i18n="dxc.b5.label">Documented everything</h2>
+          <div class="case-block__content">
+            <p class="case-block__text" data-i18n="dxc.b5.text">Usage guidelines in Jira became a shared reference for the whole team.</p>
+          </div>
+        </section>
+
+        <figure class="case-figure case-figure--placeholder" aria-hidden="true">
+          <span>Image coming soon</span>
+        </figure>
+      </div>
+
+      <section class="case-block case-block--stacked">
+        <h2 class="case-block__label" data-i18n="dxc.impact.label">Impact</h2>
+        <div class="case-closing">
+          <div>
+            <p class="case-block__text" data-i18n="dxc.impact.text">Fewer bug reports (~35%), consistent UI across modules, and a faster path from design to production.</p>
+            <p class="case-block__note" data-i18n="dxc.impact.note">The library became the starting point for the platform-wide redesign that followed.</p>
+          </div>
+          <div>
+            <h3 class="case-closing__label" data-i18n="dxc.learned.label">What I learned</h3>
+            <p class="case-block__text" data-i18n="dxc.learned.text">A design system starts with alignment, not components. Building side by side with engineering made the library something the team actually used.</p>
+            <p class="case-block__note" data-i18n="dxc.learned.note">Next time, I'd bring developers in even earlier, from the first audit.</p>
+          </div>
+        </div>
+      </section>
+
+    </div>
+
+    <!-- Closing invite: every case ends with one (change the subject line per case) -->
+    <section class="case-invite">
+      <p class="eyebrow case-invite__eyebrow" data-i18n="case.invite.eyebrow">Want the full story?</p>
+      <h2 class="case-invite__title" data-i18n="case.invite.title">There's a lot more behind this case than fits on a page.</h2>
+      <p class="case-invite__text" data-i18n="case.invite.text">The research that changed our direction, the trade-offs we argued about, and what I'd do differently today. I'm happy to walk you through it.</p>
+      <div class="case-invite__actions">
+        <a class="case-invite__cta" href="mailto:albagli.sarah@gmail.com?subject=Let%27s%20talk%20about%20the%20DxC%20case" data-copy-email="albagli.sarah@gmail.com"><span class="case-invite__cta-label" data-i18n="case.invite.cta">Let's talk about it</span> <span aria-hidden="true">→</span></a>
+        <p class="case-invite__email"><span data-i18n="case.invite.or">or write to</span> <a href="mailto:albagli.sarah@gmail.com">albagli.sarah@gmail.com</a></p>
+      </div>
+    </section>
+
+    <!-- More projects -->
+    <section class="case-more">
+      <h2 class="case-more__title" data-i18n="case.more.title">More projects</h2>
+      <div class="case-more__row">
+        <a href="/projects/" class="case-more__all">
+          <span class="case-more__corner" aria-hidden="true"></span>
+          <span class="case-more__all-label" data-i18n="case.more.all">All projects</span>
+        </a>
+
+        <a href="/projects/herbalife/" class="case-card">
+          <img src="/assets/img/herbalife.jpg" alt="" loading="lazy" />
+          <ul class="tags tags--dark"><li data-i18n="tag.webmobile">Web &amp; Mobile</li><li data-i18n="tag.designsystem">Design System</li><li data-i18n="tag.uidesign">UI Design</li></ul>
+          <div class="case-card__text">
+            <h3 data-i18n="case.herbalife.title">One system, every distributor profile</h3>
+            <p data-i18n="case.herbalife.desc">Designing a customizable profile builder for Herbalife distributors. A component system that lets each distributor personalize their space while keeping the brand consistent.</p>
+          </div>
+        </a>
+
+        <a href="/projects/mccain/" class="case-card">
+          <img src="/assets/img/mccainmain.jpg" alt="" loading="lazy" />
+          <video class="media-video" src="/assets/mccainsmall.mp4" autoplay muted loop playsinline disablepictureinpicture preload="auto" aria-hidden="true"></video>
+          <ul class="tags tags--dark"><li data-i18n="tag.webmobile">Web &amp; Mobile</li><li data-i18n="tag.designsystem">Design System</li><li data-i18n="tag.uidesign">UI Design</li></ul>
+          <div class="case-card__text">
+            <h3>McCain</h3>
+            <p data-i18n="home.case.mccain.desc">A design system that gave design and engineering a shared language</p>
+          </div>
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p class="footer__statement" data-i18n="footer.statement">Whether you're building a team, untangling a complex product, or shipping something ambitious, I bring a designer's practice and a developer's mindset to get it done.</p>
+    <div class="footer__gradient flow" data-flow="/assets/img/footer-background.jpg" aria-hidden="true"><canvas></canvas></div>
+    <p class="footer__label" data-i18n="footer.label">Get in touch</p>
+    <a href="mailto:albagli.sarah@gmail.com" class="footer__email">albagli.sarah@gmail.com</a>
+    <p class="footer__copy" data-i18n="footer.copy">© 2026 | Created by me, powered by lofi music &amp; green tea.</p>
+  </footer>
+
+  <!-- Spanish translations for this page (shared strings live in /i18n.js) -->
+  <script type="application/json" id="i18n-es">
+{
+  "dxc.role": "Diseñadora de Producto",
+  "dxc.duration": "12 meses",
+  "dxc.b0.label": "Resumen",
+  "dxc.b0.text": "DxC crecía rápido. Había nuevos módulos en camino y los usuarios pedían procesos más simples. El equipo de diseño propuso construir una librería de componentes compartida antes de diseñar nada nuevo.",
+  "dxc.b0.note": "Llegaban nuevos módulos. Necesitábamos una base antes de nuevas pantallas.",
+  "dxc.b1.label": "El reto",
+  "dxc.b1.text": "La plataforma había crecido pantalla a pantalla. Los flujos simples se sentían complejos y cada nueva funcionalidad sumaba más inconsistencia.",
+  "dxc.b1.note": "Necesitábamos parar y crear algo desde lo que el equipo pudiera diseñar, no alrededor de ello.",
+  "dxc.b2.label": "Primero, escuchar",
+  "dxc.b2.text": "Las entrevistas con usuarios y el análisis de feedback mostraron dónde se rompían los flujos.",
+  "dxc.b3.label": "Una propuesta",
+  "dxc.b3.text": "Una propuesta de rediseño con librería de componentes y un calendario de ejecución.",
+  "dxc.b4.label": "Construido con ingeniería",
+  "dxc.b4.text": "Los componentes se construyeron en paralelo con el lead de frontend en Storybook.",
+  "dxc.b5.label": "Todo documentado",
+  "dxc.b5.text": "Las guías de uso en Jira se convirtieron en una referencia compartida para todo el equipo.",
+  "dxc.impact.label": "Impacto",
+  "dxc.impact.text": "Menos reportes de errores (~35 %), una UI coherente entre módulos y un camino más rápido del diseño a producción.",
+  "dxc.impact.note": "La librería fue el punto de partida del rediseño de toda la plataforma que vino después.",
+  "dxc.learned.label": "Lo que aprendí",
+  "dxc.learned.text": "Un sistema de diseño empieza por la alineación, no por los componentes. Construir codo a codo con ingeniería hizo que la librería fuera algo que el equipo realmente usaba.",
+  "dxc.learned.note": "La próxima vez, sumaría a los desarrolladores aún antes, desde la primera auditoría."
+}
+  </script>
+  <script src="/i18n.js"></script>
+  <script src="/script.js"></script>
+</body>
+</html>

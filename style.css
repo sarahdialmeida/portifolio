@@ -1153,3 +1153,49 @@ html.intro-active { overflow: hidden; }
   .case-row--flip .case-block, .case-row--flip .case-figure { order: 0; }
   .case-row .mockup__device { width: 62%; }
 }
+
+/* Case images that should not be cropped to 4:3 */
+.case-row .case-figure.case-figure--natural img { aspect-ratio: auto; }
+/* Tall annotated spec: show the top, open the full image on click */
+.case-row .case-figure.case-figure--spec img { aspect-ratio: 4 / 5; object-position: top; transition: transform 0.6s cubic-bezier(.2,.7,.2,1); }
+.case-figure--spec a { position: relative; display: block; }
+.case-figure--spec a:hover img { transform: scale(1.02); }
+.case-figure__badge {
+  position: absolute;
+  right: 16px;
+  bottom: 16px;
+  padding: 10px 16px;
+  border-radius: 999px;
+  background: rgba(12, 12, 12, 0.85);
+  color: #fff;
+  font-size: 14px;
+  font-weight: 600;
+  backdrop-filter: blur(6px);
+  transition: background-color 0.2s;
+}
+.case-figure--spec a:hover .case-figure__badge { background: var(--blue); }
+
+/* Case pages: placeholders until the real images arrive */
+.case-figure--placeholder,
+.case-achievements--placeholder {
+  display: grid;
+  place-items: center;
+  border-radius: 24px;
+  background: repeating-linear-gradient(135deg, transparent 0 14px, rgba(12, 12, 12, 0.04) 14px 15px), #e9e9e9;
+  color: var(--ink-soft);
+  font-size: 14px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+.case-row .case-figure--placeholder { aspect-ratio: 4 / 3; }
+.case-achievements--placeholder { aspect-ratio: 16 / 9; }
+/* Hero with a looping video over the cover image (McCain) */
+.case-hero .case-hero__video { z-index: 0; }
+/* Closing block with two text columns (DxC: Impact / What I learned) */
+.case-closing { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(40px, 6vw, 96px); }
+.case-closing__label { margin-bottom: 16px; font-size: 16px; font-weight: 500; color: var(--ink-soft); }
+@media (max-width: 860px) {
+  .case-closing { grid-template-columns: 1fr; gap: 48px; }
+  .case-figure--placeholder, .case-achievements--placeholder { border-radius: 16px; }
+}
