@@ -206,6 +206,24 @@ document.querySelectorAll('video.media-video').forEach((video) => {
   if (attempt) attempt.catch(() => {});
 });
 
+// ---------- Case study videos: play (muted) only while on screen ----------
+// They have controls, so visitors can unmute or scrub; a manual pause sticks.
+document.querySelectorAll('video.case-video').forEach((video) => {
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  let pausedByUser = false;
+  video.addEventListener('pause', () => { if (video.dataset.autoPausing !== '1') pausedByUser = true; });
+  video.addEventListener('play', () => { pausedByUser = false; });
+  new IntersectionObserver(([entry]) => {
+    if (entry.isIntersecting) {
+      if (!pausedByUser) { const a = video.play(); if (a) a.catch(() => {}); }
+    } else if (!video.paused) {
+      video.dataset.autoPausing = '1';
+      video.pause();
+      video.dataset.autoPausing = '';
+    }
+  }, { threshold: 0.35 }).observe(video);
+});
+
 // ---------- Flowing gradient backgrounds (hero + footer) ----------
 // The image is drawn on a WebGL canvas and slowly warped by layered sine
 // waves, so the colours drift like liquid. If WebGL is unavailable the

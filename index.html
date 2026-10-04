@@ -31,6 +31,9 @@
     // Skip the intro for returning visitors before anything paints
     try { if (localStorage.getItem('introSeen')) document.documentElement.classList.add('intro-seen'); } catch (e) {}
   </script>
+  <!-- Vercel Web Analytics (only loads on Vercel; enable it in the project's Analytics tab) -->
+  <script>window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };</script>
+  <script defer src="/_vercel/insights/script.js"></script>
 </head>
 <body>
 

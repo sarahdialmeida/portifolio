@@ -714,7 +714,8 @@ html.intro-active { overflow: hidden; }
 .case-figure { margin: 0; overflow: hidden; border-radius: 24px; }
 .case-figure img { width: 100%; height: auto; }
 
-.case-achievements { min-height: 520px; border-radius: 24px; background: #0099ff; }
+.case-achievements { overflow: hidden; border-radius: 24px; background: #0c0c0c; }
+.case-video { display: block; width: 100%; aspect-ratio: 16 / 9; object-fit: cover; }
 
 /* Latest projects */
 .case-more { padding: 140px var(--gutter) 120px; }
@@ -778,7 +779,6 @@ html.intro-active { overflow: hidden; }
   .case-meta { grid-template-columns: 1fr 1fr; padding: 40px var(--gutter); }
   .case-block { grid-template-columns: 1fr; gap: 16px; padding: 72px 0; }
   .case-figure, .case-achievements { border-radius: 16px; }
-  .case-achievements { min-height: 280px; }
 
   .case-more { padding: 96px var(--gutter) 80px; }
   .case-more__row { grid-template-columns: 1fr; }
@@ -880,23 +880,25 @@ html.intro-active { overflow: hidden; }
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(0, 3fr);
   gap: 40px;
-  padding: 80px var(--gutter) 160px;
+  padding: 120px var(--gutter) 140px;
+  background: var(--ink);
+  color: #fff;
 }
-.approach__label { font-size: 16px; font-weight: 500; color: var(--ink-soft); }
+.approach__label { font-size: 16px; font-weight: 500; color: rgba(255, 255, 255, 0.6); }
 .approach__content { max-width: 920px; }
 .approach__lead {
   font-size: clamp(22px, 2vw, 28px);
   font-weight: 500;
   line-height: 1.35;
   letter-spacing: -0.02em;
-  color: var(--ink);
+  color: #fff;
   margin-bottom: 28px;
 }
-.approach__text { font-size: clamp(17px, 1.4vw, 20px); font-weight: 500; line-height: 1.5; color: var(--ink-soft); }
+.approach__text { font-size: clamp(17px, 1.4vw, 20px); font-weight: 500; line-height: 1.5; color: rgba(255, 255, 255, 0.6); }
 .approach__text + .approach__text { margin-top: 20px; }
 
 @media (max-width: 860px) {
-  .approach { grid-template-columns: 1fr; gap: 20px; padding: 40px var(--gutter) 96px; }
+  .approach { grid-template-columns: 1fr; gap: 20px; padding: 72px var(--gutter) 88px; }
 }
 
 /* About: CV tables (experience, education, languages) */
