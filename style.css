@@ -1156,7 +1156,7 @@ html.intro-active { overflow: hidden; }
 /* Case images that should not be cropped to 4:3 */
 .case-row .case-figure.case-figure--natural img { aspect-ratio: auto; }
 /* Tall annotated spec: show the top, open the full image on click */
-.case-row .case-figure.case-figure--spec img { aspect-ratio: 4 / 5; object-position: top; }
+.case-row .case-figure.case-figure--spec img { aspect-ratio: 1 / 1; object-position: top; }
 .case-figure--spec a { cursor: zoom-in; }
 .case-figure--spec a { position: relative; display: block; }
 
@@ -1249,4 +1249,34 @@ html.intro-active { overflow: hidden; }
 @media (prefers-reduced-motion: reduce) {
   .case-carousel__track { transition: none; }
   .case-carousel__track.is-peeking { animation: none; }
+}
+
+/* Case image that is a cut-out device (transparent PNG): no frame, no shadow */
+.case-row .case-figure.case-figure--device { overflow: visible; border-radius: 0; }
+.case-row .case-figure.case-figure--device img {
+  display: block;
+  width: 72%;
+  height: auto;
+  aspect-ratio: auto;
+  margin: 0 auto;
+  border-radius: 0;
+}
+/* lighter zoom for the cut-out device, and never clipped (it can grow past its box) */
+.case-row .case-figure.case-figure--device:not(.mockup):not(.case-figure--placeholder):hover img { transform: scale(1.03); }
+@media (max-width: 860px) { .case-row .case-figure.case-figure--device img { width: 80%; } }
+/* Soft round contact shadow under the tablet's lower-left corner (where it touches the surface) */
+.case-row .case-figure.case-figure--device:not(.mockup) { position: relative; isolation: isolate; overflow: visible; }
+.case-row .case-figure.case-figure--device::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  left: 27%;
+  top: 100.5%;
+  width: 16%;
+  height: 4%;
+  border-radius: 50%;
+  background: radial-gradient(closest-side, rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0));
+  filter: blur(6px);
+  transform: translate(-50%, -50%);
+  pointer-events: none;
 }

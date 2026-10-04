@@ -35,5 +35,6 @@ window.I18N_ES = {
   "case.invite.cta": "Hablemos de ello",
   "case.invite.copied": "Email copiado",
   "case.more.title": "Más proyectos",
-  "case.more.all": "Todos los proyectos"
+  "case.more.all": "Todos los proyectos",
+  "menu.home": "Inicio"
 };
