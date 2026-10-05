@@ -361,7 +361,7 @@ void main() {
 
 function initFlow(container) {
   const canvas = container.querySelector('canvas');
-  const gl = canvas && canvas.getContext('webgl', { antialias: false, alpha: false });
+  const gl = canvas && canvas.getContext('webgl', { antialias: false, alpha: false, preserveDrawingBuffer: 'flowPreserve' in container.dataset });
   if (!gl) return;
 
   const compile = (type, source) => {
@@ -393,8 +393,9 @@ function initFlow(container) {
   gl.uniform1f(gl.getUniformLocation(program, 'u_amp'), parseFloat(container.dataset.flowAmp) || 1);
 
   // The image is soft, so half resolution looks identical and costs a quarter
+  // (data-flow-res overrides the scale; data-flow-preserve lets other canvases read it)
   const resize = () => {
-    const ratio = Math.min(window.devicePixelRatio || 1, 2) * 0.5;
+    const ratio = Math.min(window.devicePixelRatio || 1, 2) * (parseFloat(container.dataset.flowRes) || 0.5);
     canvas.width = Math.max(1, Math.round(container.clientWidth * ratio));
     canvas.height = Math.max(1, Math.round(container.clientHeight * ratio));
     gl.viewport(0, 0, canvas.width, canvas.height);
@@ -436,6 +437,88 @@ function initFlow(container) {
   };
   img.src = container.dataset.flow;
 }
+// Desktop only: a faint brush stroke painted with the hero gradient trails the cursor.
+// A chain of points chases the pointer; the stroke is drawn on a 2D canvas and
+// filled with the live WebGL flow (rendered small and stretched, it is soft anyway).
+const cursorQuery = window.matchMedia('(hover: hover) and (pointer: fine) and (min-width: 861px)');
+if (cursorQuery.matches && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+  const trail = document.createElement('div');
+  trail.className = 'cursor-trail flow';
+  trail.dataset.flow = '/assets/img/hero-background.jpg';
+  trail.dataset.flowAmp = '2';
+  trail.dataset.flowRes = '0.15';
+  trail.dataset.flowPreserve = '';
+  trail.setAttribute('aria-hidden', 'true');
+  trail.innerHTML = '<canvas class="cursor-trail__source"></canvas><canvas class="cursor-trail__stroke"></canvas>';
+  document.body.appendChild(trail);
+
+  const source = trail.querySelector('.cursor-trail__source');
+  const stroke = trail.querySelector('.cursor-trail__stroke');
+  const ctx = stroke.getContext('2d');
+  const sizeStroke = () => { stroke.width = window.innerWidth; stroke.height = window.innerHeight; };
+  sizeStroke();
+  window.addEventListener('resize', sizeStroke);
+
+  const COUNT = 30;          // points in the tail: more = longer stroke
+  const HEAD = 34;           // brush radius at the cursor, in px
+  const points = Array.from({ length: COUNT }, () => ({ x: -200, y: -200 }));
+  let mx = -200, my = -200, raf = 0, active = false;
+
+  const frame = (now) => {
+    const t = now / 1000;
+    points[0].x += (mx - points[0].x) * 0.35;
+    points[0].y += (my - points[0].y) * 0.35;
+    for (let i = 1; i < COUNT; i++) {
+      points[i].x += (points[i - 1].x - points[i].x) * 0.42;
+      points[i].y += (points[i - 1].y - points[i].y) * 0.42;
+    }
+
+    // Sway the tail sideways so the stroke dances like a ribbon
+    const path = points.map((p, i) => {
+      const next = points[Math.min(i + 1, COUNT - 1)];
+      const dx = p.x - next.x, dy = p.y - next.y;
+      const len = Math.hypot(dx, dy) || 1;
+      const sway = Math.sin(t * 4 - i * 0.45) * Math.min(len, 6) * (i / COUNT) * 2.2;
+      return { x: p.x - (dy / len) * sway, y: p.y + (dx / len) * sway };
+    });
+
+    ctx.globalCompositeOperation = 'source-over';
+    ctx.clearRect(0, 0, stroke.width, stroke.height);
+    ctx.lineCap = 'round';
+    ctx.strokeStyle = '#000';
+    for (let i = 0; i < COUNT - 2; i++) {
+      const a = path[i], b = path[i + 1], c = path[i + 2];
+      ctx.lineWidth = HEAD * 2 * Math.pow(1 - i / COUNT, 1.4);
+      ctx.beginPath();
+      ctx.moveTo((a.x + b.x) / 2, (a.y + b.y) / 2);
+      ctx.quadraticCurveTo(b.x, b.y, (b.x + c.x) / 2, (b.y + c.y) / 2);
+      ctx.stroke();
+    }
+    ctx.beginPath();
+    ctx.arc(path[0].x, path[0].y, HEAD, 0, Math.PI * 2);
+    ctx.fill();
+
+    // Keep only the stroke, filled with the flowing gradient
+    ctx.globalCompositeOperation = 'source-in';
+    ctx.drawImage(source, 0, 0, stroke.width, stroke.height);
+
+    raf = active ? requestAnimationFrame(frame) : 0;
+  };
+
+  document.addEventListener('mousemove', (e) => {
+    mx = e.clientX; my = e.clientY;
+    if (!active) {
+      points.forEach((p) => { p.x = mx; p.y = my; });
+      active = true;
+      trail.classList.add('is-active');
+      if (!raf) raf = requestAnimationFrame(frame);
+    }
+  });
+  document.documentElement.addEventListener('mouseleave', () => {
+    active = false;
+    trail.classList.remove('is-active');
+  });
+}
 document.querySelectorAll('.flow[data-flow]').forEach(initFlow);
 
 // ---------- Projects page: filter cards by area ----------
@@ -463,6 +546,9 @@ filterButtons.forEach((button) => {
 // original proportions. Add more by mapping a footnote id to a video here.
 //   ratio:    width / height of the frame
 //   position: which part of the video to show when the frame crops it
+// Safari refuses to play video on hover in Low Power Mode, so the clip then
+// falls back to Tenor's animated WebP of the same GIF (images always animate).
+const footnoteFallback = (src) => src.replace(/AAAPo\/(.+)\.mp4$/, 'AAAA1/$1.webp');
 const FOOTNOTE_MEDIA = {
   fn1: { src: 'https://media.tenor.com/uC9B5qE3SDAAAAPo/asain-japan.mp4', ratio: 1.78771, label: 'Asain Japan GIF', credit: 'https://tenor.com/view/asain-japan-gif-19431061' },
   fn2: { src: 'https://media.tenor.com/9-O8W8FeUUwAAAPo/absolute-cinema.mp4', ratio: 1, label: 'Absolute Cinema GIF', credit: 'https://tenor.com/view/absolute-cinema-raccoon-absolute-cinema-gif-17862327649353748812' },
@@ -510,6 +596,21 @@ if (humanSection) {
     if (entries[0].isIntersecting) { preload(); obs.disconnect(); }
   }, { rootMargin: '200px 0px' }).observe(humanSection);
 
+  const images = {};
+  let useImages = false;
+  const showImage = (id) => {
+    if (!images[id]) {
+      const img = new Image();
+      img.alt = FOOTNOTE_MEDIA[id].label;
+      img.src = footnoteFallback(FOOTNOTE_MEDIA[id].src);
+      if (FOOTNOTE_MEDIA[id].position) img.style.objectPosition = FOOTNOTE_MEDIA[id].position;
+      pop.insertBefore(img, credit);
+      images[id] = img;
+    }
+    Object.entries(images).forEach(([key, img]) => img.classList.toggle('is-active', key === id));
+    Object.values(videos).forEach((v) => { v.classList.remove('is-active'); v.pause(); });
+  };
+
   let current = null;
   const show = (marker) => {
     const id = marker.getAttribute('aria-describedby');
@@ -517,7 +618,7 @@ if (humanSection) {
     if (!media) return;
     current = marker;
     Object.entries(videos).forEach(([key, v]) => {
-      const active = key === id;
+      const active = key === id && !useImages;
       v.classList.toggle('is-active', active);
       if (!active) v.pause();
     });
@@ -538,8 +639,12 @@ if (humanSection) {
     // leave room under the frame for the "via Tenor" credit
     pop.style.top = (above ? r.top - height - 28 : r.bottom + 12) + window.scrollY + 'px';
     pop.classList.add('is-on');
+    if (useImages) { showImage(id); return; }
     const attempt = videos[id].play();
-    if (attempt) attempt.catch(() => {});
+    if (attempt) attempt.catch(() => {
+      useImages = true;
+      if (current === marker) showImage(id);
+    });
   };
   const hide = () => {
     current = null;

@@ -229,6 +229,21 @@ html.intro-active { overflow: hidden; }
 }
 .flow canvas.is-ready { opacity: 1; }
 
+/* Cursor trail: faint brush stroke painted with the hero gradient (desktop only, see script.js) */
+.cursor-trail {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: none;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+.cursor-trail.is-active { opacity: 0.45; }
+.cursor-trail .cursor-trail__source { display: none; }
+.cursor-trail .cursor-trail__stroke { opacity: 1; filter: blur(10px); }
+html.intro-active .cursor-trail { display: none; }
+
 /* ---------- Hero ---------- */
 .hero {
   position: relative;
@@ -284,7 +299,7 @@ html.intro-active { overflow: hidden; }
   grid-column: 2;
   grid-row: 2;
   align-self: start;
-  margin: 0.6em 18vw 0 0;
+  margin: -1.6em 18vw 0 0;   /* sits higher so the list clears the dot on the "i" of Designer */
   font-size: 18px;
   font-weight: 600;
   line-height: 1.6;
@@ -987,8 +1002,8 @@ html.intro-active { overflow: hidden; }
   transition: opacity 0.12s ease, transform 0.12s ease;
 }
 .fn-pop.is-on { opacity: 1; transform: none; pointer-events: auto; }
-.fn-pop video { position: absolute; inset: 0; display: block; width: 100%; height: 100%; object-fit: cover; border-radius: inherit; opacity: 0; }
-.fn-pop video.is-active { opacity: 1; }
+.fn-pop :is(video, img) { position: absolute; inset: 0; display: block; width: 100%; height: 100%; object-fit: cover; border-radius: inherit; opacity: 0; }
+.fn-pop :is(video, img).is-active { opacity: 1; }
 .fn-pop__credit {
   position: absolute;
   top: 100%;
