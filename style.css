@@ -314,6 +314,36 @@ html.intro-active .cursor-trail { display: none; }
   font-weight: 500;
 }
 
+/* Scroll-down arrow, bottom right of the hero */
+.hero__scroll {
+  position: absolute;
+  right: var(--gutter);
+  bottom: 6px;   /* low enough to clear "Designer" at every width */
+  z-index: 2;
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  color: #fff;
+  transition: color 0.2s ease;
+}
+.hero__scroll svg {
+  width: 16px;
+  height: 26px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  animation: hero-scroll 1.8s ease-in-out infinite;
+}
+.hero__scroll:hover { color: var(--red); }
+@keyframes hero-scroll {
+  0%, 100% { transform: translateY(-2px); }
+  50% { transform: translateY(4px); }
+}
+@media (prefers-reduced-motion: reduce) { .hero__scroll svg { animation: none; } }
+
 /* ---------- Selected work ---------- */
 .work { padding: 160px var(--gutter) 80px; }
 .section-head { text-align: center; margin-bottom: 80px; }
@@ -460,6 +490,7 @@ html.intro-active .cursor-trail { display: none; }
 /* ---------- Footer ---------- */
 .footer {
   /* same white frame on all four sides */
+  position: relative;
   margin: 30px;
   padding: 60px 60px 60px;
   background: var(--paper-2);
@@ -478,6 +509,35 @@ html.intro-active .cursor-trail { display: none; }
 .footer__email { display: inline-block; font-size: clamp(22px, 2.2vw, 32px); font-weight: 600; letter-spacing: -0.05em; margin-bottom: 28px; }
 .footer__email:hover { color: var(--red); }
 .footer__copy { font-size: 16px; font-weight: 500; color: var(--ink-soft); }
+
+/* Back to top: the hero's scroll arrow turned up, on the copyright line */
+.footer__top {
+  position: absolute;
+  right: 60px;
+  bottom: 54px;
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  color: #0a0a0a;
+  transition: color 0.2s ease;
+}
+.footer__top svg {
+  width: 16px;
+  height: 26px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  animation: footer-top 1.8s ease-in-out infinite;
+}
+.footer__top:hover { color: var(--red); }
+@keyframes footer-top {
+  0%, 100% { transform: translateY(2px); }
+  50% { transform: translateY(-4px); }
+}
+@media (prefers-reduced-motion: reduce) { .footer__top svg { animation: none; } }
 
 /* ---------- Scroll reveal ---------- */
 .reveal { opacity: 0; transform: translateY(40px); transition: opacity 0.8s ease, transform 0.8s cubic-bezier(.2,.7,.2,1); }
@@ -529,6 +589,8 @@ html.intro-active .cursor-trail { display: none; }
   .clients__cell { width: 200px; height: 140px; }
 
   .footer { margin: 12px; padding: 40px 20px; }
+  .footer__top { right: 12px; bottom: 34px; }
+  .footer__copy { padding-right: 44px; }   /* keep the text clear of the back-to-top arrow */
   .footer__statement { margin-bottom: 32px; }
   .footer__gradient { margin-bottom: 40px; }
 }

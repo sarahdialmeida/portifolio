@@ -224,16 +224,22 @@ document.querySelectorAll('video.media-video').forEach((video) => {
     const attempt = video.play();
     if (attempt) attempt.catch(() => {});
   };
+  // Only show the video while it really plays. Safari pauses it off screen and,
+  // in Low Power Mode, may not resume: the image then shows instead of a play button.
   video.addEventListener('playing', () => video.classList.add('is-playing'));
+  video.addEventListener('pause', () => video.classList.remove('is-playing'));
+  video.addEventListener('ended', () => { video.currentTime = 0; tryPlay(); });
   video.addEventListener('error', () => video.remove());
   video.addEventListener('loadeddata', tryPlay);
   video.addEventListener('canplay', tryPlay);
+  let onScreen = false;
   new IntersectionObserver(([entry]) => {
-    if (entry.isIntersecting) tryPlay();
+    onScreen = entry.isIntersecting;
+    if (onScreen) tryPlay();
   }, { threshold: 0.1 }).observe(video);
-  // Last resort (e.g. Low Power Mode): start on the first interaction
-  ['pointerdown', 'touchstart', 'scroll'].forEach((evt) =>
-    window.addEventListener(evt, tryPlay, { once: true, passive: true }));
+  // Low Power Mode only allows play() from a user gesture: retry on each one
+  ['pointerdown', 'touchend', 'keydown'].forEach((evt) =>
+    window.addEventListener(evt, () => { if (onScreen) tryPlay(); }, { passive: true }));
   tryPlay();
 });
 

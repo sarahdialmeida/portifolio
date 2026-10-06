@@ -1,0 +1,5 @@
+{
+  "redirects": [
+    { "source": "/og-image.jpg", "destination": "/assets/og-image.jpg", "permanent": true }
+  ]
+}
