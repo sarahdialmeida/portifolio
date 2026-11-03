@@ -219,23 +219,34 @@ document.querySelectorAll('video.media-video').forEach((video) => {
   }
   video.muted = true;
   video.defaultMuted = true;
+  // Safari refuses to play video in Low Power Mode, so the image underneath
+  // becomes an animated WebP of the same clip (images always animate).
+  const image = video.parentElement.querySelector('img');
+  const animateImage = () => {
+    if (image && video.dataset.fallback) image.src = video.dataset.fallback;
+  };
   const tryPlay = () => {
     if (!video.paused) return;
     const attempt = video.play();
     if (attempt) attempt.catch(() => {});
   };
+  let onScreen = false;
+  // A refused play() proves nothing, since Safari also refuses it off screen:
+  // judge by whether the video is running a moment after it comes on screen
+  const checkPlaying = () => setTimeout(() => {
+    if (onScreen && !document.hidden && !video.classList.contains('is-playing')) animateImage();
+  }, 2000);
   // Only show the video while it really plays. Safari pauses it off screen and,
   // in Low Power Mode, may not resume: the image then shows instead of a play button.
   video.addEventListener('playing', () => video.classList.add('is-playing'));
-  video.addEventListener('pause', () => video.classList.remove('is-playing'));
+  video.addEventListener('pause', () => { video.classList.remove('is-playing'); checkPlaying(); });
   video.addEventListener('ended', () => { video.currentTime = 0; tryPlay(); });
-  video.addEventListener('error', () => video.remove());
+  video.addEventListener('error', () => { animateImage(); video.remove(); });
   video.addEventListener('loadeddata', tryPlay);
   video.addEventListener('canplay', tryPlay);
-  let onScreen = false;
   new IntersectionObserver(([entry]) => {
     onScreen = entry.isIntersecting;
-    if (onScreen) tryPlay();
+    if (onScreen) { tryPlay(); checkPlaying(); }
   }, { threshold: 0.1 }).observe(video);
   // Low Power Mode only allows play() from a user gesture: retry on each one
   ['pointerdown', 'touchend', 'keydown'].forEach((evt) =>
